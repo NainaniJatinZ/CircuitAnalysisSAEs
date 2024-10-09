@@ -1,0 +1,18 @@
+config.json
+**/__pycache__/
+*.pyc
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS metadata
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+
