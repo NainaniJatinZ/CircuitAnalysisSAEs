@@ -69,7 +69,7 @@ print(tokenizer.tokenize("This sentence will be tokenized"))
 
 # %%
 REMOTE = True
-CONFIG.set_default_api_key("GQCjQgiA3H5VlapR42xN")
+CONFIG.set_default_api_key("nnsight key here")
 prompt = 'The Eiffel Tower is in the city of'
 
 with model.trace(prompt, remote=REMOTE):

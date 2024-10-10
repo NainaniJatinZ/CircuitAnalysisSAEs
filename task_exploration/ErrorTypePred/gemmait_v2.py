@@ -7,17 +7,6 @@ with open("../../config.json", 'r') as file:
 
 os.environ["HF_TOKEN"] = token
 
-# %% 
-import os
-import torch
-from tqdm import tqdm
-import plotly.express as px
-import pandas as pd
-import transformer_lens
-import transformer_lens.utils as utils
-from transformer_lens.ActivationCache import ActivationCache
-from transformer_lens.HookedTransformer import HookedTransformer
-from neel_plotly import line, imshow, scatter
 import itertools
 from functools import partial
 from typing import Callable, Optional, Sequence, Tuple, Union, overload
@@ -62,13 +51,9 @@ import random
 # %%
 
 model = HookedSAETransformer.from_pretrained("google/gemma-2-2b", device = device)
-# %% Testing
 
 
-
-
-
-# %% dataset definition
+# %%
 
 import random
 
@@ -221,9 +206,24 @@ N = 10
 seed = 42
 generated_prompts = generate_code_prompts(templates_and_values, N, seed)
 
+for i, (clean_prompt, corr_prompt) in enumerate(generated_prompts):
+    print(f"Prompt {i+1} (clean): {clean_prompt}")
+    print(f"Prompt {i+1} (corrupted): {corr_prompt}")
+    print()
+
 # Separate clean and corrupted prompts
 clean_prompts = [clean_prompt for clean_prompt, _ in generated_prompts]
 corr_prompts = [corr_prompt for _, corr_prompt in generated_prompts]
+
+# %% testing 
+    
+from transformer_lens.utils import test_prompt
+
+# Test the clean and corrupted prompts
+test_prompt(clean_prompts[0], " Syntax", model)
+
+# %% 
+
 
 # Tokenize the clean and corrupted prompts (assuming 'model' has a .to_tokens method)
 clean_tokens = model.to_tokens(clean_prompts)
@@ -242,191 +242,32 @@ corr_end_positions = get_end_positions(corr_tokens, eos_token_id, pad_token_id)
 print(clean_tokens.shape, corr_tokens.shape)
 print(clean_end_positions, corr_end_positions)
 
-# %% logit diff test
-model.to_str_tokens(clean_tokens[1])
 # %%
 
-clean_logits = model(clean_tokens)
-corr_logits = model(corr_tokens)
+# prompt = """print(price + "200")
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+# """ 
+# prompt = """print("age: " + "20"
+#                        ^
+# Python will raise a"""
 
-print(clean_logits.shape, corr_logits.shape)
+prompt = """print("b")
+# When this code is executed, Python will raise a"""
 
-# %%
-
-# Ensure clean_end_positions are valid
-print(f"clean_end_positions: {clean_end_positions}")
-print(f"Max end position: {max(clean_end_positions)}")
-print(f"clean_logits shape: {clean_logits.shape}")  # Should be [batch_size, seq_len, vocab_size]
-
-# %%
-
-syntax_token_id = model.tokenizer.encode(" Syntax", add_special_tokens=False)[0]
-print(f"Syntax token ID: {syntax_token_id}")
-print(f"Vocab size: {clean_logits.size(-1)}")  # This should be equal to vocab_size
+test_prompt(prompt, "TypeError", model)
 
 
 # %%
-
-# syn_tok = model.tokenizer.encode(" Syntax")[-1]
-# type_tok = model.tokenizer.encode(" TypeError")[-1]
-# # print(model.tokenizer.decode(syn_tok[-1]))
-
-# syn_tok_list = [syn_tok] * clean_logits.size(0)
-# type_tok_list = [type_tok] * clean_logits.size(0)
-
+print("price: " + "200")
 # %%
 
-syntax_token_id = model.tokenizer.encode(" Syntax", add_special_tokens=False)[0]
-syntax_token_id
+saes = [
+    SAE.from_pretrained(
+        release="gpt2-small-res-jb",
+        sae_id=f"blocks.{layer}.hook_resid_pre",
+        device=str(device),
+    )[0]
+    for layer in tqdm(range(model.cfg.n_layers))
+]
 
-# %%
-
-syn_logits = clean_logits[range(clean_logits.size(0)), clean_end_positions, :][:, syntax_token_id]
-syn_logits
-
-
-# %%
-type_token_id = model.tokenizer.encode(" TypeError", add_special_tokens=False)[0]
-# type_token_id
-type_logits = clean_logits[range(clean_logits.size(0)), clean_end_positions, :][:, type_token_id]
-type_logits
-
-# %%
-
-logit_diff = (type_logits - syn_logits).mean()
-logit_diff
-
-
-# %%
-
-def logit_diff_error_type(logits, end_positions, err1_tok =type_token_id, err2_tok = syntax_token_id):
-    err1_logits = logits[range(logits.size(0)), end_positions, :][:, err1_tok]
-    err2_logits = logits[range(logits.size(0)), end_positions, :][:, err2_tok]
-    logit_diff = (err1_logits - err2_logits).mean()
-    return logit_diff
-
-# %%
-
-clean_logit_diff = logit_diff_error_type(clean_logits, clean_end_positions)
-corr_logit_diff = logit_diff_error_type(corr_logits, clean_end_positions)
-print(f"Clean logit diff: {clean_logit_diff}")
-print(f"Corrupted logit diff: {corr_logit_diff}")
-
-# %% patching metric
-
-def _err_type_metric(logits, clean_logit_diff, corr_logit_diff, end_positions):
-    patched_logit_diff = logit_diff_error_type(logits, end_positions)
-    return ((patched_logit_diff - corr_logit_diff) / (clean_logit_diff - corr_logit_diff))
-
-err_metric_denoising = partial(
-    _err_type_metric,
-    clean_logit_diff=clean_logit_diff,
-    corr_logit_diff=corr_logit_diff,
-    end_positions=clean_end_positions,
-) 
-
-# %% 
-
-print(f"Clean Baseline is 1: {err_metric_denoising(clean_logits).item():.4f}")
-print(f"Corrupted Baseline is 0: {err_metric_denoising(corr_logits).item():.4f}")
-
-
-# %%
-
-clean_logits, clean_cache = model.run_with_cache(clean_tokens)
-corrupted_logits, corrupted_cache = model.run_with_cache(corr_tokens)
-
-# %% residual stream patching
-import transformer_lens.patching as patching
-import sys 
-sys.path.append("../../")
-from utils import plot
-resid_pre_act_patch_results = patching.get_act_patch_resid_pre(model, corr_tokens, clean_cache, err_metric_denoising)
-plot.imshow(resid_pre_act_patch_results, 
-       yaxis="Layer", 
-       xaxis="Position", 
-       x=[f"{tok} {i}" for i, tok in enumerate(model.to_str_tokens(clean_tokens[0]))],
-       title="resid_pre Activation Patching")
-
-
-# %%
-attn_head_out_all_pos_act_patch_results = patching.get_act_patch_attn_head_out_all_pos(model, corr_tokens, clean_cache, err_metric_denoising)
-plot.imshow(attn_head_out_all_pos_act_patch_results, 
-       yaxis="Layer", 
-       xaxis="Head", 
-       title="attn_head_out Activation Patching (All Pos)")
-
-
-
-# %%
-
-ALL_HEAD_LABELS = [f"L{i}H{j}" for i in range(model.cfg.n_layers) for j in range(model.cfg.n_heads)]
-# if DO_SLOW_RUNS:
-attn_head_out_act_patch_results = patching.get_act_patch_attn_head_out_by_pos(model, corr_tokens, clean_cache, err_metric_denoising)
-attn_head_out_act_patch_results = einops.rearrange(attn_head_out_act_patch_results, "layer pos head -> (layer head) pos")
-plot.imshow(attn_head_out_act_patch_results, 
-    yaxis="Head Label", 
-    xaxis="Pos", 
-    x=[f"{tok} {i}" for i, tok in enumerate(model.to_str_tokens(clean_tokens[0]))],
-    y=ALL_HEAD_LABELS,
-    title="attn_head_out Activation Patching By Pos")
-
-
-# clean_end_positions 
-# %%
-
-print(corr_prompts[0])
-
-
-
-# corr_end_positions
-
-# def _ioi_metric_noising(
-#         logits: Float[torch.Tensor, "batch seq d_vocab"],
-#         clean_logit_diff: float,
-#         corrupted_logit_diff: float,
-#         ioi_dataset: IOIDataset,
-#     ) -> float:
-#     '''
-#     We calibrate this so that the value is 0 when performance isn't harmed (i.e. same as IOI dataset),
-#     and -1 when performance has been destroyed (i.e. is same as ABC dataset).
-#     '''
-#     patched_logit_diff = logits_to_ave_logit_diff_2(logits, ioi_dataset)
-#     return ((patched_logit_diff - corrupted_logit_diff) / (clean_logit_diff - corrupted_logit_diff))
-
-# %%
-# type(syn_tok)
-
-# %%
-# clean_logits[range(clean_logits.size(0)), clean_end_positions, syn_tok_list]
-
-
-
-# %%
-
-
-
-# def logits_to_ave_logit_diff_2(
-#     logits: Float[Tensor, "batch seq d_vocab"],
-#     ioi_dataset: IOIDataset = ioi_dataset,
-#     per_prompt=False
-# ) -> Float[Tensor, "*batch"]:
-#     '''
-#     Returns logit difference between the correct and incorrect answer.
-
-#     If per_prompt=True, return the array of differences rather than the average.
-#     '''
-
-#     # Only the final logits are relevant for the answer
-#     # Get the logits corresponding to the indirect object / subject tokens respectively
-#     io_logits: Float[Tensor, "batch"] = logits[range(logits.size(0)), ioi_dataset.word_idx["end"], ioi_dataset.io_tokenIDs]
-#     s_logits: Float[Tensor, "batch"] = logits[range(logits.size(0)), ioi_dataset.word_idx["end"], ioi_dataset.s_tokenIDs]
-#     # Find logit difference
-#     answer_logit_diff = io_logits - s_logits
-#     return answer_logit_diff if per_prompt else answer_logit_diff.mean()
-
-
-# %%
-
-# print("age: " + "20"
-# %%

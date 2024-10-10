@@ -413,3 +413,7 @@ plt.show()
 
 
 # %%
+# print("price :" + 200)
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+# TypeError: can only concatenate str (not "int") to str
