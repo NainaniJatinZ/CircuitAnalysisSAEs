@@ -1,0 +1,212 @@
+[
+    {
+        "layer": 25,
+        "feature_idx": 3985,
+        "value": 0.11373759061098099,
+        "description": "syntax-related statements and expressions in code\\"
+    },
+    {
+        "layer": 18,
+        "feature_idx": 3985,
+        "value": 0.08941279351711273,
+        "description": " references to programming constructs and syntax error handling\\"
+    },
+    {
+        "layer": 24,
+        "feature_idx": 4398,
+        "value": 0.08788728713989258,
+        "description": "code structures and syntax related to programming languages, specifically function declarations and expressions\\"
+    },
+    {
+        "layer": 24,
+        "feature_idx": 14513,
+        "value": 0.08760175108909607,
+        "description": "terms related to programming and regular expressions\\"
+    },
+    {
+        "layer": 23,
+        "feature_idx": 78,
+        "value": 0.08047127723693848,
+        "description": " terms and structures related to programming language syntax, particularly in the context of querying and parsing in programming environments\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 12191,
+        "value": 0.06719483435153961,
+        "description": " technical terms and concepts related to media types and data structures\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 14107,
+        "value": 0.062596894800663,
+        "description": " programming constructs and syntax related to stored procedures and triggers in SQL\\"
+    },
+    {
+        "layer": 24,
+        "feature_idx": 7172,
+        "value": 0.05759420245885849,
+        "description": " technical terms related to programming and data types\\"
+    },
+    {
+        "layer": 24,
+        "feature_idx": 13766,
+        "value": 0.05713915079832077,
+        "description": "medical conditions and treatments, particularly related to sleep apnea\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 4344,
+        "value": 0.05258237197995186,
+        "description": "code-related terms and concepts specifically pertaining to numerical representation and data types in programming\\"
+    },
+    {
+        "layer": 3,
+        "feature_idx": 7139,
+        "value": 0.05064629763364792,
+        "description": "quoted strings or other syntactic structures in the text\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 3638,
+        "value": 0.046637363731861115,
+        "description": "code-related syntax and structures, particularly focusing on functions, parameters, and variable assignments\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 15713,
+        "value": 0.04606906324625015,
+        "description": "terms related to medical conditions and their effects\\"
+    },
+    {
+        "layer": 24,
+        "feature_idx": 9055,
+        "value": 0.042625248432159424,
+        "description": "SQL-related terms and concepts\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 6371,
+        "value": 0.041211143136024475,
+        "description": "elements related to programming and coding structures\\"
+    },
+    {
+        "layer": 23,
+        "feature_idx": 8820,
+        "value": 0.039007872343063354,
+        "description": "terms related to numeric representations and data types in programming\\"
+    },
+    {
+        "layer": 5,
+        "feature_idx": 13475,
+        "value": 0.03866161033511162,
+        "description": "technical or scientific terminology\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 5711,
+        "value": 0.0374053493142128,
+        "description": " mathematical operations and calculations\\"
+    },
+    {
+        "layer": 23,
+        "feature_idx": 5666,
+        "value": 0.03632139042019844,
+        "description": "patterns and commands related to data processing and management in code\\"
+    },
+    {
+        "layer": 3,
+        "feature_idx": 3486,
+        "value": 0.03529831022024155,
+        "description": "indications of error handling in programming contexts\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 193,
+        "value": 0.03172370791435242,
+        "description": " error handling and exception reporting in code\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 9023,
+        "value": 0.03124282881617546,
+        "description": " words related to machine learning evaluation methods and their performance metrics\\"
+    },
+    {
+        "layer": 23,
+        "feature_idx": 15198,
+        "value": 0.030934596434235573,
+        "description": " patterns and signals related to interruptions or changes in processes\\"
+    },
+    {
+        "layer": 4,
+        "feature_idx": 12210,
+        "value": 0.02909301035106182,
+        "description": "code structure elements and their properties\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 7864,
+        "value": 0.026662908494472504,
+        "description": " programming concepts, particularly related to function definitions and parameters in code\\"
+    },
+    {
+        "layer": 12,
+        "feature_idx": 2366,
+        "value": 0.026453277096152306,
+        "description": " references to coding structure and operations\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 15585,
+        "value": 0.02486308664083481,
+        "description": "references to historical events related to concentration camps and their conditions\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 7613,
+        "value": 0.024609629064798355,
+        "description": " phrases related to employment discrimination and promotion opportunities\\"
+    },
+    {
+        "layer": 4,
+        "feature_idx": 5568,
+        "value": 0.02433970756828785,
+        "description": " various punctuation marks, specifically single and double quotes\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 4222,
+        "value": 0.023893732577562332,
+        "description": "the term \\\\\\\"Grand\\\\\\\" in various contexts, indicating a focus on locations or concepts associated with grandeur\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 10405,
+        "value": 0.023771626874804497,
+        "description": "terms related to biological classification and gene regulatory functions\\"
+    },
+    {
+        "layer": 4,
+        "feature_idx": 13325,
+        "value": 0.0223984457552433,
+        "description": "technical jargon or terms related to scientific methodologies\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 13589,
+        "value": 0.021027032285928726,
+        "description": "phrases related to professional services and qualifications\\"
+    },
+    {
+        "layer": 16,
+        "feature_idx": 11963,
+        "value": 0.02095312625169754,
+        "description": " references to classes and their properties or methods in programming contexts\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 266,
+        "value": 0.019968822598457336,
+        "description": "references to societal norms and their impact on behavior and morality\\"
+    }
+]

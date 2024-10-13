@@ -50,7 +50,7 @@ import random
 
 # %%
 
-model = HookedSAETransformer.from_pretrained("google/gemma-2-2b", device = device)
+model = HookedSAETransformer.from_pretrained("google/gemma-2-2b-it", device = device)
 
 
 # %%
@@ -221,6 +221,12 @@ from transformer_lens.utils import test_prompt
 
 # Test the clean and corrupted prompts
 test_prompt(clean_prompts[0], " Syntax", model)
+# %% testing 
+    
+from transformer_lens.utils import test_prompt
+
+# Test the clean and corrupted prompts
+test_prompt(corr_prompts[0], " Syntax", model)
 
 # %% 
 

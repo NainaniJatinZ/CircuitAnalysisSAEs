@@ -1,0 +1,92 @@
+[
+    {
+        "layer": 25,
+        "feature_idx": 3985,
+        "value": 0.11373759061098099,
+        "description": "syntax-related statements and expressions in code\\"
+    },
+    {
+        "layer": 24,
+        "feature_idx": 4398,
+        "value": 0.08187371492385864,
+        "description": "code structures and syntax related to programming languages, specifically function declarations and expressions\\"
+    },
+    {
+        "layer": 24,
+        "feature_idx": 14513,
+        "value": 0.07959704101085663,
+        "description": "terms related to programming and regular expressions\\"
+    },
+    {
+        "layer": 23,
+        "feature_idx": 78,
+        "value": 0.07377947121858597,
+        "description": " terms and structures related to programming language syntax, particularly in the context of querying and parsing in programming environments\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 12191,
+        "value": 0.06719483435153961,
+        "description": " technical terms and concepts related to media types and data structures\\"
+    },
+    {
+        "layer": 18,
+        "feature_idx": 3985,
+        "value": 0.06362311542034149,
+        "description": " references to programming constructs and syntax error handling\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 14107,
+        "value": 0.06259690225124359,
+        "description": " programming constructs and syntax related to stored procedures and triggers in SQL\\"
+    },
+    {
+        "layer": 24,
+        "feature_idx": 7172,
+        "value": 0.05603344738483429,
+        "description": " technical terms related to programming and data types\\"
+    },
+    {
+        "layer": 24,
+        "feature_idx": 13766,
+        "value": 0.05391134321689606,
+        "description": "medical conditions and treatments, particularly related to sleep apnea\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 4344,
+        "value": 0.05258236825466156,
+        "description": "code-related terms and concepts specifically pertaining to numerical representation and data types in programming\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 3638,
+        "value": 0.046637360006570816,
+        "description": "code-related syntax and structures, particularly focusing on functions, parameters, and variable assignments\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 15713,
+        "value": 0.04606906324625015,
+        "description": "terms related to medical conditions and their effects\\"
+    },
+    {
+        "layer": 24,
+        "feature_idx": 9055,
+        "value": 0.041587695479393005,
+        "description": "SQL-related terms and concepts\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 6371,
+        "value": 0.04121113941073418,
+        "description": "elements related to programming and coding structures\\"
+    },
+    {
+        "layer": 25,
+        "feature_idx": 5711,
+        "value": 0.0374053493142128,
+        "description": " mathematical operations and calculations\\"
+    }
+]

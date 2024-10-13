@@ -1,0 +1,182 @@
+{
+    "layer_3": {
+        "layer": 3,
+        "top_features": [
+            {
+                "feature_idx": 8139,
+                "description": " strings and quotes in various contexts, particularly in programming or markup languages\\"
+            },
+            {
+                "feature_idx": 7139,
+                "description": "quoted strings or other syntactic structures in the text\\"
+            },
+            {
+                "feature_idx": 3486,
+                "description": "indications of error handling in programming contexts\\"
+            },
+            {
+                "feature_idx": 10070,
+                "description": "code structures and control flow statements in programming\\"
+            },
+            {
+                "feature_idx": 2372,
+                "description": "elements associated with programming and data structures\\"
+            },
+            {
+                "feature_idx": 8485,
+                "description": " different types of quotation marks and their variations in text\\"
+            },
+            {
+                "feature_idx": 9733,
+                "description": "logging statements related to debug and error messages in code\\"
+            },
+            {
+                "feature_idx": 13764,
+                "description": " numerical data and statistical terms in the text\\"
+            },
+            {
+                "feature_idx": 8784,
+                "description": " quotation marks and other punctuation indicating speech\\"
+            },
+            {
+                "feature_idx": 12017,
+                "description": " code blocks or function definitions in a programming context\\"
+            }
+        ]
+    },
+    "layer_4": {
+        "layer": 4,
+        "top_features": [
+            {
+                "feature_idx": 14957,
+                "description": "quotes and their formatting within a text\\"
+            },
+            {
+                "feature_idx": 12210,
+                "description": "code structure elements and their properties\\"
+            },
+            {
+                "feature_idx": 13325,
+                "description": "technical jargon or terms related to scientific methodologies\\"
+            },
+            {
+                "feature_idx": 5568,
+                "description": " various punctuation marks, specifically single and double quotes\\"
+            },
+            {
+                "feature_idx": 8517,
+                "description": " instances of technical or scientific terminology\\"
+            },
+            {
+                "feature_idx": 4670,
+                "description": " quotations and special characters commonly used in string formatting\\"
+            },
+            {
+                "feature_idx": 8057,
+                "description": " elements related to technical and scientific references\\"
+            },
+            {
+                "feature_idx": 2041,
+                "description": " errors and debugging messages in code\\"
+            },
+            {
+                "feature_idx": 12786,
+                "description": " strings of quotes or references\\"
+            },
+            {
+                "feature_idx": 12685,
+                "description": "function definitions and their parameters in code\\"
+            }
+        ]
+    },
+    "layer_5": {
+        "layer": 5,
+        "top_features": [
+            {
+                "feature_idx": 13475,
+                "description": "technical or scientific terminology\\"
+            },
+            {
+                "feature_idx": 6885,
+                "description": " punctuation marks, particularly quotation marks and apostrophes\\"
+            },
+            {
+                "feature_idx": 8566,
+                "description": "special characters and punctuation, particularly quotation marks and parentheses\\"
+            },
+            {
+                "feature_idx": 833,
+                "description": " quotation marks and associated punctuation in code-like contexts\\"
+            },
+            {
+                "feature_idx": 10796,
+                "description": "various quoted strings and special characters, likely related to coding or markup language syntax\\"
+            },
+            {
+                "feature_idx": 1284,
+                "description": "quoted strings and parentheses in code\\"
+            },
+            {
+                "feature_idx": 5143,
+                "description": " the presence of the start of a document or section\\"
+            },
+            {
+                "feature_idx": 10326,
+                "description": " numerical values and their formatting in structured data\\"
+            },
+            {
+                "feature_idx": 1585,
+                "description": " nested mathematical expressions and symbols\\"
+            },
+            {
+                "feature_idx": 12296,
+                "description": " code snippets related to task scheduling and execution\\"
+            }
+        ]
+    },
+    "layer_6": {
+        "layer": 6,
+        "top_features": [
+            {
+                "feature_idx": 8436,
+                "description": "technical terms and specific code constructs in programming contexts\\"
+            },
+            {
+                "feature_idx": 7198,
+                "description": "quoted strings or double quotes in the text\\"
+            },
+            {
+                "feature_idx": 13622,
+                "description": "quotation marks or dialogue indicators\\"
+            },
+            {
+                "feature_idx": 13891,
+                "description": " occurrences of the word \\\\\\\"string\\\\\\\" and its variations in different contexts and forms\\"
+            },
+            {
+                "feature_idx": 709,
+                "description": " programming constructs and symbols used in code, particularly focusing on comments and annotations\\"
+            },
+            {
+                "feature_idx": 5309,
+                "description": "code syntax and structure indicators\\"
+            },
+            {
+                "feature_idx": 7221,
+                "description": " numeric data or codes related to programming and structured information\\"
+            },
+            {
+                "feature_idx": 5513,
+                "description": " pieces of code and variable declarations\\"
+            },
+            {
+                "feature_idx": 5469,
+                "description": "comments and documentation within code\\"
+            },
+            {
+                "feature_idx": 4485,
+                "description": " occurrences of special tokens or formatting elements in the text\\"
+            }
+        ]
+    }
+}
