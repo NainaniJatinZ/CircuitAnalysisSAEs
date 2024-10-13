@@ -1,0 +1,458 @@
+{
+    "d1": [
+        {
+            "layer": 3,
+            "feature_idx": 8139,
+            "value": 0.014647149480879307,
+            "description": " strings and quotes in various contexts, particularly in programming or markup languages\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 14957,
+            "value": 0.009716279804706573,
+            "description": "quotes and their formatting within a text\\"
+        },
+        {
+            "layer": 5,
+            "feature_idx": 8566,
+            "value": 0.0045790658332407475,
+            "description": "special characters and punctuation, particularly quotation marks and parentheses\\"
+        },
+        {
+            "layer": 12,
+            "feature_idx": 7314,
+            "value": 0.0036116696428507566,
+            "description": " punctuation marks such as quotation marks and apostrophes\\"
+        },
+        {
+            "layer": 6,
+            "feature_idx": 13622,
+            "value": 0.0035818186588585377,
+            "description": "quotation marks or dialogue indicators\\"
+        },
+        {
+            "layer": 6,
+            "feature_idx": 8215,
+            "value": 0.0029841060750186443,
+            "description": "punctuation marks, specifically quotes and parentheses\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 15093,
+            "value": 0.0024006676394492388,
+            "description": " high-frequency punctuations and sentence structure variations\\"
+        },
+        {
+            "layer": 6,
+            "feature_idx": 15012,
+            "value": 0.0023255872074514627,
+            "description": "tab characters or whitespace in the text\\"
+        },
+        {
+            "layer": 3,
+            "feature_idx": 9733,
+            "value": 0.002295746933668852,
+            "description": "logging statements related to debug and error messages in code\\"
+        },
+        {
+            "layer": 6,
+            "feature_idx": 4478,
+            "value": 0.0022875017020851374,
+            "description": "whitespace characters or separators in the text\\"
+        },
+        {
+            "layer": 13,
+            "feature_idx": 6101,
+            "value": 0.0022794168908149004,
+            "description": " quotation marks and string delimiters in code or text\\"
+        },
+        {
+            "layer": 5,
+            "feature_idx": 10796,
+            "value": 0.0021854802034795284,
+            "description": "various quoted strings and special characters, likely related to coding or markup language syntax\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 12786,
+            "value": 0.0017704748315736651,
+            "description": " strings of quotes or references\\"
+        },
+        {
+            "layer": 6,
+            "feature_idx": 14728,
+            "value": 0.0013572773896157742,
+            "description": "certain markup or formatting elements in structured data\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 7242,
+            "value": 0.001148810377344489,
+            "description": "mathematical operations and terms related to equations or calculations\\"
+        },
+        {
+            "layer": 14,
+            "feature_idx": 10835,
+            "value": 0.001088265678845346,
+            "description": " punctuation marks, particularly quotation marks and apostrophes\\"
+        },
+        {
+            "layer": 6,
+            "feature_idx": 11559,
+            "value": 0.0010803933255374432,
+            "description": " HTML form elements and associated attributes\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 3872,
+            "value": 0.0010093874298036098,
+            "description": "occurrences of whitespace or spacing in the text\\"
+        },
+        {
+            "layer": 6,
+            "feature_idx": 9252,
+            "value": 0.0009624516242183745,
+            "description": "code and programming-related elements, specifically header file inclusions and function declarations\\"
+        },
+        {
+            "layer": 6,
+            "feature_idx": 386,
+            "value": 0.0009558982565067708,
+            "description": "possessive forms and contractions\\"
+        },
+        {
+            "layer": 15,
+            "feature_idx": 9424,
+            "value": 0.0008898033993318677,
+            "description": "various representations of quotation marks\\"
+        },
+        {
+            "layer": 14,
+            "feature_idx": 2741,
+            "value": 0.0008806007681414485,
+            "description": " instances of headings or formatted text indicators, such as section markers or titles\\"
+        },
+        {
+            "layer": 12,
+            "feature_idx": 12288,
+            "value": 0.0008801082149147987,
+            "description": " punctuation marks that denote speech or quotes\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 13332,
+            "value": 0.0008483004057779908,
+            "description": " symbols and punctuation marks often used in mathematical or programming contexts\\"
+        },
+        {
+            "layer": 5,
+            "feature_idx": 13158,
+            "value": 0.0008151758229359984,
+            "description": "different types of quotation marks and punctuation indicators\\"
+        }
+    ],
+    "d2": [
+        {
+            "layer": 3,
+            "feature_idx": 7139,
+            "value": 0.03404945880174637,
+            "description": "quoted strings or other syntactic structures in the text\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 5568,
+            "value": 0.016903286799788475,
+            "description": " various punctuation marks, specifically single and double quotes\\"
+        },
+        {
+            "layer": 5,
+            "feature_idx": 6885,
+            "value": 0.01378696970641613,
+            "description": " punctuation marks, particularly quotation marks and apostrophes\\"
+        },
+        {
+            "layer": 6,
+            "feature_idx": 13784,
+            "value": 0.0055507030338048935,
+            "description": " instances of quotation marks\\"
+        },
+        {
+            "layer": 5,
+            "feature_idx": 10796,
+            "value": 0.005454096011817455,
+            "description": "various quoted strings and special characters, likely related to coding or markup language syntax\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 4653,
+            "value": 0.005198619328439236,
+            "description": " occurrences of quotation marks in the text\\"
+        },
+        {
+            "layer": 6,
+            "feature_idx": 3081,
+            "value": 0.004448095802217722,
+            "description": "spoken or finished quotation marks in text\\"
+        },
+        {
+            "layer": 12,
+            "feature_idx": 1329,
+            "value": 0.0038084289990365505,
+            "description": "strings of consecutive quotation marks or apostrophes\\"
+        },
+        {
+            "layer": 15,
+            "feature_idx": 8061,
+            "value": 0.0023687093053013086,
+            "description": " patterns and references related to numerical values and formatting\\"
+        },
+        {
+            "layer": 3,
+            "feature_idx": 7036,
+            "value": 0.002327192109078169,
+            "description": " various formatting and punctuation patterns typically found in code or text output\\"
+        },
+        {
+            "layer": 13,
+            "feature_idx": 4396,
+            "value": 0.0022747288458049297,
+            "description": " punctuation marks in textual data\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 12131,
+            "value": 0.0018172217532992363,
+            "description": "elements related to artistic endeavors and technical specifications\\"
+        },
+        {
+            "layer": 6,
+            "feature_idx": 13891,
+            "value": 0.0017381428042426705,
+            "description": " occurrences of the word \\\\\\\"string\\\\\\\" and its variations in different contexts and forms\\"
+        },
+        {
+            "layer": 3,
+            "feature_idx": 380,
+            "value": 0.0017022991087287664,
+            "description": " quotation marks or symbols indicating dialogue\\"
+        },
+        {
+            "layer": 14,
+            "feature_idx": 7978,
+            "value": 0.00135954306460917,
+            "description": " varied quotation marks and special characters in text\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 11605,
+            "value": 0.001301444019190967,
+            "description": " mathematical expressions and terms related to algebraic operations\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 12690,
+            "value": 0.0012284977128729224,
+            "description": "specific terms related to structured processes or functions\\"
+        },
+        {
+            "layer": 3,
+            "feature_idx": 9091,
+            "value": 0.0011489387834444642,
+            "description": "mathematical symbols and operations in equations\\"
+        },
+        {
+            "layer": 3,
+            "feature_idx": 5165,
+            "value": 0.0011195485712960362,
+            "description": " punctuation and special characters related to coding syntax\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 9539,
+            "value": 0.0010817794827744365,
+            "description": "code structures and syntax elements, particularly in programming contexts\\"
+        },
+        {
+            "layer": 3,
+            "feature_idx": 3495,
+            "value": 0.001026447513140738,
+            "description": "various types of closing brackets and punctuation marks in data structures or code syntax\\"
+        },
+        {
+            "layer": 5,
+            "feature_idx": 12785,
+            "value": 0.0008704125066287816,
+            "description": "various forms of quotation marks and related punctuation\\"
+        },
+        {
+            "layer": 4,
+            "feature_idx": 5622,
+            "value": 0.0008058165549300611,
+            "description": "mathematical symbols and notation\\"
+        },
+        {
+            "layer": 3,
+            "feature_idx": 8137,
+            "value": 0.0008054288337007165,
+            "description": "punctuation marks and other programming syntax components\\"
+        },
+        {
+            "layer": 15,
+            "feature_idx": 2446,
+            "value": 0.0007751277880743146,
+            "description": " quotation marks and related punctuation\\"
+        }
+    ],
+    "END": [
+        {
+            "layer": 25,
+            "feature_idx": 3985,
+            "value": 0.11105290055274963,
+            "description": "syntax-related statements and expressions in code\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 12191,
+            "value": 0.08045174926519394,
+            "description": " technical terms and concepts related to media types and data structures\\"
+        },
+        {
+            "layer": 24,
+            "feature_idx": 4398,
+            "value": 0.07951845228672028,
+            "description": "code structures and syntax related to programming languages, specifically function declarations and expressions\\"
+        },
+        {
+            "layer": 24,
+            "feature_idx": 14513,
+            "value": 0.0769152045249939,
+            "description": "terms related to programming and regular expressions\\"
+        },
+        {
+            "layer": 23,
+            "feature_idx": 78,
+            "value": 0.07241314649581909,
+            "description": " terms and structures related to programming language syntax, particularly in the context of querying and parsing in programming environments\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 14107,
+            "value": 0.062431368976831436,
+            "description": " programming constructs and syntax related to stored procedures and triggers in SQL\\"
+        },
+        {
+            "layer": 18,
+            "feature_idx": 3985,
+            "value": 0.05936402827501297,
+            "description": " references to programming constructs and syntax error handling\\"
+        },
+        {
+            "layer": 24,
+            "feature_idx": 13766,
+            "value": 0.05701132118701935,
+            "description": "medical conditions and treatments, particularly related to sleep apnea\\"
+        },
+        {
+            "layer": 24,
+            "feature_idx": 7172,
+            "value": 0.050298746675252914,
+            "description": " technical terms related to programming and data types\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 15713,
+            "value": 0.04885672777891159,
+            "description": "terms related to medical conditions and their effects\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 4344,
+            "value": 0.0480726882815361,
+            "description": "code-related terms and concepts specifically pertaining to numerical representation and data types in programming\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 3638,
+            "value": 0.046922340989112854,
+            "description": "code-related syntax and structures, particularly focusing on functions, parameters, and variable assignments\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 6371,
+            "value": 0.04387615993618965,
+            "description": "elements related to programming and coding structures\\"
+        },
+        {
+            "layer": 24,
+            "feature_idx": 9055,
+            "value": 0.040675241500139236,
+            "description": "SQL-related terms and concepts\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 193,
+            "value": 0.033053651452064514,
+            "description": " error handling and exception reporting in code\\"
+        },
+        {
+            "layer": 23,
+            "feature_idx": 8820,
+            "value": 0.03246693313121796,
+            "description": "terms related to numeric representations and data types in programming\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 9023,
+            "value": 0.03195854276418686,
+            "description": " words related to machine learning evaluation methods and their performance metrics\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 5711,
+            "value": 0.031613461673259735,
+            "description": " mathematical operations and calculations\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 7864,
+            "value": 0.030510790646076202,
+            "description": " programming concepts, particularly related to function definitions and parameters in code\\"
+        },
+        {
+            "layer": 23,
+            "feature_idx": 5666,
+            "value": 0.02985992655158043,
+            "description": "patterns and commands related to data processing and management in code\\"
+        },
+        {
+            "layer": 23,
+            "feature_idx": 15198,
+            "value": 0.02817458286881447,
+            "description": " patterns and signals related to interruptions or changes in processes\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 15585,
+            "value": 0.02608071081340313,
+            "description": "references to historical events related to concentration camps and their conditions\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 7613,
+            "value": 0.02542974427342415,
+            "description": " phrases related to employment discrimination and promotion opportunities\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 4222,
+            "value": 0.023328587412834167,
+            "description": "the term \\\\\\\"Grand\\\\\\\" in various contexts, indicating a focus on locations or concepts associated with grandeur\\"
+        },
+        {
+            "layer": 25,
+            "feature_idx": 13589,
+            "value": 0.02301657758653164,
+            "description": "phrases related to professional services and qualifications\\"
+        }
+    ]
+}

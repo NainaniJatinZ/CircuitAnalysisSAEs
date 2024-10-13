@@ -1,3 +1,4 @@
+# %%
 import random
 from typing import List, Tuple, Callable, Dict
 import torch
@@ -10,12 +11,10 @@ TEMPLATES_AND_VALUES = {
         "corrupted_template": """print("{string_value} " + "{int_value}"
 # When this code is executed, Python will raise a""",
         "values": {
-            "string_value": ["age:", "height:", "value:", "name:", "score:", "distance:", "price:", "weight:", "rating:", "color:", "temperature:", "location:"],
-            "int_value": [25, 100, 42, 7, 63, 150, 200, 10, 50, 120, 300, 500]
+            "string_value": ["age:", "height:", "value:", "name:", "score:", "distance:", "price:", "weight:", "rating:", "color:", "temperature:", "location:", "area:", "time:", "velocity:", "pressure:", "humidity:", "energy:", "volume:"],
+            "int_value": [25, 100, 42, 7, 63, 150, 200, 10, 50, 120, 300, 500, 75, 80, 90, 15, 600, 45, 110, 130]
         }
     },
-    # Add other templates here with similar structure
-    # Example:
     2: {
         "clean_template": """my_list = [1, 2, 3]
 my_list += {int_value}
@@ -24,12 +23,12 @@ my_list += {int_value}
 my_list += {int_value}
 # When this code is executed, Python will raise a""",
         "values": {
-            "int_value": [5, 10, 100, 2, 20, 50, 75, 1, 33, 44, 99, 150, 250]
+            "int_value": [5, 10, 100, 2, 20, 50, 75, 1, 33, 44, 99, 150, 250, 300, 400, 500, 600, 13, 21, 55]
         }
     }
-    # Continue adding templates with new numbers as needed
 }
 
+# %%
 
 def generate_prompts_by_template_numbers(template_numbers: List[int], N: int, seed: int = None) -> List[Tuple[str, str]]:
     """
@@ -59,17 +58,14 @@ def generate_prompts_by_template_numbers(template_numbers: List[int], N: int, se
         corrupted_template = template_set["corrupted_template"]
         values = template_set["values"]
 
-        # Get the keys and lists of values
-        keys = list(values.keys())
-        value_sets = [dict(zip(keys, combination)) for combination in zip(*values.values())]
-
-        # Shuffle value_sets to introduce randomness
-        random.shuffle(value_sets)
-
-        # For each combination of values, generate clean and corrupted prompts
-        for val_set in value_sets:
-            clean_prompt = clean_template.format(**val_set)
-            corrupted_prompt = corrupted_template.format(**val_set)
+        # For each template, randomly sample a set of values
+        for _ in range(N):
+            sampled_values = {key: random.choice(values[key]) for key in values.keys()}
+            
+            # Generate clean and corrupted prompts using the same sampled values
+            clean_prompt = clean_template.format(**sampled_values)
+            corrupted_prompt = corrupted_template.format(**sampled_values)
+            
             clean_prompts.append(clean_prompt)
             corrupted_prompts.append(corrupted_prompt)
 
@@ -80,6 +76,28 @@ def generate_prompts_by_template_numbers(template_numbers: List[int], N: int, se
     # Return only N randomly selected prompts
     return combined_prompts[:N]
 
+def get_differing_positions(clean_tokens: List[int], corrupted_tokens: List[int], pad_token_id: int) -> List[int]:
+    """
+    Function to find the positions where the clean and corrupted tokens differ.
+
+    Args:
+    - clean_tokens: Tokenized clean prompt.
+    - corrupted_tokens: Tokenized corrupted prompt.
+    - pad_token_id: The token ID representing the padding token.
+
+    Returns:
+    - A list of indices where the clean and corrupted tokens differ.
+    """
+    differing_positions = []
+    length = min(len(clean_tokens), len(corrupted_tokens))  # Compare up to the shorter length
+
+    for i in range(length):
+        if clean_tokens[i] != corrupted_tokens[i] and clean_tokens[i] != pad_token_id and corrupted_tokens[i] != pad_token_id:
+            differing_positions.append(i)
+
+    return differing_positions
+
+# %% 
 
 import torch
 from typing import List
@@ -154,9 +172,9 @@ def get_end_positions(tokenized_prompts: List[List[int]], eos_token_id: int, pad
     return end_positions
 
 
-def create_dataset(N: int, template_numbers: List[int], tokenizer: Callable) -> Tuple[List[str], List[str], List[List[int]], List[List[int]], List[int], List[int]]:
+def create_dataset(N: int, template_numbers: List[int], tokenizer: Callable) -> Tuple[List[str], List[str], List[List[int]], List[List[int]], List[int], List[int], List[List[int]]]:
     """
-    Function to generate a dataset of clean and corrupted prompts, tokenize them, and get their end positions.
+    Function to generate a dataset of clean and corrupted prompts, tokenize them, and get their end positions and differing positions.
 
     Args:
     - N: Number of prompts to generate.
@@ -170,6 +188,7 @@ def create_dataset(N: int, template_numbers: List[int], tokenizer: Callable) -> 
     - corrupted_tokens: Tokenized corrupted prompts.
     - clean_end_positions: End positions of clean prompts.
     - corrupted_end_positions: End positions of corrupted prompts.
+    - differing_positions: Positions where clean and corrupted tokens differ.
     """
     # Generate clean and corrupted prompts
     generated_prompts = generate_prompts_by_template_numbers(template_numbers, N)
@@ -183,6 +202,7 @@ def create_dataset(N: int, template_numbers: List[int], tokenizer: Callable) -> 
     corrupted_tokens = torch.Tensor(tokenizer(corrupted_prompts, padding=True).input_ids).type(
             torch.int
         )
+
     # Get EOS and padding token IDs
     eos_token_id = tokenizer.eos_token_id
     pad_token_id = tokenizer.pad_token_id
@@ -191,29 +211,34 @@ def create_dataset(N: int, template_numbers: List[int], tokenizer: Callable) -> 
     clean_end_positions = get_end_positions(clean_tokens, eos_token_id, pad_token_id)
     corrupted_end_positions = get_end_positions(corrupted_tokens, eos_token_id, pad_token_id)
 
-    return clean_prompts, corrupted_prompts, clean_tokens, corrupted_tokens, clean_end_positions, corrupted_end_positions
+    # Get differing positions between clean and corrupted tokens
+    differing_positions = [
+        get_differing_positions(clean, corrupt, pad_token_id)
+        for clean, corrupt in zip(clean_tokens, corrupted_tokens)
+    ]
 
+    return clean_prompts, corrupted_prompts, clean_tokens, corrupted_tokens, clean_end_positions, corrupted_end_positions, differing_positions
 
 # Example usage
-if __name__ == "__main__":
-    # Assuming you have a tokenizer object that has .encode and special token ids
-    from transformers import AutoTokenizer
+# if __name__ == "__main__":
+#     # Assuming you have a tokenizer object that has .encode and special token ids
+#     from transformers import AutoTokenizer
 
-    tokenizer = AutoTokenizer.from_pretrained("gpt2")
+#     tokenizer = AutoTokenizer.from_pretrained("gpt2")
 
-    N = 10  # Number of prompts to generate
-    template_numbers = [1, 2]  # Template numbers to use
+#     N = 10  # Number of prompts to generate
+#     template_numbers = [1, 2]  # Template numbers to use
 
-    clean_prompts, corrupted_prompts, clean_tokens, corrupted_tokens, clean_end_positions, corrupted_end_positions = create_dataset(
-        N=N,
-        template_numbers=template_numbers,
-        tokenizer=tokenizer
-    )
+#     clean_prompts, corrupted_prompts, clean_tokens, corrupted_tokens, clean_end_positions, corrupted_end_positions = create_dataset(
+#         N=N,
+#         template_numbers=template_numbers,
+#         tokenizer=tokenizer
+#     )
 
-    # Output the results
-    print("Clean Prompts:", clean_prompts)
-    print("Corrupted Prompts:", corrupted_prompts)
-    print("Clean Tokens:", clean_tokens)
-    print("Corrupted Tokens:", corrupted_tokens)
-    print("Clean End Positions:", clean_end_positions)
-    print("Corrupted End Positions:", corrupted_end_positions)
+#     # Output the results
+#     print("Clean Prompts:", clean_prompts)
+#     print("Corrupted Prompts:", corrupted_prompts)
+#     print("Clean Tokens:", clean_tokens)
+#     print("Corrupted Tokens:", corrupted_tokens)
+#     print("Clean End Positions:", clean_end_positions)
+#     print("Corrupted End Positions:", corrupted_end_positions)
