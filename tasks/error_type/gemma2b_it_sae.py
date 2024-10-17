@@ -38,6 +38,57 @@ print(f"Device: {device}")
 
 model = HookedSAETransformer.from_pretrained("google/gemma-2-2b-it", device = device)
 
+
+# %%
+from transformer_lens.utils import test_prompt
+
+# Syntax Error vs No Error -> bracket completion 
+
+
+prompt = """print("Hello" + "10")
+# Yes or No, is there error in this code? A:"""
+
+prompt = """def f(var): 
+    if var.isdigit():
+        return "int"
+    elif var.replace('.', '', 1).isdigit():
+        return "float"
+    elif var.count(' ') == len(var) - 1:
+        return "str"
+    elif len(var) == 1:
+        return "char"
+    else:
+        return "tuple" 
+
+For f(" 99 777") what is the output? A:"""
+
+# prompt = """result = int("25a")
+# # When this code is executed, Python will raise a"""
+# ValueError
+# ""
+# prompt = """result = sum("25a")
+# # When this code is executed, Python will raise a"""
+# TypeError
+
+# prompt = """result = print("25a")
+# # When this code is executed, Python will raise a"""
+
+test_prompt(prompt, " Syntax" ,model)
+
+# %%
+
+Error type pred 
+
+code output pred 
+
+
+
+
+x = 5
+if x == 5
+    print(x)
+# print("score: " + "ten
+
 # %% Loading data 
 
 clean_prompts, corr_prompts, clean_tokens, corr_tokens, clean_end_positions, corr_end_positions = error_data.create_dataset(N=20, template_numbers=[1], tokenizer=model.tokenizer)
