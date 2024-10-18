@@ -322,3 +322,63 @@ print(f"Captured Residual Output at Layer {layer_ind}:", residual_output)
 
 model_with_grads
 # %%
+
+def get_cache_fwd_and_bwd(
+    model,
+    tokens,
+    metric,
+    layer_name,
+    error_term: bool = True,
+    retain_graph: bool = True
+):
+    model.reset_hooks()
+    cache = {}
+    grad_cache = {}
+    value_container = {}
+
+    def forward_cache_hook(act, hook):
+        cache[hook.name] = act
+
+    def backward_cache_hook(grad, hook):
+        grad_cache[hook.name] = grad
+
+    def custom_metric_hook(act, hook):
+        value = metric(act)
+        value.backward(retain_graph=retain_graph)
+        value_container['value'] = value.item()
+        return act
+
+    model.add_hook(lambda name: True, forward_cache_hook, "fwd")
+    model.add_hook(lambda name: True, backward_cache_hook, "bwd")
+    model.add_hook(layer_name, custom_metric_hook, 'fwd')
+
+    model(tokens)
+
+    model.reset_hooks()
+
+    value = value_container['value']
+
+    return (
+        value,
+        ActivationCache(cache, model),
+        ActivationCache(grad_cache, model),
+    )
+
+# Usage example
+layer_name = 'blocks.5.hook_resid_post.hook_sae_acts_post'
+
+clean_value, clean_cache, clean_grad_cache = get_cache_fwd_and_bwd(
+    model, clean_prompts, latent_patch_metric, layer_name
+)
+print("Clean Value:", clean_value)
+print("Clean Activations Cached:", len(clean_cache))
+print("Clean Gradients Cached:", len(clean_grad_cache))
+
+corrupted_value, corrupted_cache, corrupted_grad_cache = get_cache_fwd_and_bwd(
+    model, cor, latent_patch_metric, layer_name
+)
+print("Corrupted Value:", corrupted_value)
+print("Corrupted Activations Cached:", len(corrupted_cache))
+print("Corrupted Gradients Cached:", len(corrupted_grad_cache))
+
+
