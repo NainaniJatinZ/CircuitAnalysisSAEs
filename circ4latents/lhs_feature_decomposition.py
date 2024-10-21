@@ -44,7 +44,7 @@ with open("sae_closest_strings.json", 'r') as file:
 closest_strings
 # %%
 
-layers = [3, 5]
+layers = [5, 8]
 saes = [
     SAE.from_pretrained(
         release="gemma-scope-2b-pt-res",
@@ -54,56 +54,69 @@ saes = [
     for layer in tqdm(layers)
 ]
 
-
 # %%
-
 import random
-code_like_names = ["print", "sum", "return", "fetch", "process"]
-english_phrases = ["hello", "hi", "ask", "tell", "goodbye"]
+import string
 
-# Define list of variable names (with inverted commas)
-variable_names = ["'age'", "'score'", "'temperature'", "'value'", "'location'", "'distance'"] #, "''", "''"]
+def generate_variable_name():
+    # Generate a variable name like Cj3 (Capital, lowercase, number)
+    capital_letter = random.choice(string.ascii_uppercase)
+    lowercase_letter = random.choice(string.ascii_lowercase)
+    number = random.randint(1, 9)  # Single-digit number
+    return f'{capital_letter}{lowercase_letter}{number}'
 
-# Function to generate N clean and corrupted pairs based on the two templates
-def generate_two_templates_pairs(n):
-    pairs = []
+def generate_example_pair():
+    # Generate two random numbers between 1 and 2 digits
+    num1 = random.randint(10, 99)
+    num2 = random.randint(10, 99)
     
-    for _ in range(n):
-        # Randomly pick a code-like function and an English phrase
-        code_func = random.choice(code_like_names)
-        english_phrase = random.choice(english_phrases)
-        
-        # Randomly pick a variable name with inverted commas
-        var_name = random.choice(variable_names)
-        
-        # Template 1: code-like vs. non-code-like
-        clean_1 = f"{code_func} {var_name}"
-        corrupted_1 = f"{english_phrase} {var_name}"
-        
-        # Template 2: function call-like vs. plain
-        clean_2 = f"{english_phrase}({var_name})"
-        corrupted_2 = f"{english_phrase} {var_name}"
-        
-        # Append both pairs to the list
-        pairs.append((clean_1, corrupted_1))
-        pairs.append((clean_2, corrupted_2))
+    # Create clean example with numbers
+    clean_example = f'What is the output of {num1} plus {num2} ? '
     
-    return pairs
-n = 10
-pairs = generate_two_templates_pairs(n)
-for clean, corrupted in pairs:
-    print(f"Clean: {clean}\nCorrupted: {corrupted}\n")
+    # Create corrupted example with variable names
+    var1 = generate_variable_name()
+    var2 = generate_variable_name()
+    corrupted_example = f'What is the output of {var1} and {var2} ? '
+    
+    return clean_example, corrupted_example
 
-clean_prompts = [pair[0] for pair in pairs]
-corrupted_prompts = [pair[1] for pair in pairs]
+def generate_dataset(N):
+    dataset = []
+    for _ in range(N):
+        clean, corrupted = generate_example_pair()
+        dataset.append((clean, corrupted))
+    return dataset
+
+# Example usage
+N = 100  # Number of pairs to generate
+dataset = generate_dataset(N)
+
+# Print the first few pairs of the dataset
+for i, (clean, corrupted) in enumerate(dataset):
+    print(f"Pair {i+1}:")
+    print(f"  Clean:     {clean}")
+    print(f"  Corrupted: {corrupted}")
+    print()
+    if i > 10:
+        break
+
+
+# Extract clean and corrupted examples into separate lists
+clean_prompts = []
+corrupted_prompts = []
+for i, (clean, corrupted) in enumerate(dataset):
+    clean_prompts.append(clean)
+    corrupted_prompts.append(corrupted)
+
+
 
 # %%
-lat_ind = 8566
-layer_ind = 5
+lat_ind = 15191
+layer_ind = 8
 
 def latent_patch_metric(cache):
     # layer_name = f'blocks.{layer_ind}.hook_resid_post.hook_sae_acts_post'
-    result = cache[:, :, 8566].sum()
+    result = cache[:, :, 15191].sum()
     # print(result.requires_grad)
     return result 
     # return cache[layer_name][:, :, lat_ind].sum()
@@ -174,8 +187,8 @@ def get_cache_fwd_and_bwd(
     )
 
 # Usage example
-layer_name = 'blocks.5.hook_resid_post.hook_sae_acts_post'
-receiver_layer = 'blocks.3.hook_resid_post.hook_sae_acts_post'
+layer_name = 'blocks.8.hook_resid_post.hook_sae_acts_post'
+receiver_layer = 'blocks.5.hook_resid_post.hook_sae_acts_post'
 clean_value, clean_cache, clean_grad_cache = get_cache_fwd_and_bwd(
     model, clean_prompts, latent_patch_metric, saes
 )
@@ -192,15 +205,15 @@ print("Corrupted Gradients Cached:", len(corrupted_grad_cache))
 
 # %%
 
-corrupted_grad_cache['blocks.3.hook_resid_post.hook_sae_acts_post'].shape
+corrupted_grad_cache['blocks.5.hook_resid_post.hook_sae_acts_post']# .shape
 # %%
 clean_prompts
 # %%
-clean_cache[f'blocks.3.hook_resid_post.hook_sae_acts_post'].shape
+clean_cache[f'blocks.5.hook_resid_post.hook_sae_acts_post'].shape
 # %%
-corrupted_cache[f'blocks.3.hook_resid_post.hook_sae_acts_post'].shape
+# corrupted_cache[f'blocks.3.hook_resid_post.hook_sae_acts_post'].shape
 # %%
-index_layer = 3
+index_layer = 5
 resid_point = f'blocks.{index_layer}.hook_resid_post.hook_sae_acts_post'
 clean_residual = clean_cache[resid_point]
 corr_residual = corrupted_cache[resid_point]
@@ -220,42 +233,4 @@ top_indices = top_feats.indices
 top_values = top_feats.values
 print(top_indices)
 print(top_values)
-# %%
-
-from IPython.display import IFrame
-import torch
-import einops
-import requests
-from bs4 import BeautifulSoup
-import re
-import json
-
-# Function to get HTML for a specific feature
-def get_dashboard_html(sae_release="gemma-2-2b", sae_id="8-gemmascope-res-16k", feature_idx=0):
-    html_template = "https://neuronpedia.org/{}/{}/{}?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
-    return html_template.format(sae_release, sae_id, feature_idx)
-
-
-# html = get_dashboard_html(sae_id=f"{index_layer}-gemmascope-res-16k", feature_idx=top_indices[0])
-# display(IFrame(html, width=1200, height=300))
-
-# %%
-
-for i in range(N):
-    print(top_indices[i])
-    html = get_dashboard_html(sae_id=f"{index_layer}-gemmascope-res-16k", feature_idx=top_indices[i])
-    display(IFrame(html, width=1200, height=300))
-# %%
-top_values
-# %%
-torch.topk(residual_attr_final, 100).values
-
-# for i in range(N):
-html = get_dashboard_html(sae_id=f"{5}-gemmascope-res-16k", feature_idx=8566)
-display(IFrame(html, width=1200, height=300))
-
-# %%
-# for i in range(N):
-html = get_dashboard_html(sae_id=f"{8}-gemmascope-res-16k", feature_idx=15191)
-display(IFrame(html, width=1200, height=300))
 # %%
