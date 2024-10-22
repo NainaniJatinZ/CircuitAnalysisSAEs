@@ -42,7 +42,6 @@ from sae_lens import SAE
 
 sae, cfg_dict, sparsity = SAE.from_pretrained(release="gemma-scope-9b-pt-res-canonical", sae_id="layer_10/width_16k/canonical", device=device)
 
-
 # %%
 from transformer_lens.utils import test_prompt
 from tasks.error_detection.type.data import generate_samples
@@ -53,8 +52,6 @@ samples = generate_samples(selected_templates, N)
 for sample in samples[0]:
     prompt = sample
     print(prompt)
-    # test_prompt(prompt, "Traceback", model, prepend_space_to_answer=False)
-
 
 
 # %%
@@ -64,11 +61,6 @@ print(traceback_token_id)
 
 
 # %%
-# def logit_diff_error_type(logits, end_positions, err1_tok =type_token_id, err2_tok = syntax_token_id):
-#     err1_logits = logits[range(logits.size(0)), end_positions, :][:, err1_tok]
-#     err2_logits = logits[range(logits.size(0)), end_positions, :][:, err2_tok]
-#     logit_diff = (err1_logits - err2_logits).mean()
-#     return logit_diff
 
 def type_error_patch_metric(logits, end_positions, err1_tok=traceback_token_id):
     err1_logits = logits[range(logits.size(0)), end_positions, :][:, err1_tok]
@@ -79,7 +71,8 @@ logits = model(samples[0])
 attention_mask = model.tokenizer(samples[0]).attention_mask
 end_positions = [len(mask) - mask[::-1].index(1) - 1 for mask in attention_mask]
 print(end_positions)
-print(type_error_patch_metric(logits, end_positions))
+clean_diff = type_error_patch_metric(logits, end_positions)
+print(clean_diff)
 del logits
 import gc 
 gc.collect()
@@ -90,15 +83,60 @@ logits_corr = model(samples[1])
 attention_mask = model.tokenizer(samples[1]).attention_mask
 end_positions = [len(mask) - mask[::-1].index(1) - 1 for mask in attention_mask]
 print(end_positions)
-print(type_error_patch_metric(logits_corr, end_positions))
+corr_diff = type_error_patch_metric(logits_corr, end_positions)
+print(corr_diff)
 del logits_corr
+gc.collect()
+torch.cuda.empty_cache()
+
+# %%
+def _err_type_metric(logits, clean_logit_diff, corr_logit_diff, end_positions):
+    patched_logit_diff = type_error_patch_metric(logits, end_positions)
+    return ((patched_logit_diff - corr_logit_diff) / (clean_logit_diff - corr_logit_diff))
+
+err_metric_denoising = partial(
+    _err_type_metric,
+    clean_logit_diff=clean_diff,
+    corr_logit_diff=corr_diff,
+    end_positions=end_positions,
+) 
+
+logits = model(samples[0])
+print(f"Clean Baseline is 1: {err_metric_denoising(logits).item():.4f}")
+del logits
+gc.collect()
+torch.cuda.empty_cache()
+
+logits = model(samples[1])
+print(f"Corrupted Baseline is 0: {err_metric_denoising(logits).item():.4f}")
+del logits
 gc.collect()
 torch.cuda.empty_cache()
 
 
 # %%
 
+# clean_logits = model(clean)
+# corr_logits = model(corr_tokens)
+# clean_logit_diff = logit_diff_error_type(clean_logits, clean_end_positions)
+# corr_logit_diff = logit_diff_error_type(corr_logits, clean_end_positions)
+# print(f"Clean logit diff: {clean_logit_diff}")
+# print(f"Corrupted logit diff: {corr_logit_diff}")
 
+# %% patching metric
+
+# def _err_type_metric(logits, clean_logit_diff, corr_logit_diff, end_positions):
+#     patched_logit_diff = logit_diff_error_type(logits, end_positions)
+#     return ((patched_logit_diff - corr_logit_diff) / (clean_logit_diff - corr_logit_diff))
+
+# err_metric_denoising = partial(
+#     _err_type_metric,
+#     clean_logit_diff=clean_logit_diff,
+#     corr_logit_diff=corr_logit_diff,
+#     end_positions=clean_end_positions,
+# ) 
+# print(f"Clean Baseline is 1: {err_metric_denoising(clean_logits).item():.4f}")
+# print(f"Corrupted Baseline is 0: {err_metric_denoising(corr_logits).item():.4f}")
 
 
 # %%
