@@ -262,13 +262,8 @@ for idx, val in zip(indices, values):
 
 
 
-# %%
-    
+# %% 
 samples[0][1]
-
-
-
-
 
 # %%
 hook_point = "blocks.10.hook_resid_post.hook_sae_acts_post"
@@ -402,5 +397,237 @@ print("Corrupted Value:", corrupted_value)
 print("Corrupted Activations Cached:", len(corrupted_cache))
 print("Corrupted Gradients Cached:", len(corrupted_grad_cache))
 
+# %%
+
+selected_pos  = {
+    "s_start": [],
+    "s_end": [],
+    "i_start": [],
+    "i_end": [],
+    "end": []
+}
+
+for i in range(N):
+
+    str_tokens_clean = model.to_str_tokens(samples[0][i])
+    str_tokens_corr = model.to_str_tokens(samples[1][i])
+    # Find the positions with differences
+    diff_positions = [i for i, (a, b) in enumerate(zip(str_tokens_clean, str_tokens_corr)) if a != b]
+
+    # Find positions of the first '("', the first '"' after '("', and the end position
+    pos_open_paren_quote = str_tokens_clean.index('("')
+    pos_first_quote_after_open = pos_open_paren_quote + str_tokens_clean[pos_open_paren_quote:].index('"') 
+    pos_end = len(str_tokens_clean) - 1  # The last position
+
+    # Return the positions with differences, and the positions found
+    # print(diff_positions, pos_open_paren_quote, pos_first_quote_after_open, pos_end)
+    # print(str_tokens_clean[pos_first_quote_after_open])
+    selected_pos["s_start"].append(pos_open_paren_quote)
+    selected_pos["s_end"].append(pos_first_quote_after_open)
+    selected_pos["i_start"].append(diff_positions[0])
+    selected_pos["i_end"].append(diff_positions[-1])
+    selected_pos["end"].append(pos_end)
+
+# %%
+    
+top_feats_per_pos = {}
+K = 10
+for idx, val in selected_pos.items():
+    # print(idx, val)
+    clean_residual_selected = sae_acts[torch.arange(sae_acts.shape[0]), val, :]
+    corr_residual_selected = sae_acts_corr[torch.arange(sae_acts_corr.shape[0]), val, :]
+    corr_grad_residual_selected = sae_grad_cache[torch.arange(sae_grad_cache.shape[0]), val, :]
+
+    # Residual attribution calculation only for the selected positions
+    residual_attr_final = einops.reduce(
+        corr_grad_residual_selected * (clean_residual_selected - corr_residual_selected),
+        "batch n_features -> n_features",
+        "sum",
+    )
+
+    # Get the top N features for this layer
+    top_feats = torch.topk(residual_attr_final, K)
+    top_indices = top_feats.indices
+    top_values = top_feats.values
+
+    top_feats_per_pos[idx] = (top_indices, top_values)
 
 
+# %%
+top_feats_per_pos
+
+# %%
+sae_grad_cache
+
+# %%
+
+residual_attr_final = einops.reduce(
+    sae_grad_cache * (sae_acts - sae_acts_corr),
+    "batch pos n_features -> n_features",
+    "sum",
+)
+residual_attr_final.shape
+
+# %%
+
+import torch
+import einops
+import requests
+from bs4 import BeautifulSoup
+import re
+import json
+
+# Function to get HTML for a specific feature
+def get_dashboard_html(sae_release="gemma-2-9b", sae_id="10-gemmascope-res-16k", feature_idx=0):
+    html_template = "https://neuronpedia.org/{}/{}/{}?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+    return html_template.format(sae_release, sae_id, feature_idx)
+
+# Function to scrape the description for a feature
+def scrape_description(layer, feature_idx):
+    url = get_dashboard_html(sae_release="gemma-2-2b", sae_id=f"{layer}-gemmascope-res-16k", feature_idx=feature_idx)
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        html = response.text
+        soup = BeautifulSoup(html, 'html.parser')
+        soup_str = str(soup)
+
+        # Use regex to find the "description" field in the JSON structure
+        all_descriptions = re.findall(r'description\\":\\"(.*?)",', soup_str)
+        
+        if all_descriptions:
+            return all_descriptions[-1]  # Return the last description
+        else:
+            return "No description found."
+    else:
+        return f"Failed to retrieve the webpage. Status code: {response.status_code}"
+
+# %%
+layer = 10
+top_10_features_for_rel_pos = {}
+interesting_keys = list(top_feats_per_pos.keys())[2:]
+# print(interesting_keys)
+for key in interesting_keys:
+    print(f"Position: {key}")
+    indices, values = top_feats_per_pos[key]
+    top_10_features_for_rel_pos[key] = []
+    for idx, val in zip(indices, values):
+        print(f"Feature Index: {idx}, Value: {val}")
+        description = scrape_description(layer, idx)
+        print(description)
+        top_10_features_for_rel_pos[key].append((idx.item(), val.item(), description))
+
+# Save the results to a JSON file
+with open('tasks/error_detection/type/out/layer10_top_10_features_for_rel_pos.json', 'w') as json_file:
+    json.dump(top_10_features_for_rel_pos, json_file, indent=4)
+
+
+# %%
+    
+# %%
+
+import matplotlib.pyplot as plt
+import numpy as np
+import torch
+import os
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+
+def plot_and_save_position_heatmap(data_idx: int, position_name: str, top_features: list, str_tokens: list, clean_cache: dict, corr_cache: dict):
+    """
+    Function to plot and save a heatmap for the top features in a given position.
+
+    Args:
+    - data_idx: Index of the specific prompt to visualize.
+    - position_name: The name of the position being analyzed (e.g., d1, d2, END).
+    - top_features: List of top features for the current position.
+    - str_tokens: List of input tokens (strings) to display on the x-axis.
+    - clean_cache: Dictionary of activations from the clean cache.
+    - corr_cache: Dictionary of activations from the corrupted cache.
+
+    Returns:
+    - Saves the heatmap as a PNG file in the 'features' directory.
+    """
+    activations_matrix = []
+
+    # Iterate over the top features (each feature has two rows: clean and corrupted)
+    for feature in top_features:
+        # layer = feature['layer']
+        feature_idx = feature[0]
+
+        # Get activations from clean and corrupted caches
+        # layer_name = f'blocks.{layer}.hook_resid_post.hook_sae_acts_post'
+        clean_activations = clean_cache[data_idx, :, feature_idx].cpu().detach().numpy()
+        corr_activations = corr_cache[data_idx, :, feature_idx].cpu().detach().numpy()
+
+        # Append clean and corrupted activations to the matrix
+        activations_matrix.append(clean_activations)
+        activations_matrix.append(corr_activations)
+
+    # Convert the activations matrix to a numpy array for plotting
+    activations_matrix = np.array(activations_matrix)
+
+    # Create a heatmap for the current position
+    plt.figure(figsize=(10, 6)) #len(activations_matrix) * 0.5))  # Adjust the figure size based on the number of rows
+
+    plt.imshow(activations_matrix, aspect='auto', cmap='coolwarm')
+
+    # Set x-axis to display the input tokens
+    plt.xticks(ticks=np.arange(len(str_tokens)), labels=str_tokens, rotation=90)
+
+    # Set y-axis labels to show clean and corrupted rows for each feature
+    y_ticks = []
+    for feature in top_features:
+        feature_idx = feature[0]
+        y_ticks.append(f'{feature_idx} (clean)')
+        y_ticks.append(f'{feature_idx} (corr)')
+
+    plt.yticks(ticks=np.arange(len(y_ticks)), labels=y_ticks)
+
+    # Add a color bar to the side
+    plt.colorbar(label='Activation Value')
+
+    # Set axis labels and title
+    plt.xlabel("Tokens")
+    plt.ylabel("Features (Clean and Corrupted)")
+    plt.title(f"Feature Activations for Position {position_name} (Top 5 Features)")
+    plt.subplots_adjust(left=0.25, right=0.9, top=0.9, bottom=0.2)  
+
+    # Create the 'features' directory if it doesn't exist
+    if not os.path.exists("features"):
+        os.makedirs("features")
+
+    # Save the heatmap as a PNG file
+    filename = f"tasks/error_detection/type/out/layer10_features/heatmap_position_{position_name}.png"
+    plt.savefig(filename, bbox_inches="tight")
+    plt.close()  # Close the plot to avoid display issues in loops
+
+    print(f"Heatmap saved: {filename}")
+
+# %%
+# Example loop to generate heatmaps for each position
+for position_name, top_10_features in top_10_features_for_rel_pos.items():
+    print(f"Top 25 Features for Position: {position_name}")
+
+    # # Take the top 5 features for the current position
+    # top_5_features = top_25_features[:5]
+
+    # Replace 'str_tokens' with the actual list of input tokens (strings)
+    # Example: str_tokens = ["This", "is", "an", "example", "input", "sentence", "."]
+    str_tokens = model.to_str_tokens(samples[0][0])  # Example input tokens
+
+    # Generate and save the heatmap for the current position
+    plot_and_save_position_heatmap(data_idx=0, position_name=position_name, top_features=top_10_features, str_tokens=str_tokens, clean_cache=sae_acts, corr_cache=sae_acts_corr)
+
+
+
+# %%
+sae_acts_corr.shape
+# convert the 
+# top_10_features_for_rel_pos
+# val = 0.0007687670877203345
+# val
+# %%
+values
+# %%

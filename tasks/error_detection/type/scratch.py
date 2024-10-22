@@ -155,3 +155,74 @@ end_positions
 test_prompt(samples[1][0], "Traceback", model, prepend_space_to_answer=False)
 
 # %%
+
+
+model.to_str_tokens(samples[1][0])
+# %%
+model.to_str_tokens(samples[0][0])
+# %%
+for c1, cr1 in zip(model.to_str_tokens(samples[0][1]), model.to_str_tokens(samples[1][1])):
+    print(c1, cr1)  
+# %%
+
+
+samples[1]
+
+# %%
+end_positions
+# %%
+str_tokens = model.to_str_tokens(samples[1][0])#.input_ids
+print(str_tokens)
+# %%
+# Define the two lists
+
+str_tokens_clean = model.to_str_tokens(samples[0][0])
+str_tokens_corr = model.to_str_tokens(samples[1][0])
+# Find the positions with differences
+diff_positions = [i for i, (a, b) in enumerate(zip(str_tokens_clean, str_tokens_corr)) if a != b]
+
+# Find positions of the first '("', the first '"' after '("', and the end position
+pos_open_paren_quote = str_tokens_clean.index('("')
+pos_first_quote_after_open = pos_open_paren_quote + str_tokens_clean[pos_open_paren_quote:].index('"') + 1
+pos_end = len(str_tokens_clean) - 1  # The last position
+
+# Return the positions with differences, and the positions found
+diff_positions, pos_open_paren_quote, pos_first_quote_after_open, pos_end
+
+
+
+# %%
+
+selected_pos  = {
+    "s_start": [],
+    "s_end": [],
+    "i_start": [],
+    "i_end": [],
+    "end": []
+}
+
+for i in range(N):
+
+    str_tokens_clean = model.to_str_tokens(samples[0][i])
+    str_tokens_corr = model.to_str_tokens(samples[1][i])
+    # Find the positions with differences
+    diff_positions = [i for i, (a, b) in enumerate(zip(str_tokens_clean, str_tokens_corr)) if a != b]
+
+    # Find positions of the first '("', the first '"' after '("', and the end position
+    pos_open_paren_quote = str_tokens_clean.index('("')
+    pos_first_quote_after_open = pos_open_paren_quote + str_tokens_clean[pos_open_paren_quote:].index('"') 
+    pos_end = len(str_tokens_clean) - 1  # The last position
+
+    # Return the positions with differences, and the positions found
+    # print(diff_positions, pos_open_paren_quote, pos_first_quote_after_open, pos_end)
+    # print(str_tokens_clean[pos_first_quote_after_open])
+    selected_pos["s_start"].append(pos_open_paren_quote)
+    selected_pos["s_end"].append(pos_first_quote_after_open)
+    selected_pos["i_start"].append(diff_positions[0])
+    selected_pos["i_end"].append(diff_positions[-1])
+    selected_pos["end"].append(pos_end)
+
+# %%
+
+
+

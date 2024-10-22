@@ -1,0 +1,158 @@
+{
+    "i_start": [
+        [
+            10694,
+            0.06348311901092529,
+            "words related to floral scents and their components\\"
+        ],
+        [
+            4718,
+            0.04034152999520302,
+            "percentage indicators and formatting symbols\\"
+        ],
+        [
+            15358,
+            0.03502115234732628,
+            "image references and their formatting in text\\"
+        ],
+        [
+            10207,
+            0.030231375247240067,
+            " references to forums or discussions\\"
+        ],
+        [
+            6492,
+            0.016979293897747993,
+            "terms related to nanotechnology and measurements\\"
+        ],
+        [
+            16190,
+            0.010703159496188164,
+            " programming constructs related to object-oriented features and function declarations\\"
+        ],
+        [
+            5233,
+            0.010215678252279758,
+            "numerical data or statistics related to specific subjects\\"
+        ],
+        [
+            13768,
+            0.009093033149838448,
+            "numerical values related to measurements or quantities\\"
+        ],
+        [
+            116,
+            0.007796787656843662,
+            "keywords related to scientific concepts and phenomena involving particles and their interactions\\"
+        ],
+        [
+            10669,
+            0.007719412446022034,
+            "structures or patterns typically used in mathematical expressions, particularly those involving matrices or arrays\\"
+        ]
+    ],
+    "i_end": [
+        [
+            2769,
+            0.06516899168491364,
+            "names and references related to political figures and entities in German history\\"
+        ],
+        [
+            12754,
+            0.009310038760304451,
+            "terms indicating comparison or exceptions in statements\\"
+        ],
+        [
+            14819,
+            0.00850109476596117,
+            "instances of the word \\\\\\\"Meanwhile\\\\\\\" in various contexts\\"
+        ],
+        [
+            771,
+            0.008174974471330643,
+            "metrics and measures related to variable performance and analysis in scientific data\\"
+        ],
+        [
+            14504,
+            0.0069327643141150475,
+            "special characters or formatting symbols within the text\\"
+        ],
+        [
+            4476,
+            0.006860965862870216,
+            "noises and sounds that are loud or disruptive\\"
+        ],
+        [
+            4482,
+            0.006105905864387751,
+            " phrases indicating explanations or justifications\\"
+        ],
+        [
+            8668,
+            0.0051607172936201096,
+            "references to movies and their production details\\"
+        ],
+        [
+            5172,
+            0.004903652239590883,
+            "method calls and property access within programming code\\"
+        ],
+        [
+            7965,
+            0.004489578772336245,
+            "references to investigations, legal matters, and formal reports\\"
+        ]
+    ],
+    "end": [
+        [
+            6478,
+            0.002789289690554142,
+            "terms and conditions related to contracts and agreements\\"
+        ],
+        [
+            7500,
+            0.0016353520331904292,
+            "references to complex social or systemic themes, particularly those related to governance, metaphorical language around relationships, and the intersection of spirituality and societal structures\\"
+        ],
+        [
+            13982,
+            0.0015904400497674942,
+            "conditional statements and error handling in programming code\\"
+        ],
+        [
+            1721,
+            0.0014197928830981255,
+            "political views and affiliations\\"
+        ],
+        [
+            8503,
+            0.0013248325558379292,
+            " occurrences of the \\\\\\\"nil\\\\\\\" value in programming contexts, indicating missing or non-existent data\\"
+        ],
+        [
+            5730,
+            0.0009995736181735992,
+            "terms that emphasize the utility and value of information\\"
+        ],
+        [
+            8811,
+            0.0009294646442867815,
+            " phrases related to judicial procedures and legal arguments about evidence and rulings\\"
+        ],
+        [
+            2350,
+            0.0009289076551795006,
+            "references to male titles, particularly \\\\\\\"Mr.\\\\\\\" and \\\\\\\"Dr.\\\\\\\" in the text\\"
+        ],
+        [
+            15306,
+            0.0008035062346607447,
+            "phrases indicating ease or simplicity in actions or processes\\"
+        ],
+        [
+            10379,
+            0.0007687670877203345,
+            "references to bull sharks and their characteristics\\"
+        ]
+    ]
+}
