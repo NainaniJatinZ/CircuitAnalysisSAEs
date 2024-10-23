@@ -1,0 +1,188 @@
+{
+    "i_start": [
+        [
+            10694,
+            0.08463253080844879,
+            "structured textual formats or sections within documents\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/10694?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            4718,
+            0.04182133078575134,
+            "instances of quotations or direct speech within the text\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/4718?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            15358,
+            0.03400522843003273,
+            "references to statistical models or distributions\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/15358?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            10207,
+            0.03164256364107132,
+            " elements and syntax related to programming and code structures\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/10207?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            107,
+            -0.01801796443760395,
+            "quoted strings and their formatting details\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/107?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            5233,
+            0.015487908385694027,
+            "different types of quotation marks and delimiters used in programming syntax\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/5233?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            6492,
+            0.015111686661839485,
+            " coding syntax related to delimiters and string concatenation\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/6492?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            430,
+            -0.012128639966249466,
+            "documentation references and links related to APIs and guides\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/430?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            1911,
+            -0.011777937412261963,
+            " symbols and operators related to coding syntax and structure\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/1911?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            116,
+            0.010787680745124817,
+            " structural elements and formatting indicators within text\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/116?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ]
+    ],
+    "i_end": [
+        [
+            2769,
+            0.07942334562540054,
+            " punctuation and special characters used in code or programming syntax\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/2769?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            9184,
+            -0.02482331171631813,
+            "parenthetical expressions and mathematical notations\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/9184?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            14504,
+            0.009752769023180008,
+            " expressions related to mathematical or programming operations\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/14504?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            12754,
+            0.009264115244150162,
+            "programming structure and data manipulation concepts, particularly those related to strings and API requests\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/12754?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            7409,
+            0.008262782357633114,
+            " structured programming elements and error handling in code\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/7409?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            771,
+            0.008136800490319729,
+            "metadata and file information related to data representations and structures in various formats\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/771?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            10182,
+            0.007937266491353512,
+            " specific formatting or syntax elements related to coding or script structures\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/10182?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            9154,
+            -0.007519484963268042,
+            "various opening and closing bracket symbols and special characters\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/9154?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            14819,
+            0.0074095050804317,
+            " concepts related to mathematical operations and programming functions\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/14819?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            4482,
+            0.007202492095530033,
+            "mathematical expressions and equations\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/4482?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ]
+    ],
+    "end": [
+        [
+            6478,
+            0.004388418514281511,
+            "indications of community involvement in various contexts\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/6478?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            8503,
+            0.003968451172113419,
+            "events involving arrests and legal actions\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/8503?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            13982,
+            0.0027388613671064377,
+            " programming syntax elements related to function definitions and exception handling\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/13982?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            2350,
+            0.002689684508368373,
+            " elements and structures within programming or markup languages\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/2350?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            1721,
+            0.002603419590741396,
+            " elements of code or structured data patterns\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/1721?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            632,
+            -0.002553364960476756,
+            " significant quantities or values in various contexts\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/632?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            7500,
+            0.0019922868814319372,
+            " numerical values, particularly those related to calculations and statistical analysis\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/7500?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            5730,
+            0.00179241260048002,
+            " responses to questions, particularly answers that contain reasoning or personal insights\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/5730?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            10406,
+            -0.001546568819321692,
+            "phrases or words indicating comparisons or contrasts in arguments\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/10406?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            16010,
+            0.00154644506983459,
+            "commands and functions related to shell scripting and file management tasks\\",
+            "https://neuronpedia.org/gemma-2-9b/10-gemmascope-res-16k/16010?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ]
+    ]
+}
