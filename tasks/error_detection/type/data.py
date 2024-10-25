@@ -1,11 +1,32 @@
 # %%
 import random
 
+def activate_autoreload():
+    ipython.magic("load_ext autoreload")
+    ipython.magic("autoreload 2")
+    print("In IPython")
+    print("Set autoreload")
+
 def generate_random_integer():
-    return random.randint(1, 100)
+    return random.randint(10, 99)
 
 def generate_random_variable_name():
-    variable_names = ['abc', 'my_var', 'name', 'value', 'text']
+    variable_names = ['abc',
+ 'name',
+ 'value',
+ 'text',
+ 'age',
+ 'score',
+ 'distance',
+ 'price',
+ 'weight',
+ 'temperature',
+ 'time',
+ 'energy',
+ 'volume',
+ 'velocity',
+ 'pressure',
+ 'humidity']
     return random.choice(variable_names)
 
 # Template functions
@@ -26,10 +47,10 @@ def template_with_type_error_2():
     integer = generate_random_integer()
     
     type_error = f"""Type "help", "copyright", "credits" or "license" for more information.
->>> var = {integer} + "{variable_name}"
+>>> var = "{variable_name}" + {integer} 
 """
     no_error = f"""Type "help", "copyright", "credits" or "license" for more information.
->>> var = "{integer}" + "{variable_name}"
+>>> var = "{variable_name}" + "{integer}"
 """
     return type_error, no_error
 
@@ -52,7 +73,7 @@ def template_with_type_error_4():
     
     type_error = f"""Type "help", "copyright", "credits" or "license" for more information.
 >>> numbers = [{integer1}, {integer2}, {integer3}]
->>> result = numbers + {integer1}
+>>> result = numbers + "{integer1}"
 """
     no_error = f"""Type "help", "copyright", "credits" or "license" for more information.
 >>> numbers = [{integer1}, {integer2}, {integer3}]
@@ -102,7 +123,19 @@ def generate_samples(selected_templates, N):
         clean.append(type_error)
         corr.append(no_error)
     return clean, corr
-
+    
+ipython = get_ipython()
+if ipython is not None:
+    print("In IPython")
+    IN_IPYTHON = True
+    activate_autoreload()
+    # Code to automatically update the EasyTransformer code as its edited without restarting the kernel
+    import tqdm.notebook as tqdm
+else:
+    print("Not in IPython")
+    IN_IPYTHON = False
+    import tqdm
+    
 # %%
 
 if __name__ == "__main__":

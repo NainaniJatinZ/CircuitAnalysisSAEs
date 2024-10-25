@@ -1,0 +1,188 @@
+{
+    "i_start": [
+        [
+            9133,
+            -0.007433944381773472,
+            " occurrences of whitespace or gaps in the text\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/9133?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            8969,
+            -0.005282650701701641,
+            " instances of formal citation or references in texts\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/8969?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            15598,
+            0.0049800388514995575,
+            "strings that represent names and identifiers\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/15598?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            4480,
+            -0.0048589822836220264,
+            " sequences of whitespace or indentation in the text\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/4480?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            7159,
+            -0.0039759306237101555,
+            "syntax structures and components related to programming code\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/7159?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            972,
+            0.0038481063675135374,
+            "terms related to culinary experiences and travel arrangements\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/972?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            15178,
+            0.003467381466180086,
+            "structured data referencing recipients and packages\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/15178?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            4333,
+            0.003065298544242978,
+            " programming-related commands and functions\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/4333?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            261,
+            0.0027759403456002474,
+            "references to variables and their properties in programming\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/261?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            15926,
+            0.0025689699687063694,
+            "code structures and syntax related to dimensional and data processing functions\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/15926?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ]
+    ],
+    "i_end": [
+        [
+            14699,
+            0.04986794665455818,
+            "strings of quotation marks or apostrophes in the text\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/14699?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            5478,
+            0.03042430803179741,
+            " code-related concepts and programming structures\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/5478?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            1408,
+            0.018039200454950333,
+            " terms related to errors and exceptions in programming\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/1408?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            4490,
+            0.016048822551965714,
+            "elements related to coding and data structures\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/4490?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            6650,
+            0.015285555273294449,
+            "details about relationships and social interactions in various contexts\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/6650?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            12987,
+            0.015038582496345043,
+            " terms and phrases related to deprecation in programming or software contexts\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/12987?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            8255,
+            0.013859258964657784,
+            "coding errors or exceptions related to database operations\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/8255?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            4480,
+            -0.013619492761790752,
+            " sequences of whitespace or indentation in the text\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/4480?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            3690,
+            0.013401059433817863,
+            " phrases related to software limitations or restrictions\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/3690?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            6602,
+            0.012550301849842072,
+            " information related to programming and data conversion methods\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/6602?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ]
+    ],
+    "end": [
+        [
+            4167,
+            -0.1031557023525238,
+            "references to programming concepts or code syntax\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/4167?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            8255,
+            0.0655931755900383,
+            "coding errors or exceptions related to database operations\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/8255?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            1408,
+            0.05717597156763077,
+            " terms related to errors and exceptions in programming\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/1408?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            10795,
+            0.042722538113594055,
+            " JavaScript comments and associated annotations\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/10795?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            3690,
+            0.04086388275027275,
+            " phrases related to software limitations or restrictions\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/3690?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            10999,
+            0.03813951089978218,
+            " sections of text that contain numerical data or references to data structures\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/10999?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            9427,
+            0.034854937344789505,
+            " phrases related to software licensing and conditions\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/9427?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            12314,
+            0.034031037241220474,
+            " error messages and elements indicating failure or the absence of expected items\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/12314?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            576,
+            -0.029799340292811394,
+            " programming syntax and related code structure elements\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/576?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ],
+        [
+            4541,
+            0.029354361817240715,
+            "numerical data and measurements\\",
+            "https://neuronpedia.org/gemma-2-9b/21-gemmascope-res-16k/4541?embed=true&embedexplanation=true&embedplots=true&embedtest=true&height=300"
+        ]
+    ]
+}
