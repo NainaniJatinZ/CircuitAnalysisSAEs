@@ -476,3 +476,81 @@ set2 = set(dict_feats['blocks.21.hook_resid_post'])
 unique_elements = list(set1 - set2)
 print("Unique Elements in 21:", unique_elements)
 # %%
+
+
+# [5478, 4490, 3377, 8626, 13842, 9427, 12987, 4541]
+target_latents = [(21, 5478), (21, 4490), (21, 3377), (21, 8626), (21, 13842), (21, 9427), (21, 12987), (21, 4541)]
+
+save_dir = "third_latents_21"
+
+filtered_ids = [model.tokenizer.bos_token_id]
+K = 20  # Number of top entries to retrieve
+model.reset_hooks()
+def save_top_latents_per_target(target_latents, save_dir):
+    results = {}  # Store results for each target latent
+    for layer, latent_idx in target_latents:
+        # Define unique identifier for this latent
+        save_string = f"L{layer}_{latent_idx}"
+
+        # Calculate and store activations for both clean and corrupted caches
+        _, clean_cache = run_with_saes_filtered_cache(clean_tokens, filtered_ids, model, saes)
+        latent_act_clean = latent_patch_metric(clean_cache, layer_ind=layer, lat_ind=latent_idx)
+        
+        _, corr_cache = run_with_saes_filtered_cache(corr_tokens, filtered_ids, model, saes)
+        latent_act_corrupted = latent_patch_metric(corr_cache, layer_ind=layer, lat_ind=latent_idx)
+
+        # Partial metric function for this specific target latent
+        latent_metric_denoising = partial(
+            _latent_metric,
+            clean_logit_diff=latent_act_clean,
+            corr_logit_diff=latent_act_corrupted,
+            layer_ind=layer,
+            lat_ind=latent_idx
+        )
+        
+        # Collect forward and backward caches for current target latent
+        _, _, corr_grad_cache, _ = get_cache_fwd_and_bwd_fml(
+            model, corr_tokens, latent_metric_denoising, saes, filtered_ids, f'blocks.{layer}.hook_resid_post'
+        )
+
+        # Initialize sub-dictionaries for each target latent and layer
+        results[save_string] = {"positive": {}, "absolute": {}}
+
+        # Process each key in the gradient cache for this target latent
+        for key in corr_grad_cache.keys():
+            # Compute resi_attr
+            resi_attr = einops.reduce(
+                corr_grad_cache[key] * (clean_cache[key] - corr_cache[key]),
+                'batch pos n_features -> n_features',
+                'sum'
+            )
+
+            # Save resi_attr tensor for current key
+            torch.save(resi_attr, f'tasks/error_detection/type/out/{save_dir}/{save_string}_{key}.pt')
+
+            # Compute both top K values with and without absolute value sorting
+            top_values, top_indices = resi_attr.topk(K)
+            top_abs_values, top_abs_indices = resi_attr.abs().topk(K)
+
+            # Store the top K positive and absolute values for each key
+            results[save_string]["positive"][key] = [
+                {"feature_idx": int(idx), "value": float(value)} for idx, value in zip(top_indices, top_values)
+            ]
+            results[save_string]["absolute"][key] = [
+                {"feature_idx": int(idx), "value": float(resi_attr[idx])} for idx in top_abs_indices
+            ]
+
+        # Reset caches and empty CUDA memory for the next iteration
+        del clean_cache, corr_cache, corr_grad_cache
+        torch.cuda.empty_cache()
+
+    # Save results to JSON
+    with open(f'tasks/error_detection/type/out/{save_dir}/top_latents_results.json', 'w') as f:
+        json.dump(results, f)
+
+# Run the function to save top latents for each target
+save_top_latents_per_target(target_latents, save_dir)
+
+
+
+# %%
