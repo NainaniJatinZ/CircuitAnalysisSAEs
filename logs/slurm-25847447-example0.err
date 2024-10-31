@@ -1,0 +1,5 @@
+Loading conda
+Traceback (most recent call last):
+  File "/work/pi_jensen_umass_edu/jnainani_umass_edu/CircuitAnalysisSAEs/mask_finding/py_dashboard.py", line 8, in <module>
+    from circ4latents import data_gen
+ModuleNotFoundError: No module named 'circ4latents'
