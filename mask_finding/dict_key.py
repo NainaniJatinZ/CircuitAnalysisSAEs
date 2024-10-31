@@ -784,12 +784,14 @@ corr_sae_cache_means = {layer: sae_cache.mean(dim=0) for layer, sae_cache in cor
 
 # 2. Initialize a dictionary to store the combined vectors for each latent and their clean-corrupted difference
 combined_vectors = {}
+sum_vectors = {}
 diff_vectors = {}
 
 # 3. Compute vectors for each layer and each latent specified in the mask
 for layer, latents in mask.items():
     combined_vectors[layer] = []
     diff_vectors[layer] = []
+    sum_vectors[layer] = []
     
     for latent in latents:
         # Get the clean and corrupted activations for the specified latent at the given layer
@@ -804,9 +806,14 @@ for layer, latents in mask.items():
         diff_vector = clean_vector - corr_vector
         diff_vectors[layer].append(diff_vector)
 
+        # Compute the sum vector
+        sum_vector = clean_vector + corr_vector
+        sum_vectors[layer].append(sum_vector)
+
     # Convert lists to tensors
     combined_vectors[layer] = torch.stack(combined_vectors[layer])  # shape: (n_latents, 2 * seq_len)
     diff_vectors[layer] = torch.stack(diff_vectors[layer])          # shape: (n_latents, seq_len)
+    sum_vectors[layer] = torch.stack(sum_vectors[layer])          # shape: (n_latents, seq_len)
 
 # 4. Compute cosine similarities between latents using the combined vectors
 grouped_latents = {}
@@ -825,7 +832,26 @@ for layer in mask.keys():
 print(grouped_latents)
 
 # %%
-latent_n_clusters = {'blocks.40.hook_resid_post': 4, 'blocks.21.hook_resid_post': 2, 'blocks.14.hook_resid_post': 3, 'blocks.7.hook_resid_post': 5}
+latent_n_clusters = {'blocks.40.hook_resid_post': 35, 'blocks.21.hook_resid_post': 26, 'blocks.14.hook_resid_post': 23, 'blocks.7.hook_resid_post': 38}
+grouped_latents_sum = {}
+for layer in mask.keys():
+    # Compute cosine similarity for combined vectors
+    cos_sim_matrix = cosine_similarity(sum_vectors[layer].cpu().numpy())
+    
+    # 5. Apply clustering (Agglomerative Clustering) based on cosine similarity
+    clustering_model = AgglomerativeClustering(n_clusters=latent_n_clusters[layer], metric='precomputed', linkage='average')
+    latent_groups = clustering_model.fit_predict(1 - cos_sim_matrix)  # 1 - cosine similarity as a distance measure
+    
+    # Store the group labels for each latent in this layer
+    grouped_latents_sum[layer] = latent_groups
+
+# Now `grouped_latents` contains clusters for each latent in each layer based on clean/corrupted vectors.
+print(grouped_latents_sum)
+
+# %%
+
+# %%
+latent_n_clusters = {'blocks.40.hook_resid_post': 3, 'blocks.21.hook_resid_post': 2, 'blocks.14.hook_resid_post': 3, 'blocks.7.hook_resid_post': 5}
 grouped_latents_diff = {}
 for layer in mask.keys():
     # Compute cosine similarity for combined vectors
@@ -850,13 +876,13 @@ from sklearn.metrics import silhouette_score
 import numpy as np
 
 # Range of cluster numbers to try
-cluster_range = range(2, 10)
+cluster_range = range(2, 50, 3)
 layer = 'blocks.40.hook_resid_post'
 best_score = -1
 best_n_clusters = 2
 
 # Compute cosine similarity
-cos_sim_matrix = cosine_similarity(diff_vectors[layer].cpu().numpy())
+cos_sim_matrix = cosine_similarity(sum_vectors[layer].cpu().numpy())
 distance_matrix = 1 - cos_sim_matrix  # Convert similarity to distance for clustering
 
 # Ensure the diagonal is zero for silhouette_score
@@ -897,7 +923,7 @@ import numpy as np
 layer = 'blocks.40.hook_resid_post'
 combined_vectors_layer = combined_vectors[layer]
 diff_vectors_layer = diff_vectors[layer]
-clusters = grouped_latents_diff[layer]
+clusters = grouped_latents_sum[layer]
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -972,11 +998,76 @@ plt.colorbar(label='Mean Difference in Activation')
 # Set y-axis to show cluster labels and x-axis to show only the last 5 tokens
 plt.yticks(ticks=range(len(cluster_diffs)), labels=[f'Cluster {i} - {latents_per_cluster[i]} latents' for i in range(len(cluster_diffs))])
 plt.xticks(ticks=range(len(tokens)), labels=tokens, rotation=90)
-layer_ind = 40
+layer_ind = 7
 plt.title(f'Mean Difference (clean - corrupted) Distribution for Each Cluster Latents in Layer: {layer_ind}')
 plt.xlabel('Last 15 Tokens in Sequence')
 plt.ylabel('Cluster ID')
 plt.show()
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+import torch
+
+# Assuming `model.to_str_tokens(clean_prompt[0])` provides the token labels for the x-axis
+layer_ind = 40
+layer = f'blocks.{layer_ind}.hook_resid_post'
+combined_vectors_layer = combined_vectors[layer]
+diff_vectors_layer = diff_vectors[layer]
+sum_vectors_layer = sum_vectors[layer]
+clusters = grouped_latents_diff[layer]
+tokens = model.to_str_tokens(clean_prompts[0])  # Get token labels for sequence length positions
+
+# Summarization of Mean Difference Distribution for Each Cluster as a Heatmap
+cluster_sums = {}
+heatmap_data = []
+latents_per_cluster = []
+for cluster_id in np.unique(clusters):
+    if cluster_id != 0:
+        continue
+    # Select diff vectors belonging to the current cluster
+    cluster_indices = np.where(clusters == cluster_id)[0]
+    cluster_sum_vectors = sum_vectors_layer[cluster_indices]
+    latents_per_cluster.append(len(cluster_indices))
+    # Calculate the mean difference across latents in this cluster
+    cluster_mean_sum = cluster_sum_vectors.mean(dim=0).cpu().numpy()
+    cluster_sums[cluster_id] = cluster_mean_sum
+    heatmap_data.append(cluster_mean_sum)  # Collect for heatmap plot
+
+# Convert to numpy array for plotting, with each row as a cluster and columns as sequence length positions
+heatmap_data = np.array(heatmap_data)
+
+# Create a color map with white for zero values
+cmap = plt.cm.viridis
+cmap.set_bad(color='white')
+
+# Mask zeros in the heatmap data for white color
+masked_heatmap_data = np.ma.masked_where(heatmap_data == 0, heatmap_data)
+
+# Plot the heatmap
+plt.figure(figsize=(10, 8))
+plt.imshow(masked_heatmap_data, aspect='auto', cmap=cmap, interpolation='nearest')
+plt.colorbar(label='Mean Sum in Activation')
+
+# Set y-axis to show cluster labels and x-axis to show the last 15 tokens
+plt.yticks(ticks=range(len(cluster_sums)), labels=[f'Cluster {i} - {latents_per_cluster[i]} latents' for i in range(len(cluster_sums))])
+plt.xticks(ticks=range(len(tokens)), labels=tokens, rotation=90, fontsize=8)  # Reduce x-axis font size to avoid overlap
+
+# Add lines to separate rows and columns
+for row in range(1, len(cluster_sums)):
+    plt.hlines(row - 0.5, xmin=-0.5, xmax=len(tokens) - 0.5, color='gray', linewidth=0.5)
+
+for col in range(1, len(tokens)):
+    plt.vlines(col - 0.5, ymin=-0.5, ymax=len(cluster_sums) - 0.5, color='gray', linewidth=0.5)
+
+# Title and axis labels
+plt.title(f'Mean Sum (clean + corrupted) Distribution for Each Cluster Latents in Layer: {layer_ind}')
+plt.xlabel('Sequence Tokens')
+plt.ylabel('Cluster ID')
+plt.tight_layout()
+plt.show()
+
+
+
 
 # %%
 from collections import defaultdict
