@@ -13,7 +13,6 @@ import einops
 def cleanup_cuda():
     torch.cuda.empty_cache()
     gc.collect()
-
 # Load the config
 with open("config.json", 'r') as file:
     config = json.load(file)
@@ -89,6 +88,12 @@ def _err_type_metric(logits, clean_logit_diff, corr_logit_diff, end_positions):
 
 err_metric_denoising = partial(_err_type_metric, clean_logit_diff=clean_diff, corr_logit_diff=corr_diff, end_positions=selected_pos['end'])
 
+# %%
+from transformer_lens.utils import test_prompt
+model.reset_hooks()
+prompt = """>>> print("energy" + 22)\n"""
+test_prompt(prompt, "Traceback", model, prepend_space_to_answer=False)
+
 
 
 # %%
@@ -117,12 +122,6 @@ _steering_hook = partial(
         latent_idx=14967,
         steering_coefficient=10,
     )
-_steering_hook2 = partial(
-        steering_hook,
-        sae=saes[0],
-        latent_idx=9681,
-        steering_coefficient=10,
-    )
 # model.add_sae(sae)
 model.add_hook(saes[1].cfg.hook_name, _steering_hook, "fwd")
 # model.add_hook(saes[0].cfg.hook_name, _steering_hook2, "fwd")
@@ -141,4 +140,89 @@ clean_diff = err_metric_denoising(logits)
 # steered_diff = logit_diff_fn(logits, selected_pos['end'])
 print(f"clean_diff: {clean_diff}")
 
+# %%
+
+from transformer_lens.utils import test_prompt
+model.reset_hooks()
+test_prompt(samples[0][5], "Traceback", model)
+
+
+# %%
+# Run the model without steering to get the base logits and log probabilities
+with torch.no_grad():
+    base_logits = model(clean_tokens)
+    base_log_probs = base_logits.softmax(dim=-1)
+    #torch.log_softmax(base_logits, dim=-1)
+print(base_log_probs.shape)
+# Get the top 5 tokens from the base log probabilities
+top_5_token_indices = torch.topk(base_log_probs[1, -1], 5).indices  # Assuming single batch, last token position
+
+print(f"Top 5 token indices: {top_5_token_indices}")
+print(model.tokenizer.decode(top_5_token_indices))
+
+
+
+# %%
+# base_log_probs.shape
+# base_log_probs.mean(0)[-1].shape
+# # get the avg across the batch and then topk 
+top_5_token_indices = torch.topk(base_log_probs.mean(0)[-1], 5).indices  # Assuming single batch, last token position
+
+print(f"Top 5 token indices: {top_5_token_indices}")
+print(model.tokenizer.decode(top_5_token_indices))
+
+# %%
+import matplotlib.pyplot as plt
+# Define the steering hook function
+def steering_hook(
+    activations,
+    hook,
+    sae,
+    latent_idx,
+    steering_coefficient,
+):
+    return activations + steering_coefficient * sae.W_dec[latent_idx]
+
+# Range of coefficients for steering
+coefficients = range(-80, 80, 10)  # Adjust range and step as needed
+
+# Dictionary to store log probs for each token at each coefficient value
+log_probs_per_token = {token.item(): [] for token in top_5_token_indices}
+
+# Iterate over coefficients, applying steering and recording log probs
+for coeff in coefficients:
+    _steering_hook = partial(
+        steering_hook,
+        sae=saes[3],
+        latent_idx=4611,
+        steering_coefficient=coeff,
+    )
+    model.add_hook(saes[3].cfg.hook_name, _steering_hook, "fwd")
+
+    with torch.no_grad():
+        steered_logits = model(clean_tokens)
+        steered_log_probs = steered_logits.softmax(dim=-1)
+        # torch.log_softmax(steered_logits, dim=-1)
+
+    # Store log probs for the top 5 tokens at this coefficient
+    for token_idx in top_5_token_indices:
+
+        avg_logits = steered_log_probs.mean(0)
+        token_log_prob = avg_logits[-1, token_idx].item()
+        log_probs_per_token[token_idx.item()].append(token_log_prob)
+
+    # Reset hooks after each coefficient to avoid interference
+    model.reset_hooks()
+
+# Plotting the results
+plt.figure(figsize=(10, 6))
+for token_idx, log_probs in log_probs_per_token.items():
+    plt.plot(coefficients, log_probs, label=f'Token {model.tokenizer.decode(token_idx)}')
+
+plt.xlabel("Steering Coefficient")
+plt.ylabel("Log Probability")
+plt.title("Log Probability of Top Tokens vs Steering Coefficient")
+plt.legend()
+plt.grid(True)
+plt.show()
 # %%

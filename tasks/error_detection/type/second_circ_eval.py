@@ -363,9 +363,7 @@ print(f"comb feats zero_logit: {zero_logit}")
 # Define the combinations of layers to ablate
 layer_combinations = [[7],
     [14], [21], [28], 
-    [40], [7, 40], [28, 40], [7, 14], [14, 40], [21, 40],
-    [7, 14, 21], [7, 14, 40], [7, 21, 40], [7, 28, 40], [14, 21, 40], [14, 28, 40], [21, 28, 40], 
-    [7, 14, 21, 40], [7, 14, 28, 40], [7, 14, 21, 28], [7, 21, 28, 40], [14, 21, 28, 40], [7, 14, 21, 28, 40],
+    [40], [7, 40], [28, 40], [7, 14], [14, 40], [21, 40], [7, 14, 21, 28, 40],
 ]
 
 # Dictionary to hold results
@@ -380,22 +378,24 @@ for layers in layer_combinations:
     # Filter dict_feats and combined_dict to only include the current combination of layers
     dict_feats_subset = filter_dict_by_layers(dict_feats, layers)
     combined_dict_subset = filter_dict_by_layers(combined_dict, layers)
-    print(dict_feats_subset)
+    # print(dict_feats_subset)
     # print(combined_dict_subset)
     # break
     # Run with dict_feats
-    logits = run_with_saes_zero_ablation(clean_tokens, filtered_ids, model, saes, dict_feats_subset)
+    logits = run_with_saes_mean_ablation(clean_tokens, filtered_ids, model, saes, corr_sae_cache_means, dict_feats_subset)
+    # logits = run_with_saes_zero_ablation(clean_tokens, filtered_ids, model, saes, dict_feats_subset)
     zero_logit_dict = logit_diff_fn(logits, selected_pos['end'])
     
     # Run with combined_dict
-    logits = run_with_saes_zero_ablation(clean_tokens, filtered_ids, model, saes, combined_dict_subset)
+    logits = run_with_saes_mean_ablation(clean_tokens, filtered_ids, model, saes, corr_sae_cache_means, combined_dict_subset)
+    # logits = run_with_saes_zero_ablation(clean_tokens, filtered_ids, model, saes, combined_dict_subset)
     zero_logit_comb = logit_diff_fn(logits, selected_pos['end'])
     
     # Store results
     layer_key = ', '.join(map(str, layers))
     results[layer_key] = (zero_logit_dict, zero_logit_comb)
 
-    print(f"Layers {layer_key}: Dict Feats Zero Logit = {zero_logit_dict}, Comb Feats Zero Logit = {zero_logit_comb}")
+    print(f"Layers {layer_key}: Dict Feats mean Logit = {zero_logit_dict}, Comb Feats mean Logit = {zero_logit_comb}")
 
 # Results are stored in the `results` dictionary for further analysis or plotting
 
@@ -412,7 +412,7 @@ labels = list(results.keys())
 dict_feats_values = [values[0].detach().cpu().item() for values in results.values()]
 comb_feats_values = [values[1].detach().cpu().item() for values in results.values()]
 
-dict_feats_values
+# dict_feats_values
 
 # %%
 # Plotting the bar chart
@@ -425,11 +425,218 @@ bars2 = ax.bar(x + width/2, comb_feats_values, width, label='1st+2nd latents')
 
 # Adding labels and title
 ax.set_xlabel("Layer Combinations to Ablate")
-ax.set_ylabel("Zero Ablation logit difference")
-ax.set_title("Zero Ablation for Different Layer Combinations in First order latents and Second order latents")
+ax.set_ylabel("Mean Ablation logit difference")
+ax.set_title("Mean Ablation for Different Layer Combinations in First order latents and Second order latents")
 ax.set_xticks(x)
 ax.set_xticklabels(labels, rotation=45, ha="right")
 ax.legend()
 
 plt.show()
+# %%
+
+# target latent 
+
+target_layer = 40
+target_latent = 11839
+
+# read the json in second_latents in top_20_results_L28_2102.json
+with open(f'tasks/error_detection/type/out/second_latents/top_20_results_L{target_layer}_{target_latent}.json') as f:
+   results = json.load(f)
+results
+
+# %%
+second_latents_target = {'blocks.21.hook_resid_post':[], 'blocks.14.hook_resid_post':[], 'blocks.7.hook_resid_post':[], 'blocks.28.hook_resid_post':[]}
+for result in results:
+    key = result['key']
+    feature_idx = result['feature_idx']
+    value = result['value']
+    if abs(value) > 0.06:
+        if feature_idx not in second_latents_target[key]:
+            second_latents_target[key].append(feature_idx)
+            print(f"Key: {key}, Feature Index: {feature_idx}, Value: {value}")
+
+second_latents_target
+
+# %%
+
+# read the json file
+with open('tasks/error_detection/type/out/layers_top_10_features_for_rel_pos_positive.json') as f:
+   results = json.load(f)
+
+
+def flatten_and_sort_results(results, k=10):
+   flattened_list = []
+  
+   # Iterate over layers and positions to extract values and feature indices
+   for layer, positions in results.items():
+      
+       # Iterate over each position ('i_start', 'i_end', 'end')
+       for pos_key, pos_val in positions.items():
+           for i in range(k):  # We take the top k values and indices
+               value = pos_val['top_values'][i]  # Attribution value
+               feature_idx = pos_val['top_indices'][i]  # Feature index
+              
+               # Add a tuple (layer, feature_idx, value) to the flattened list
+               flattened_list.append((int(layer), feature_idx, value))
+  
+   # Sort the flattened list by the attribution value (third element in the tuple)
+   flattened_list.sort(key=lambda x: x[2], reverse=True)  # Sort by value (highest to lowest)
+  
+   return flattened_list
+
+
+# Example usage
+flattened_sorted_list = flatten_and_sort_results(results, k=10)
+
+
+# Print the top 10 entries in the sorted list
+for entry in flattened_sorted_list[:25]:
+   print(entry)
+
+# %%
+   
+flattened_sorted_list[:25][:25]
+
+
+# %%
+
+# Initialize the dictionary to store the feature indices by layer
+dict_feats = {}
+
+# Iterate through the data list and populate the dictionary
+for layer, feature_idx, _ in flattened_sorted_list[:75][:75]:
+    if layer == 35:  # Skip layer 35
+        continue
+    
+    # Create the key for this layer
+    key = f"blocks.{layer}.hook_resid_post"
+    
+    # Add the feature index to the corresponding key in the dictionary
+    if key not in dict_feats:
+        dict_feats[key] = []
+    
+    dict_feats[key].append(feature_idx)
+
+# Output the resulting dictionary
+print(dict_feats)
+
+# %%
+   
+for key in second_latents_target.keys():
+    second_latents_target[key] = list(set(second_latents_target[key])- set(dict_feats[key]))
+    print(f"Key: {key}, Feature Indices: {second_latents_target[key]}")
+
+
+# %%
+model.reset_hooks()
+# second_latents_target = {'blocks.7.hook_resid_post': second_latents_target['blocks.7.hook_resid_post']}
+
+# %% 1st run - ablate second latents and cache the actis of target latent 
+
+
+# def run_with_saes_zero_ablation(tokens, filtered_ids, model, saes, dict_feats):
+   # Ensure tokens are a torch.Tensor
+if not isinstance(clean_tokens, torch.Tensor):
+    clean_tokens = torch.tensor(clean_tokens).to(model.cfg.device)  # Move to the device of the model
+
+# Create a mask where True indicates positions to modify
+mask = torch.ones_like(clean_tokens, dtype=torch.bool)
+for token_id in filtered_ids:
+    mask &= clean_tokens != token_id
+
+# Expand the mask once, so it matches the shape [batch_size, seq_len, 1]
+mask_expanded = mask.unsqueeze(-1)  # Expand to allow broadcasting
+mask_expanded = mask_expanded.to(model.cfg.device)  # Move the mask to the same device as the model
+target_cache = {}
+# For each SAE, add the appropriate hook
+for sae in saes:
+    hook_point = sae.cfg.hook_name
+
+    # Define the filtered hook function (optimized)
+    def filtered_hook(act, hook, sae=sae, mask_expanded=mask_expanded):
+        # Apply the SAE only where mask_expanded is True
+        enc_sae = sae.encode(act)  # Call the SAE once
+        
+        # If the current layer is in the cache and has specific feature indices to patch
+        if hook.name in second_latents_target: 
+
+            feature_indices = second_latents_target[hook.name]  # Get the feature indices to patch
+
+            for feature_idx in range(sae.cfg.d_sae):
+                if feature_idx in feature_indices:
+                    # define the zero tensor
+                    enc_sae[:, :, feature_idx] = torch.zeros_like(enc_sae[:, :, feature_idx])
+        if hook.name == 'blocks.40.hook_resid_post':
+            target_cache[hook.name] = enc_sae[:, :, target_latent]
+        # After patching, decode the modified enc_sae
+        modified_act = sae.decode(enc_sae)
+
+        # In-place update where the mask is True
+        updated_act = torch.where(mask_expanded, modified_act, act)
+
+        return updated_act
+
+    # Add the hook to the model
+    model.add_hook(hook_point, filtered_hook, dir='fwd')
+
+
+# Run the model with the tokens (no gradients needed)
+with torch.no_grad():
+    logits = model(clean_tokens)
+
+# Reset the hooks after computation to free memory
+model.reset_hooks()
+
+first_exp = logit_diff_fn(logits, selected_pos['end'])
+print(first_exp)
+
+# %%
+target_cache['blocks.28.hook_resid_post'].shape
+# %%
+# 2nd expeirment
+model.reset_hooks()
+if not isinstance(clean_tokens, torch.Tensor):
+    clean_tokens = torch.tensor(clean_tokens).to(model.cfg.device)  # Move to the device of the model
+
+# Create a mask where True indicates positions to modify
+mask = torch.ones_like(clean_tokens, dtype=torch.bool)
+for token_id in filtered_ids:
+    mask &= clean_tokens != token_id
+
+# Expand the mask once, so it matches the shape [batch_size, seq_len, 1]
+mask_expanded = mask.unsqueeze(-1)  # Expand to allow broadcasting
+mask_expanded = mask_expanded.to(model.cfg.device)  # Move the mask to the same device as the model
+# For each SAE, add the appropriate hook
+for sae in saes:
+    hook_point = sae.cfg.hook_name
+
+    # Define the filtered hook function (optimized)
+    def filtered_hook(act, hook, sae=sae, mask_expanded=mask_expanded):
+        # Apply the SAE only where mask_expanded is True
+        enc_sae = sae.encode(act)  # Call the SAE once
+
+        if hook.name == 'blocks.40.hook_resid_post':
+            enc_sae[:, :, target_latent] = target_cache[hook.name]
+        # After patching, decode the modified enc_sae
+        modified_act = sae.decode(enc_sae)
+
+        # In-place update where the mask is True
+        updated_act = torch.where(mask_expanded, modified_act, act)
+
+        return updated_act
+
+    # Add the hook to the model
+    model.add_hook(hook_point, filtered_hook, dir='fwd')
+
+
+# Run the model with the tokens (no gradients needed)
+with torch.no_grad():
+    logits = model(clean_tokens)
+
+# Reset the hooks after computation to free memory
+model.reset_hooks()
+
+sec_exp = logit_diff_fn(logits, selected_pos['end'])
+print(sec_exp)
+
 # %%

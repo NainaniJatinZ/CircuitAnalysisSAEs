@@ -38,7 +38,7 @@ def template_with_type_error_1():
 """
     no_error = f""">>> print("{variable_name}" + "{integer}")
 """
-    return type_error, no_error
+    return type_error, no_error, variable_name
 
 def template_with_type_error_2():
     variable_name = generate_random_variable_name()
@@ -113,14 +113,16 @@ def generate_random_type_error_pair(selected_templates):
 def generate_samples(selected_templates, N):
     clean = []
     corr = []
+    corr_var = []
     for i in range(N):
-        type_error, no_error = generate_random_type_error_pair(selected_templates)
+        type_error, no_error, var = generate_random_type_error_pair(selected_templates)
         # print(f"Sample {i+1} With TypeError:\n{type_error}")
         # print(f"Sample {i+1} Without Error:\n{no_error}")
         # print("-" * 80)
         clean.append(type_error)
         corr.append(no_error)
-    return clean, corr
+        corr_var.append(var)
+    return clean, corr, corr_var
     
 ipython = get_ipython()
 if ipython is not None:

@@ -325,10 +325,10 @@ def run_analysis(layers, k=10, top_k_mode="absolute"):
 # %%
 
 # Run the analysis across layers
-layers_to_analyze = [7, 14, 21, 28, 35, 40]
+layers_to_analyze = [7, 14, 21, 28, 40]
 
 # Specify the value of k and the top_k_mode (absolute, positive, or negative)
-run_analysis(layers_to_analyze, k=10, top_k_mode="positive")
+run_analysis(layers_to_analyze, k=100, top_k_mode="absolute")
 
 # You can also run:
 # run_analysis(layers_to_analyze, k=10, top_k_mode="positive")
