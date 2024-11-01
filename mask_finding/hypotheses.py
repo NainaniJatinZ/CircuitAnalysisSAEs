@@ -107,6 +107,7 @@ clean_tokens = model.to_tokens(clean_prompts)
 corr_tokens = model.to_tokens(corr_prompts)
 
 # %%
+model.reset_hooks()
 def logit_diff_fn(logits):
     err = logits[:, -1, traceback_token]
     no_err = logits[:, -1, answer_token]
@@ -947,6 +948,430 @@ print(model.tokenizer.decode(top_5_token_indices))
 
 # %% Hypothesis 4: Closing square bracket predictors, after dictionary definition, set the sub task of keying into a dictionary 
 
+
+
+index_helper_latents = {'blocks.7.hook_resid_post': [7008, 14309], 'blocks.14.hook_resid_post': [14864]}
+
+filtered_mask = mask.copy()
+filtered_mask['blocks.7.hook_resid_post'] = list(set(mask['blocks.7.hook_resid_post']) - set(index_helper_latents["blocks.7.hook_resid_post"]))
+filtered_mask['blocks.14.hook_resid_post'] = list(set(mask['blocks.14.hook_resid_post']) - set(index_helper_latents["blocks.14.hook_resid_post"]))
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, filtered_mask)
+
+log_probs = torch.nn.functional.softmax(logits, dim=-1)
+log_probs_answer = log_probs[:, -1, answer_token]
+log_probs_traceback = log_probs[:, -1, traceback_token]
+circuit_dup_ablated_answer = log_probs_answer.mean().detach().cpu().item()
+circuit_dup_ablated_traceback = log_probs_traceback.mean().detach().cpu().item()
+print("Duplicate cluster ablated: ", circuit_dup_ablated_answer)
+print("Duplicate cluster ablated, all latents: ", circuit_dup_ablated_traceback)
+
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, mask)
+log_probs = torch.nn.functional.softmax(logits, dim=-1)
+log_probs_answer = log_probs[:, -1, answer_token]
+log_probs_traceback = log_probs[:, -1, traceback_token]
+full_circuit_perf = log_probs_answer.mean().detach().cpu().item()
+full_circuit_traceback = log_probs_traceback.mean().detach().cpu().item()
+print("Full circuit perf: ", full_circuit_perf)
+print("Full circuit perf: ", full_circuit_traceback)
+
+del logits, log_probs
+cleanup_cuda()
+
+# %%
+# Helper function to get top 5 tokens and their mean log probabilities across batch dimension
+def get_top_5_tokens(logits, model, tokenizer):
+    log_probs = torch.nn.functional.softmax(logits, dim=-1).mean(dim=0)  # Take mean over batch dimension
+    log_probs_last = log_probs[-1, :]  # Log probs of the last token position
+    top_probs, top_tokens = torch.topk(log_probs_last, 5)
+    top_tokens = top_tokens.tolist()
+    top_probs = top_probs.tolist()
+    top_tokens_decoded = [tokenizer.decode([token]) for token in top_tokens]
+    return list(zip(top_tokens_decoded, top_probs))
+
+# Run the model for each condition and extract top 5 tokens
+# Full circuit
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, mask)
+top_5_full_circuit = get_top_5_tokens(logits, model, model.tokenizer)
+
+# Duplicate cluster ablated
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, filtered_mask)
+top_5_dup_ablated = get_top_5_tokens(logits, model, model.tokenizer)
+
+# Print a side-by-side comparison of the top 5 tokens for each condition
+from tabulate import tabulate
+
+# Prepare the data for display
+table_data = []
+for i in range(5):
+    table_data.append([
+        top_5_full_circuit[i][0],  # Token from full circuit
+        top_5_full_circuit[i][1],  # Probability from full circuit
+        top_5_dup_ablated[i][0],   # Token from ablated circuit
+        top_5_dup_ablated[i][1]    # Probability from ablated circuit
+    ])
+
+# %%
+# Display the table
+print(tabulate(
+    table_data,
+    headers=["Token (Full Circuit)", "Probability (Full Circuit)", "Token (Bracket Ablated)", "Probability (Bracket Ablated)"],
+    tablefmt="pretty"
+))
+
+
+
+# %% H2: >>> latents put the tasks as code output prediction
+
+index_helper_latents = {'blocks.7.hook_resid_post': [4287, 11707, 12134]}
+
+filtered_mask = mask.copy()
+filtered_mask['blocks.7.hook_resid_post'] = list(set(mask['blocks.7.hook_resid_post']) - set(index_helper_latents["blocks.7.hook_resid_post"]))
+
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, filtered_mask)
+
+log_probs = torch.nn.functional.softmax(logits, dim=-1)
+log_probs_answer = log_probs[:, -1, answer_token]
+log_probs_traceback = log_probs[:, -1, traceback_token]
+circuit_dup_ablated_answer = log_probs_answer.mean().detach().cpu().item()
+circuit_dup_ablated_traceback = log_probs_traceback.mean().detach().cpu().item()
+print("Duplicate cluster ablated: ", circuit_dup_ablated_answer)
+print("Duplicate cluster ablated, all latents: ", circuit_dup_ablated_traceback)
+
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, mask)
+log_probs = torch.nn.functional.softmax(logits, dim=-1)
+log_probs_answer = log_probs[:, -1, answer_token]
+log_probs_traceback = log_probs[:, -1, traceback_token]
+full_circuit_perf = log_probs_answer.mean().detach().cpu().item()
+full_circuit_traceback = log_probs_traceback.mean().detach().cpu().item()
+print("Full circuit perf: ", full_circuit_perf)
+print("Full circuit perf: ", full_circuit_traceback)
+
+del logits, log_probs
+cleanup_cuda()
+
+# %%
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Define the labels and values
+conditions = ['Circuit', 'Circuit with >> latents ablated']
+ablated_values = [full_circuit_perf, circuit_dup_ablated_answer]
+non_ablated_values = [full_circuit_traceback,circuit_dup_ablated_traceback]
+
+# Bar positions
+x = np.arange(len(conditions))
+
+# Width for each bar in a group
+bar_width = 0.35
+
+# Plotting
+plt.figure(figsize=(8, 6))
+bars1 = plt.bar(x - bar_width / 2, ablated_values, width=bar_width, label='Correct answer', color='#4C72B0')
+bars2 = plt.bar(x + bar_width / 2, non_ablated_values, width=bar_width, label='Traceback', color='#55A868')
+
+# Title and labels
+plt.title("Effect of ablating >>> token latents on \n Probability of traceback and answer \n for error free code", fontsize=14, weight='bold')
+plt.xlabel("Conditions", fontsize=14)
+plt.ylabel("Probability", fontsize=14)
+
+# Set x-axis tick positions and labels
+plt.xticks(x, conditions, fontsize=12)
+
+# Adding legend
+plt.legend(fontsize=12)
+
+# Display the values on top of the bars
+for bars in [bars1, bars2]:
+    for bar in bars:
+        yval = bar.get_height()
+        plt.text(
+            bar.get_x() + bar.get_width() / 2, 
+            yval + 0.001, 
+            f"{yval:.4f}", 
+            ha='center', 
+            va='bottom', 
+            fontsize=11
+        )
+
+plt.tight_layout()
+plt.show()
+
+
+
+
+# %%
+# Helper function to get top 5 tokens and their mean log probabilities across batch dimension
+def get_top_5_tokens(logits, model, tokenizer):
+    log_probs = torch.nn.functional.softmax(logits, dim=-1).mean(dim=0)  # Take mean over batch dimension
+    log_probs_last = log_probs[-1, :]  # Log probs of the last token position
+    top_probs, top_tokens = torch.topk(log_probs_last, 5)
+    top_tokens = top_tokens.tolist()
+    top_probs = top_probs.tolist()
+    top_tokens_decoded = [tokenizer.decode([token]) for token in top_tokens]
+    return list(zip(top_tokens_decoded, top_probs))
+
+# Run the model for each condition and extract top 5 tokens
+# Full circuit
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, mask)
+top_5_full_circuit = get_top_5_tokens(logits, model, model.tokenizer)
+
+# Duplicate cluster ablated
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, filtered_mask)
+top_5_dup_ablated = get_top_5_tokens(logits, model, model.tokenizer)
+
+# Print a side-by-side comparison of the top 5 tokens for each condition
+from tabulate import tabulate
+
+# Prepare the data for display
+table_data = []
+for i in range(5):
+    table_data.append([
+        top_5_full_circuit[i][0],  # Token from full circuit
+        top_5_full_circuit[i][1],  # Probability from full circuit
+        top_5_dup_ablated[i][0],   # Token from ablated circuit
+        top_5_dup_ablated[i][1]    # Probability from ablated circuit
+    ])
+
+# %%
+# Display the table
+print(tabulate(
+    table_data,
+    headers=["Token (Full Circuit)", "Probability (Full Circuit)", "Token (Bracket Ablated)", "Probability (Bracket Ablated)"],
+    tablefmt="pretty"
+))
+
+# %% H3: model has internal representation of dictionary 
+
+import random
+import pandas as pd
+
+# Sample names and values
+names = [
+    "Bob", "Sam", "Lilly", "Rob", "Alice", "Charlie", "Sally", "Tom", "Jake", "Emily", 
+    "Megan", "Chris", "Sophia", "James", "Oliver", "Isabella", "Mia", "Jackson", 
+    "Emma", "Ava", "Lucas", "Benjamin", "Ethan", "Grace", "Olivia", "Liam", "Noah"
+]
+# ages = [13, 15, 17, 18, 20]
+attributes = [
+    "age", "name", "height", "weight", "interest", "gender", "occupation", "nationality",
+    "marital_status", "education_level", "income", "languages_spoken", "place_of_birth",
+    "eye_color", "hair_color", "blood_type", "allergies", "personality_traits",
+    "favorite_color", "favorite_food", "relationship_status", "zodiac_sign",
+    "social_media_handles", "hometown", "current_residence", "education_institution",
+    "favorite_book", "favorite_movie", "favorite_music_genre", "favorite_sport", "pet_ownership"
+]
+
+# Expanded Hobbies List
+hobbies = [
+    "reading", "swimming", "hiking", "dancing", "coding", "painting", "traveling", "writing",
+    "cooking", "gardening", "biking", 
+    "yoga", "photography", "crafting", "fishing", "drawing", "knitting", "camping", "scuba_diving",
+    "surfing", "volunteering"
+]
+# Templates for dictionary and non-dictionary structures
+dict_template = "{var} = {{{pairs}}}"
+list_template = "{var} = [{items}]"
+string_template = "{var} = '{string}'"
+
+# Generate a random variable name
+def random_var_name():
+    return random.choice(attributes)
+
+# Generate a random dictionary structure
+def generate_dict():
+    var_name = random_var_name()
+    pairs = ', '.join(f"'{random.choice(names)}': {random.randint(0, 99)}" for _ in range(3))
+    return dict_template.format(var=var_name, pairs=pairs), 1
+
+# Generate a random list or string structure
+def generate_non_dict():
+    var_name = random_var_name()
+    structure_type = random.choice(["list", "string"])
+    
+    if structure_type == "list":
+        items = ', '.join(f"'{random.choice(names)}'" for _ in range(3))
+        return list_template.format(var=var_name, items=items), 0
+    else:
+        string = random.choice(hobbies)
+        return string_template.format(var=var_name, string=string), 0
+
+# Generate dataset
+def generate_dataset(n_samples):
+    data = []
+    for _ in range(n_samples):
+        if random.random() > 0.5:
+            sample, label = generate_dict()
+        else:
+            sample, label = generate_non_dict()
+        data.append({"text": sample, "label": label})
+    return pd.DataFrame(data)
+
+# Generate a dataset with N samples
+N = 1000
+dataset = generate_dataset(N)
+print(dataset)
+
+# %%
+probe_data = model.to_tokens(list(dataset['text'].values))
+print(probe_data.shape)
+_, cache = run_with_saes_filtered_cache(probe_data, filtered_ids, model, saes)
+relevant_latents = [1976, 6984, 7008, 7323, 10647]
+# index the cache['blocks.7.hook_resid_post'] with relevant latents
+relevant_cache = cache['blocks.7.hook_resid_post'][:, :, relevant_latents]
+relevant_cache.shape
+
+# %%
+
+cleanup_cuda()
+
+# %%
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, Dataset
+
+
+# Custom Dataset class to handle text and label data
+class TextDataset(Dataset):
+    def __init__(self, texts, labels):
+        self.texts = texts
+        self.labels = labels
+
+    def __len__(self):
+        return len(self.texts)
+
+    def __getitem__(self, idx):
+        return self.texts[idx], self.labels[idx]
+
+# Generate batches of tokens and activations
+def generate_activations_batch(batch_texts):
+    # Convert text to tokens in batch
+    probe_data = model.to_tokens(batch_texts).to(device)
+    
+    # Run model and retrieve cache
+    _, cache = run_with_saes_filtered_cache(probe_data, filtered_ids, model, saes)
+    
+    # Extract relevant activations for specific latents
+    relevant_latents = [1976, 6984, 7008, 7323, 10647]
+    relevant_cache = cache['blocks.7.hook_resid_post'][:, :, relevant_latents].to(device)
+    return relevant_cache  # Shape: (batch_size, seq_len, len(relevant_latents))
+
+# Define the linear probe model
+class LinearProbe(nn.Module):
+    def __init__(self, input_dim):
+        super(LinearProbe, self).__init__()
+        self.linear = nn.Linear(input_dim, 1)
+        
+    def forward(self, x):
+        x = x.mean(dim=1)  # Mean pooling over seq_len
+        return torch.sigmoid(self.linear(x)).squeeze(-1)
+
+# Initialize dataset, DataLoader, and model
+texts = list(dataset['text'].values)
+labels = list(dataset['label'].values)
+text_dataset = TextDataset(texts, labels)
+batch_size = 16  # Set batch size
+data_loader = DataLoader(text_dataset, batch_size=batch_size, shuffle=True)
+
+# %%
+model.reset_hooks()
+input_dim = len(relevant_latents)  # Number of relevant latents
+probe = LinearProbe(input_dim).to(device)  # Move model to GPU
+
+# Define loss and optimizer
+criterion = nn.BCELoss().to(device)
+optimizer = optim.Adam(probe.parameters(), lr=0.01)
+
+# Lists to store loss and accuracy for each epoch
+loss_history = []
+accuracy_history = []
+
+# Training loop with batching and CUDA
+num_epochs = 10
+for epoch in range(num_epochs):
+    epoch_loss = 0.0
+    correct_predictions = 0
+    total_predictions = 0
+    
+    for batch_texts, batch_labels in data_loader:
+        # Generate activations for the batch and move them to device
+        batch_activations = generate_activations_batch(batch_texts)
+        
+        # Convert labels to tensor and move to device
+        batch_labels = torch.tensor(batch_labels).float().to(device)
+        
+        # Forward pass
+        outputs = probe(batch_activations)
+        loss = criterion(outputs, batch_labels)
+        
+        # Backward pass and optimization
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        
+        # Accumulate batch loss
+        epoch_loss += loss.item()
+
+        # Calculate accuracy for this batch
+        predictions = (outputs >= 0.5).float()  # Convert probabilities to binary predictions
+        correct_predictions += (predictions == batch_labels).sum().item()
+        total_predictions += batch_labels.size(0)
+
+    # Calculate average loss and accuracy for the epoch
+    avg_loss = epoch_loss / len(data_loader)
+    accuracy = correct_predictions / total_predictions
+
+    # Append to history
+    loss_history.append(avg_loss)
+    accuracy_history.append(accuracy)
+
+    print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {avg_loss:.4f}, Accuracy: {accuracy:.4f}')
+
+# %%
+len(loss_history)
+
+# %%
+    
+# Plot loss and accuracy curves
+plt.figure(figsize=(12, 5))
+
+# Loss curve
+plt.subplot(1, 2, 1)
+plt.plot(range(1, len(loss_history) + 1), loss_history, marker='o', label="Loss")
+plt.xlabel("Epoch")
+plt.ylabel("Loss")
+plt.title("Training Loss - Linear probe for detecting dictionaries \nwith mean activations of 5 latents in circuit")
+plt.legend()
+
+# Accuracy curve
+plt.subplot(1, 2, 2)
+plt.plot(range(1, len(loss_history) + 1), accuracy_history, marker='o', color='orange', label="Accuracy")
+plt.xlabel("Epoch")
+plt.ylabel("Accuracy")
+plt.title("Training Accuracy - Linear probe for detecting dictionaries \nwith mean activations of 5 latents in circuit")
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+# %%
+
+# Specify the file path to save the model
+model_save_path = "mask_finding/out/hypotheses/dictionary_linear_probe_model.pth"
+
+# Save the model's state_dict (recommended for PyTorch models)
+torch.save(model.state_dict(), model_save_path)
+print(f"Model saved to {model_save_path}")
 
 
 # %% Hypothesis 2: Triple arrow detectors decide that the task is code output prediction
