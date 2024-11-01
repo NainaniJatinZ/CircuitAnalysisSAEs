@@ -64,34 +64,29 @@ from sae_dashboard.sae_vis_runner import SaeVisRunner
 
 with open('mask_finding/mask.json') as f:
     mask = json.load(f)
-mask
+# mask
 
 # %%
-sae = saes[-1]
-features = mask[sae.cfg.hook_name]
-features
-
-# %%
-
-sae.fold_W_dec_norm()
-# Configure visualization
-config = SaeVisConfig(
-    hook_point=sae.cfg.hook_name,
-    features=features,
-    minibatch_size_features=64,
-    minibatch_size_tokens=256,
-    device="cuda",
-    dtype="bfloat16"
-)
-
-# Generate data
-data = SaeVisRunner(config).run(encoder=sae, model=model, tokens=all_tokens)
-
-
-# %%
-# Save feature-centric visualization
 from sae_dashboard.data_writing_fns import save_feature_centric_vis
-save_feature_centric_vis(sae_vis_data=data, filename="feature_dashboard.html")
+for i in range(2):
+    
+    sae = saes[i]
+    features = mask[sae.cfg.hook_name]
+    print(sae.cfg.hook_name)
+    print(features)
+    sae.fold_W_dec_norm()
+    # Configure visualization
+    config = SaeVisConfig(
+        hook_point=sae.cfg.hook_name,
+        features=features,
+        minibatch_size_features=64,
+        minibatch_size_tokens=256,
+        device="cuda",
+        dtype="bfloat16"
+    )
+    # Generate data
+    data = SaeVisRunner(config).run(encoder=sae, model=model, tokens=all_tokens)
+    save_feature_centric_vis(sae_vis_data=data, filename=f"feature_dashboard_{sae.cfg.hook_name}.html")
 # %% getting 
 
 

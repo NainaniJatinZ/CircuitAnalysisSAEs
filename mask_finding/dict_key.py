@@ -349,7 +349,7 @@ print(f"clean_sae_diff: {clean_sae_diff}")
 print(f"corr_sae_diff: {corr_sae_diff}")
 
 # %%
-
+model.reset_hooks()
 logits = run_with_saes_zero_ablation(clean_tokens, filtered_ids, model, saes, mask)
 clean_sae_diff_ablation = logit_diff_fn(logits)
 print(f"clean_sae_diff_ablation: {clean_sae_diff_ablation}")
@@ -358,6 +358,407 @@ logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, mas
 corr_sae_diff_ablation = logit_diff_fn(logits)
 print(f"corr_sae_diff_ablation: {corr_sae_diff_ablation}")
 # %%
+
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import AgglomerativeClustering
+from sklearn.metrics import silhouette_score
+from sklearn.metrics.pairwise import cosine_similarity
+import json
+from collections import defaultdict
+
+# Step 1: Compute Mean Activation Vectors
+clean_sae_cache_means = {layer: sae_cache.mean(dim=0) for layer, sae_cache in clean_sae_cache.items()}
+corr_sae_cache_means = {layer: sae_cache.mean(dim=0) for layer, sae_cache in corr_sae_cache.items()}
+
+# Step 2: Compute Sum and Difference Vectors
+sum_vectors = {}
+diff_vectors = {}
+
+for layer, latents in mask.items():
+    sum_vectors[layer] = []
+    diff_vectors[layer] = []
+    
+    for latent in latents:
+        clean_vector = clean_sae_cache_means[layer][:, latent]
+        corr_vector = corr_sae_cache_means[layer][:, latent]
+        sum_vectors[layer].append(clean_vector + corr_vector)
+        diff_vectors[layer].append(clean_vector - corr_vector)
+    
+    sum_vectors[layer] = torch.stack(sum_vectors[layer])  # Shape: (n_latents, seq_len)
+    diff_vectors[layer] = torch.stack(diff_vectors[layer])  # Shape: (n_latents, seq_len)
+
+# Step 3: Optimal Clustering and Results Storage
+results = defaultdict(lambda: {"sum_clusters": {}, "diff_clusters": {}})
+
+def compute_optimal_clusters(vectors, vector_type):
+    cos_sim_matrix = cosine_similarity(vectors.cpu().numpy())
+    distance_matrix = 1 - cos_sim_matrix
+    np.fill_diagonal(distance_matrix, 0)
+    
+    # Define cluster search ranges for sum and diff vectors
+    if vector_type == "sum":
+        cluster_range = range(2, 50, 3)
+    else:
+        cluster_range = range(2, 8, 1)
+    
+    best_score, best_n_clusters = -1, 2
+    for n_clusters in cluster_range:
+        clustering_model = AgglomerativeClustering(n_clusters=n_clusters, metric='precomputed', linkage='average')
+        labels = clustering_model.fit_predict(distance_matrix)
+        score = silhouette_score(distance_matrix, labels, metric='precomputed')
+        if score > best_score:
+            best_score, best_n_clusters = score, n_clusters
+    return best_n_clusters
+
+# Define a function for clustering based on optimal clusters
+def apply_clustering(vectors, n_clusters):
+    cos_sim_matrix = cosine_similarity(vectors.cpu().numpy())
+    distance_matrix = 1 - cos_sim_matrix
+    clustering_model = AgglomerativeClustering(n_clusters=n_clusters, metric='precomputed', linkage='average')
+    return clustering_model.fit_predict(distance_matrix)
+
+# Step 4: Process Each Layer
+for layer in mask.keys():
+    optimal_clusters = {}
+
+    # Determine optimal clusters for sum and diff vectors
+    sum_vectors_layer = sum_vectors[layer]
+    diff_vectors_layer = diff_vectors[layer]
+    optimal_clusters["sum"] = compute_optimal_clusters(sum_vectors_layer, "sum")
+    optimal_clusters["diff"] = compute_optimal_clusters(diff_vectors_layer, "diff")
+
+    # Apply clustering with optimal clusters
+    sum_clusters = apply_clustering(sum_vectors_layer, optimal_clusters["sum"])
+    diff_clusters = apply_clustering(diff_vectors_layer, optimal_clusters["diff"])
+
+    # Group latents by cluster and store in results JSON structure
+    for cluster_type, clusters in zip(["sum_clusters", "diff_clusters"], [sum_clusters, diff_clusters]):
+        cluster_latent_indices = defaultdict(list)
+        for idx, cluster_id in enumerate(clusters):
+            cluster_latent_indices[cluster_id].append(mask[layer][idx])
+        results[layer][cluster_type] = {int(k): v for k, v in cluster_latent_indices.items()}
+
+    # Save heatmaps for both sum and diff vectors
+    def plot_heatmap(vectors, clusters, title_suffix):
+        cluster_means = []
+        tokens = model.to_str_tokens(clean_prompts[0])[-25:]  # Select last 25 tokens
+        latents_per_cluster = []
+
+        # Calculate mean activation for each cluster
+        for cluster_id in np.unique(clusters):
+            cluster_indices = np.where(clusters == cluster_id)[0]
+            cluster_mean = vectors[cluster_indices].mean(dim=0).cpu().numpy()[-25:]  # Last 25 tokens
+            cluster_means.append(cluster_mean)
+            latents_per_cluster.append(len(cluster_indices))
+
+        # Mask zero values for white color in heatmap
+        heatmap_data = np.array(cluster_means)
+        cmap = plt.cm.viridis
+        cmap.set_bad(color='white')
+        masked_data = np.ma.masked_where(heatmap_data == 0, heatmap_data)
+
+        # Plot heatmap
+        plt.figure(figsize=(8, 6))
+        plt.imshow(masked_data, aspect='auto', cmap=cmap, interpolation='nearest')
+        plt.colorbar(label='Mean Activation')
+        plt.xticks(ticks=range(len(tokens)), labels=tokens, rotation=90, fontsize=8)
+        plt.yticks(ticks=range(len(cluster_means)), labels=[f'Cluster {i} - {latents_per_cluster[i]} latents' for i in range(len(cluster_means))])
+
+        # Add lines to separate rows and columns
+        for row in range(1, len(cluster_means)):
+            plt.hlines(row - 0.5, xmin=-0.5, xmax=len(tokens) - 0.5, color='gray', linewidth=0.5)
+        for col in range(1, len(tokens)):
+            plt.vlines(col - 0.5, ymin=-0.5, ymax=len(cluster_means) - 0.5, color='gray', linewidth=0.5)
+
+        plt.title(f'{title_suffix} Activation for Layer: {layer}')
+        plt.xlabel('Tokens')
+        plt.ylabel('Cluster ID')
+        plt.tight_layout()
+        plt.savefig(f"mask_finding/out/clustering/{layer}_{title_suffix}_heatmap.png")
+        plt.show()
+
+    plot_heatmap(sum_vectors_layer, sum_clusters, "Sum")
+    plot_heatmap(diff_vectors_layer, diff_clusters, "Difference")
+
+# Step 5: Save clustering results to JSON
+with open('mask_finding/out/clustering/clustered_latents.json', 'w') as f:
+    json.dump(results, f, indent=2)
+
+print("End-to-end clustering and visualization completed. JSON and heatmaps saved.")
+
+
+# %%
+import numpy as np
+import matplotlib.pyplot as plt
+from tqdm import tqdm
+# Placeholder to store all drops for each clustering type
+drop_results = {
+    "sum_clusters": [],
+    "diff_clusters": []
+}
+
+# Helper function to calculate diff_ablation
+def calculate_diff_ablation(tokens, mask):
+    model.reset_hooks()
+    logits = run_with_saes_zero_ablation(tokens, filtered_ids, model, saes, mask)
+    return logit_diff_fn(logits)
+# Step 1: Calculate the total number of iterations for the progress bar
+total_iterations = sum(
+    len(clusters_data[layer][clustering_type])
+    for clustering_type in ["sum_clusters", "diff_clusters"]
+    for layer in results.keys()
+)
+
+# Step 2: Initialize a single tqdm progress bar with the total count
+with tqdm(total=total_iterations, desc="Processing All Clusters", leave=True) as pbar:
+    for clustering_type in ["sum_clusters", "diff_clusters"]:
+        clusters_data = results 
+        for layer in clusters_data.keys():
+
+            for cluster_id, latents in clusters_data[layer][clustering_type].items():
+                # Create new mask by excluding the latents in the current cluster
+                new_mask = {k: [v for v in latents if v not in clusters_data[layer][clustering_type][cluster_id]]
+                            for k, latents in mask.items()}
+
+                # Compute diff ablation with the modified mask
+                new_clean_sae_diff_ablation = calculate_diff_ablation(clean_tokens, new_mask)
+                new_corr_sae_diff_ablation = calculate_diff_ablation(corr_tokens, new_mask)
+
+                drop_clean = abs(clean_sae_diff_ablation - new_clean_sae_diff_ablation)
+                drop_corr = abs(corr_sae_diff_ablation - new_corr_sae_diff_ablation)
+                drop = drop_clean + drop_corr
+
+                drop_results[clustering_type].append({
+                    "layer": layer,
+                    "cluster_id": cluster_id,
+                    "drop": drop.detach().cpu().item(),
+                    "drop_clean": drop_clean.detach().cpu().item(),
+                    "drop_corr": drop_corr.detach().cpu().item(),
+                    "num_latents": len(latents)
+                })
+                pbar.update(1)
+
+# %%
+                
+# save the drop results to a json file
+with open('mask_finding/out/clustering/drop_results.json', 'w') as f:
+    json.dump(drop_results, f, indent=2)
+
+            
+# %%
+            
+# Step 4: Plot all drops for each clustering type, sorted by drop value
+for clustering_type, results in drop_results.items():
+    # Sort results by drop value
+    sorted_results = sorted(results, key=lambda x: x["drop"], reverse=True)
+    # Prepare data for plotting
+    labels = [f'{res["layer"]}, Cluster {res["cluster_id"]} ({res["num_latents"]} latents)' for res in sorted_results]
+    drops = [res["drop"] for res in sorted_results]
+    
+    # Plot the sorted drops
+    plt.figure(figsize=(12, 8))
+    plt.bar(labels, drops)
+    plt.xticks(rotation=90)
+    plt.xlabel('Layer, Cluster (Number of Latents)')
+    plt.ylabel('Absolute Drop in Diff Ablation')
+    plt.title(f'Sorted Drop in Diff Ablation for {clustering_type} (All Clusters)')
+    plt.tight_layout()
+    plt.show()
+
+# %%
+# Step 5: Plot normalized drop by number of latents for each clustering type
+for clustering_type, results in drop_results.items():
+    # Sort results by normalized drop (drop per latent)
+    normalized_results = sorted(results, key=lambda x: x["drop"] / x["num_latents"], reverse=True)
+    
+    # Prepare data for plotting
+    labels = [f'{res["layer"]}, Cluster {res["cluster_id"]} ({res["num_latents"]} latents)' for res in normalized_results]
+    normalized_drops = [res["drop"] / res["num_latents"] for res in normalized_results]
+    
+    # Plot the normalized sorted drops
+    plt.figure(figsize=(12, 8))
+    plt.bar(labels, normalized_drops)
+    plt.xticks(rotation=90)
+    plt.xlabel('Layer, Cluster (Number of Latents)')
+    plt.ylabel('Normalized Drop (by number of latents)')
+    plt.title(f'Sorted Normalized Drop in Diff Ablation per Latent for {clustering_type} (All Clusters)')
+    plt.tight_layout()
+    plt.show()
+
+
+# %%
+    
+# Step 4: Plot all drops for each clustering type, sorted by drop value
+for clustering_type, results in drop_results.items():
+    # Sort results by drop value
+    sorted_results = sorted(results, key=lambda x: x["drop"], reverse=True)
+    
+    # Prepare data for plotting
+    labels = [f'L{int(res["layer"].split(".")[1])}, C{res["cluster_id"]} ({res["num_latents"]})'
+              for res in sorted_results]
+    drops = [res["drop"] for res in sorted_results]
+    
+    # Plot the sorted drops
+    plt.figure(figsize=(12, 8))
+    plt.bar(labels, drops)
+    plt.xticks(rotation=90)
+    plt.xlabel('Layer, Cluster (Number of Latents)')
+    plt.ylabel('Absolute Drop in Diff Ablation')
+    plt.title(f'Sorted Drop in Diff Ablation for {clustering_type} (All Clusters)')
+    plt.tight_layout()
+    plt.show()
+# %%
+
+
+# Step 5: Plot normalized drop by number of latents for each clustering type
+for clustering_type, results in drop_results.items():
+    # Sort results by normalized drop (drop per latent)
+    normalized_results = sorted(results, key=lambda x: x["drop"] / x["num_latents"], reverse=True)
+    
+    # Prepare data for plotting
+    labels = [f'L{int(res["layer"].split(".")[1])}, C{res["cluster_id"]} ({res["num_latents"]})'
+              for res in normalized_results]
+    normalized_drops = [res["drop"] / res["num_latents"] for res in normalized_results]
+    
+    # Plot the normalized sorted drops
+    plt.figure(figsize=(12, 8))
+    plt.bar(labels, normalized_drops)
+    plt.xticks(rotation=90)
+    plt.xlabel('Layer, Cluster (Number of Latents)')
+    plt.ylabel('Normalized Drop (by number of latents)')
+    plt.title(f'Sorted Normalized Drop in Diff Ablation per Latent for {clustering_type} (All Clusters)')
+    plt.tight_layout()
+    plt.show()
+
+
+
+# %%
+layer_str = 'blocks.40.hook_resid_post'
+# extract layer number from str
+layer = int(layer_str.split('.')[1])
+
+
+# %% testing 
+
+new_mask_test = mask.copy()
+# new_mask_test[]
+
+# %%
+# load clustered latnets as cluster_results 
+with open('mask_finding/out/clustering/clustered_latents.json') as f:
+    cluster_results = json.load(f)
+
+# %%
+len(list(set(mask['blocks.40.hook_resid_post']) -  set(cluster_results['blocks.40.hook_resid_post']['diff_clusters']['2'])))
+
+# %%
+cluster_results['blocks.40.hook_resid_post']['diff_clusters']['2']
+new_mask_test = mask.copy()
+new_mask_test['blocks.40.hook_resid_post'] = list(set(mask['blocks.40.hook_resid_post']) -  set(cluster_results['blocks.40.hook_resid_post']['diff_clusters']['2']))
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(clean_tokens, filtered_ids, model, saes, new_mask_test)
+clean_sae_diff_ablation_testing = logit_diff_fn(logits)
+print(f"clean_sae_diff_ablation_testing: {clean_sae_diff_ablation_testing}")
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, new_mask_test)
+corr_sae_diff_ablation_testing = logit_diff_fn(logits)
+print(f"corr_sae_diff_ablation_testing: {corr_sae_diff_ablation_testing}")
+
+# %%
+
+# Step 1: Identify the lowest 20 clusters in sum_clusters based on normalized drop
+normalized_results = sorted(drop_results['sum_clusters'], key=lambda x: x["drop"] / x["num_latents"])
+
+# Get the lowest 20 clusters
+lowest_20_clusters = normalized_results[:40]
+
+# Step 2: Create a copy of the original mask and remove latents from the lowest 20 clusters
+new_mask_test = mask.copy()
+for cluster_info in lowest_20_clusters:
+    layer = cluster_info["layer"]
+    cluster_id = cluster_info["cluster_id"]
+    
+    # Get latents to remove for this specific cluster
+    latents_to_remove = set(cluster_results[layer]['sum_clusters'][str(cluster_id)])
+    
+    # Update the mask by removing these latents
+    new_mask_test[layer] = list(set(new_mask_test[layer]) - latents_to_remove)
+
+# Step 3: Compute diff ablation for clean and corrupted tokens using the modified mask
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(clean_tokens, filtered_ids, model, saes, new_mask_test)
+clean_sae_diff_ablation_testing = logit_diff_fn(logits)
+print(f"clean_sae_diff_ablation_testing: {clean_sae_diff_ablation_testing}")
+
+model.reset_hooks()
+logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, new_mask_test)
+corr_sae_diff_ablation_testing = logit_diff_fn(logits)
+print(f"corr_sae_diff_ablation_testing: {corr_sae_diff_ablation_testing}")
+
+# %%
+
+cluster_results['blocks.7.hook_resid_post']['sum_clusters']['23']
+
+
+
+# %%
+# calc the total number of latents in lowest_20_clusters
+total_latents = 0
+for clus in lowest_20_clusters: 
+    total_latents += clus['num_latents']
+print(total_latents)
+
+
+# %%
+
+# Step 1: Sort the sum clusters by normalized drop (drop per latent) in descending order
+sorted_sum_clusters = sorted(drop_results['sum_clusters'], key=lambda x: x["drop"] / x["num_latents"], reverse=True)
+
+# Step 2: Print the layer, cluster index, and latent indices from highest to lowest
+i = 0
+ttl_lattss = 0
+for cluster_info in sorted_sum_clusters:
+    layer = cluster_info["layer"]
+    cluster_id = cluster_info["cluster_id"]
+    latents = cluster_results[layer]['sum_clusters'][str(cluster_id)]  # Retrieve latent indices for this cluster
+    
+    # Print information in the desired format
+    print(f"Layer: {layer}, Cluster ID: {cluster_id}, Latent Indices: {latents}")
+    i+=1
+    ttl_lattss += len(latents)
+    if cluster_id == 34 and layer == 'blocks.21.hook_resid_post': 
+        break
+
+print(f"Total number of latents: {ttl_lattss}")
+print(f"Total number of clusters: {i}")
+
+# %%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

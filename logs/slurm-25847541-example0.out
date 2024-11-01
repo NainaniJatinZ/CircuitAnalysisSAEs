@@ -1,0 +1,3 @@
+Device: cuda
+Loaded pretrained model google/gemma-2-9b into HookedTransformer
+torch.Size([21681, 128])

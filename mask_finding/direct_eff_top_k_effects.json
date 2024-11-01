@@ -1,1 +1,1688 @@
-{"blocks.40.hook_resid_post-9682": {"blocks.7.hook_resid_post-75": {"denoising_metric": -0.00018848018953576684, "noising_metric": 0.004572858568280935}, "blocks.7.hook_resid_post-351": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-488": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-632": {"denoising_metric": 7.631971675436944e-05, "noising_metric": 5.7766857935348526e-05}, "blocks.7.hook_resid_post-1422": {"denoising_metric": -1.2860505194112193e-05, "noising_metric": -0.0001022515571094118}, "blocks.7.hook_resid_post-1575": {"denoising_metric": -4.511718361754902e-05, "noising_metric": 0.007535834331065416}, "blocks.7.hook_resid_post-1589": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-1662": {"denoising_metric": 0.000627845642156899, "noising_metric": 0.0028562971856445074}, "blocks.7.hook_resid_post-1935": {"denoising_metric": -0.00039045338053256273, "noising_metric": 0.005313707981258631}, "blocks.7.hook_resid_post-1949": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-1976": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-2467": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-2701": {"denoising_metric": 0.0013695383677259088, "noising_metric": 0.005626154597848654}, "blocks.7.hook_resid_post-2846": {"denoising_metric": 0.0004336730926297605, "noising_metric": -0.00010710060450946912}, "blocks.7.hook_resid_post-2881": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-3153": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-3231": {"denoising_metric": -0.0009057169081643224, "noising_metric": 0.007732326164841652}, "blocks.7.hook_resid_post-3257": {"denoising_metric": -0.001519226236268878, "noising_metric": 0.0033226485829800367}, "blocks.7.hook_resid_post-3354": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-3418": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-3524": {"denoising_metric": 0.0014867587015032768, "noising_metric": 0.003086942946538329}, "blocks.7.hook_resid_post-3658": {"denoising_metric": -0.00011679868475766852, "noising_metric": 0.002492829691618681}, "blocks.7.hook_resid_post-3784": {"denoising_metric": -0.00042460751137696207, "noising_metric": 0.002111441921442747}, "blocks.7.hook_resid_post-3985": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-3992": {"denoising_metric": -8.011462341528386e-06, "noising_metric": -0.00017583051521796733}, "blocks.7.hook_resid_post-4287": {"denoising_metric": 1.5179613001237158e-05, "noising_metric": 0.000244138776906766}, "blocks.7.hook_resid_post-5196": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-5311": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-5337": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-5459": {"denoising_metric": -0.00014610377547796816, "noising_metric": 0.008312946185469627}, "blocks.7.hook_resid_post-5537": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-5587": {"denoising_metric": 3.858151467284188e-05, "noising_metric": 0.002322480781003833}, "blocks.7.hook_resid_post-6491": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-6500": {"denoising_metric": 0.0035965139977633953, "noising_metric": -0.007079181261360645}, "blocks.7.hook_resid_post-6535": {"denoising_metric": 0.001492661889642477, "noising_metric": -0.0029380982741713524}, "blocks.7.hook_resid_post-6671": {"denoising_metric": 1.054139829648193e-06, "noising_metric": 0.0054688770323991776}, "blocks.7.hook_resid_post-6800": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-6928": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-6984": {"denoising_metric": -0.0010543506359681487, "noising_metric": 0.005100349895656109}, "blocks.7.hook_resid_post-7008": {"denoising_metric": 0.00022221266408450902, "noising_metric": 0.00246921693906188}, "blocks.7.hook_resid_post-7024": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-7323": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-7857": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-7958": {"denoising_metric": -0.0013450823025777936, "noising_metric": 0.013793629594147205}, "blocks.7.hook_resid_post-8146": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-8667": {"denoising_metric": -0.0014850720763206482, "noising_metric": 0.010634583421051502}, "blocks.7.hook_resid_post-8895": {"denoising_metric": 0.0006181475473567843, "noising_metric": 0.00280127115547657}, "blocks.7.hook_resid_post-9046": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-9052": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-9353": {"denoising_metric": 0.0012373492354527116, "noising_metric": 0.002029219176620245}, "blocks.7.hook_resid_post-9513": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-9681": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-9850": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-10093": {"denoising_metric": -0.005262687336653471, "noising_metric": 0.022037846967577934}, "blocks.7.hook_resid_post-10094": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-10180": {"denoising_metric": -1.054139829648193e-06, "noising_metric": 0.0028111799620091915}, "blocks.7.hook_resid_post-10267": {"denoising_metric": -0.00011005219130311161, "noising_metric": -0.00010372735414421186}, "blocks.7.hook_resid_post-10647": {"denoising_metric": -0.0013362276367843151, "noising_metric": 0.002110387897118926}, "blocks.7.hook_resid_post-10680": {"denoising_metric": -0.00011806365364464, "noising_metric": 0.002644625958055258}, "blocks.7.hook_resid_post-10768": {"denoising_metric": 0.015867754817008972, "noising_metric": -0.0017884535482153296}, "blocks.7.hook_resid_post-10868": {"denoising_metric": 0.001644458039663732, "noising_metric": -0.0029844804666936398}, "blocks.7.hook_resid_post-11204": {"denoising_metric": 0.0006624214584007859, "noising_metric": -9.171015699394047e-05}, "blocks.7.hook_resid_post-11526": {"denoising_metric": 0.00011511206685099751, "noising_metric": -0.0003678947687149048}, "blocks.7.hook_resid_post-11635": {"denoising_metric": 0.012146852910518646, "noising_metric": -0.0019615432247519493}, "blocks.7.hook_resid_post-11707": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-11740": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-12134": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-12275": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-12387": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-12407": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-12571": {"denoising_metric": -0.00016929484263528138, "noising_metric": 5.882099867449142e-05}, "blocks.7.hook_resid_post-12880": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-12956": {"denoising_metric": -0.00020935216161888093, "noising_metric": -0.0003520826867315918}, "blocks.7.hook_resid_post-13383": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-13407": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-13630": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-13635": {"denoising_metric": -0.0005656513967551291, "noising_metric": 0.0020104553550481796}, "blocks.7.hook_resid_post-13694": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-14249": {"denoising_metric": -0.00040795208769850433, "noising_metric": -0.0005896858056075871}, "blocks.7.hook_resid_post-14309": {"denoising_metric": -0.00031139288330450654, "noising_metric": 0.007543846033513546}, "blocks.7.hook_resid_post-14342": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-14615": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-14827": {"denoising_metric": 6.303755799308419e-05, "noising_metric": -0.0001033056978485547}, "blocks.7.hook_resid_post-15328": {"denoising_metric": -7.400061440421268e-05, "noising_metric": -0.00018342031398788095}, "blocks.7.hook_resid_post-15462": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-15613": {"denoising_metric": -0.001592383487150073, "noising_metric": 0.013320953585207462}, "blocks.7.hook_resid_post-15678": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-15738": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.7.hook_resid_post-15796": {"denoising_metric": 3.6051580536877736e-05, "noising_metric": 0.0025822208262979984}, "blocks.7.hook_resid_post-16179": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-56": {"denoising_metric": -9.908913852996193e-06, "noising_metric": 4.216558954794891e-05}, "blocks.14.hook_resid_post-207": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-357": {"denoising_metric": 0.0024156668223440647, "noising_metric": -0.0003362705756444484}, "blocks.14.hook_resid_post-461": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-520": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-738": {"denoising_metric": -0.0021740577649325132, "noising_metric": 0.008577324450016022}, "blocks.14.hook_resid_post-849": {"denoising_metric": -0.0009630621061660349, "noising_metric": 0.00836059357970953}, "blocks.14.hook_resid_post-850": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-985": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-1153": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-1158": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-1401": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-1564": {"denoising_metric": -0.00272980029694736, "noising_metric": -0.001749239512719214}, "blocks.14.hook_resid_post-1919": {"denoising_metric": -3.815985837718472e-05, "noising_metric": 0.00266950367949903}, "blocks.14.hook_resid_post-1977": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-2047": {"denoising_metric": -6.029679570929147e-05, "noising_metric": -7.990379526745528e-05}, "blocks.14.hook_resid_post-2186": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-2452": {"denoising_metric": -8.770442946115509e-05, "noising_metric": -0.00012143690400989726}, "blocks.14.hook_resid_post-2463": {"denoising_metric": 0.00041280113509856164, "noising_metric": 0.005469931289553642}, "blocks.14.hook_resid_post-2567": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-2602": {"denoising_metric": -0.0003474444674793631, "noising_metric": 0.0002125145838363096}, "blocks.14.hook_resid_post-2770": {"denoising_metric": -0.0008441551472060382, "noising_metric": 0.008651746436953545}, "blocks.14.hook_resid_post-2796": {"denoising_metric": 0.0032796396408230066, "noising_metric": -0.0004465336096473038}, "blocks.14.hook_resid_post-2894": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-2936": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-2959": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-2992": {"denoising_metric": -0.002449610037729144, "noising_metric": 0.007547640707343817}, "blocks.14.hook_resid_post-3082": {"denoising_metric": -0.0012527396902441978, "noising_metric": 0.010212295688688755}, "blocks.14.hook_resid_post-3330": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-3373": {"denoising_metric": -0.0020148828625679016, "noising_metric": 0.006540726404637098}, "blocks.14.hook_resid_post-3468": {"denoising_metric": 5.481526750372723e-05, "noising_metric": 0.005833188071846962}, "blocks.14.hook_resid_post-3696": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-3714": {"denoising_metric": -0.00376939307898283, "noising_metric": 0.005566701292991638}, "blocks.14.hook_resid_post-3742": {"denoising_metric": -0.00019375089323148131, "noising_metric": 0.012608987279236317}, "blocks.14.hook_resid_post-3790": {"denoising_metric": -0.00048574761603958905, "noising_metric": 0.0029106908477842808}, "blocks.14.hook_resid_post-4140": {"denoising_metric": 0.00017646299966145307, "noising_metric": -0.00040078393067233264}, "blocks.14.hook_resid_post-4141": {"denoising_metric": 0.0006967863882891834, "noising_metric": 0.012078123167157173}, "blocks.14.hook_resid_post-4149": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-4472": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-4698": {"denoising_metric": -0.0009461958543397486, "noising_metric": 0.0019644948188215494}, "blocks.14.hook_resid_post-4709": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-4713": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-4718": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-4834": {"denoising_metric": 0.002511804224923253, "noising_metric": 0.00804013479501009}, "blocks.14.hook_resid_post-4882": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-4987": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-4996": {"denoising_metric": 0.00023064578999765217, "noising_metric": 0.0026102608535438776}, "blocks.14.hook_resid_post-5003": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-5419": {"denoising_metric": 4.912291478831321e-05, "noising_metric": 0.002653480740264058}, "blocks.14.hook_resid_post-5459": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-5499": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-5606": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-5938": {"denoising_metric": -2.3191074433270842e-05, "noising_metric": 0.0}, "blocks.14.hook_resid_post-6150": {"denoising_metric": 0.006162500940263271, "noising_metric": 0.0014488097513094544}, "blocks.14.hook_resid_post-6400": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-6436": {"denoising_metric": -0.003310420550405979, "noising_metric": 0.006549370475113392}, "blocks.14.hook_resid_post-6460": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-6494": {"denoising_metric": -0.0003748520975932479, "noising_metric": -0.003339514834806323}, "blocks.14.hook_resid_post-6803": {"denoising_metric": -0.0015809988835826516, "noising_metric": -0.007280311081558466}, "blocks.14.hook_resid_post-6832": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-6844": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-6880": {"denoising_metric": -0.001372911618091166, "noising_metric": 0.0008964404696598649}, "blocks.14.hook_resid_post-6939": {"denoising_metric": -0.0001878477050922811, "noising_metric": -0.003163684392347932}, "blocks.14.hook_resid_post-7150": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-7216": {"denoising_metric": -0.002750883111730218, "noising_metric": -0.002006238792091608}, "blocks.14.hook_resid_post-7501": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-7570": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-7598": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-7761": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-7857": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-8036": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-8080": {"denoising_metric": -0.0004224992298986763, "noising_metric": -0.00047478455235250294}, "blocks.14.hook_resid_post-8269": {"denoising_metric": 0.0018687789561226964, "noising_metric": 0.011474943719804287}, "blocks.14.hook_resid_post-8321": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-8429": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-8482": {"denoising_metric": -0.001971662975847721, "noising_metric": 0.0025906539522111416}, "blocks.14.hook_resid_post-8657": {"denoising_metric": 0.0009440875728614628, "noising_metric": 0.008845075964927673}, "blocks.14.hook_resid_post-8719": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-8746": {"denoising_metric": -0.0017684248741716146, "noising_metric": 0.037659354507923126}, "blocks.14.hook_resid_post-8831": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-8930": {"denoising_metric": 0.00022664005518890917, "noising_metric": -0.0005287565290927887}, "blocks.14.hook_resid_post-9018": {"denoising_metric": -0.0003394329978618771, "noising_metric": 0.0028301544953137636}, "blocks.14.hook_resid_post-9203": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-9368": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-9425": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-9521": {"denoising_metric": -0.00295032630674541, "noising_metric": 0.009405035525560379}, "blocks.14.hook_resid_post-9534": {"denoising_metric": -0.00031750689959153533, "noising_metric": 0.0016613242914900184}, "blocks.14.hook_resid_post-9642": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-9784": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-10324": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-10361": {"denoising_metric": -7.252481736941263e-05, "noising_metric": 0.011497502215206623}, "blocks.14.hook_resid_post-10512": {"denoising_metric": -0.0018913375679403543, "noising_metric": -0.005298738833516836}, "blocks.14.hook_resid_post-10762": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-11169": {"denoising_metric": 0.0004840609908569604, "noising_metric": 0.002639566082507372}, "blocks.14.hook_resid_post-11205": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-11333": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-11495": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-11527": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-11578": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-11584": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-11618": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-11754": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-11757": {"denoising_metric": 0.00029305086354725063, "noising_metric": 0.002192188985645771}, "blocks.14.hook_resid_post-12180": {"denoising_metric": -0.002142644487321377, "noising_metric": 0.018194664269685745}, "blocks.14.hook_resid_post-12355": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-12457": {"denoising_metric": -0.001171992626041174, "noising_metric": 0.0057695177383720875}, "blocks.14.hook_resid_post-12514": {"denoising_metric": -0.00044737692223861814, "noising_metric": 0.005033939145505428}, "blocks.14.hook_resid_post-12725": {"denoising_metric": 0.0008104226435534656, "noising_metric": 0.002981950528919697}, "blocks.14.hook_resid_post-12749": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-13138": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-13145": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-13148": {"denoising_metric": -0.000611822702921927, "noising_metric": -0.0006915156845934689}, "blocks.14.hook_resid_post-13474": {"denoising_metric": 0.0005430927849374712, "noising_metric": -0.0031809723004698753}, "blocks.14.hook_resid_post-13518": {"denoising_metric": 0.0023422986268997192, "noising_metric": 0.011543252505362034}, "blocks.14.hook_resid_post-13585": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-13691": {"denoising_metric": -0.0008686111541464925, "noising_metric": 0.005318345967680216}, "blocks.14.hook_resid_post-13958": {"denoising_metric": -0.00026353495195508003, "noising_metric": -0.0003917183494195342}, "blocks.14.hook_resid_post-13962": {"denoising_metric": -0.0005753494915552437, "noising_metric": -0.005940288305282593}, "blocks.14.hook_resid_post-14015": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-14057": {"denoising_metric": 8.749360131332651e-05, "noising_metric": 0.0023285946808755398}, "blocks.14.hook_resid_post-14187": {"denoising_metric": 0.0006411278154700994, "noising_metric": 0.00577984843403101}, "blocks.14.hook_resid_post-14201": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-14309": {"denoising_metric": -0.00018089039076585323, "noising_metric": -3.478661164990626e-05}, "blocks.14.hook_resid_post-14502": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-14561": {"denoising_metric": -0.0029300868045538664, "noising_metric": -0.003759905695915222}, "blocks.14.hook_resid_post-14566": {"denoising_metric": 2.951591341116e-06, "noising_metric": -0.0029931245371699333}, "blocks.14.hook_resid_post-14572": {"denoising_metric": 0.001157445483841002, "noising_metric": -0.001253161346539855}, "blocks.14.hook_resid_post-14632": {"denoising_metric": 0.0009255346958525479, "noising_metric": 0.007662331219762564}, "blocks.14.hook_resid_post-14864": {"denoising_metric": 0.004141293466091156, "noising_metric": 0.004324503242969513}, "blocks.14.hook_resid_post-14913": {"denoising_metric": 0.00014821205695625395, "noising_metric": 0.008526093326508999}, "blocks.14.hook_resid_post-14946": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-15119": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-15138": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-15260": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-15628": {"denoising_metric": 0.000419125979533419, "noising_metric": 0.008602623827755451}, "blocks.14.hook_resid_post-15646": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-15707": {"denoising_metric": -8.348787378054112e-05, "noising_metric": -5.7345205277670175e-05}, "blocks.14.hook_resid_post-15729": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.14.hook_resid_post-16185": {"denoising_metric": -0.0007764793699607253, "noising_metric": -0.004745315760374069}, "blocks.21.hook_resid_post-13": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-43": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-52": {"denoising_metric": 0.004930000752210617, "noising_metric": 0.019849030300974846}, "blocks.21.hook_resid_post-406": {"denoising_metric": -0.00048574761603958905, "noising_metric": -5.7977686083177105e-05}, "blocks.21.hook_resid_post-520": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-534": {"denoising_metric": 0.009351063519716263, "noising_metric": -0.0028676819056272507}, "blocks.21.hook_resid_post-576": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-712": {"denoising_metric": -0.0028615677729249, "noising_metric": 0.012213052250444889}, "blocks.21.hook_resid_post-718": {"denoising_metric": 0.001609460567124188, "noising_metric": 0.012179531157016754}, "blocks.21.hook_resid_post-722": {"denoising_metric": 0.00013809230586048216, "noising_metric": 0.0032610867638140917}, "blocks.21.hook_resid_post-824": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-918": {"denoising_metric": 9.192098514176905e-05, "noising_metric": 0.0024082877207547426}, "blocks.21.hook_resid_post-1374": {"denoising_metric": 4.258724584360607e-05, "noising_metric": -0.003889775834977627}, "blocks.21.hook_resid_post-1408": {"denoising_metric": 0.0033513212110847235, "noising_metric": 0.02688414789736271}, "blocks.21.hook_resid_post-1662": {"denoising_metric": 0.00016486746608279645, "noising_metric": 0.003002400975674391}, "blocks.21.hook_resid_post-1723": {"denoising_metric": 0.005308858584612608, "noising_metric": 0.012170043773949146}, "blocks.21.hook_resid_post-1744": {"denoising_metric": -0.00543619878590107, "noising_metric": 0.01245613768696785}, "blocks.21.hook_resid_post-1831": {"denoising_metric": 0.006790557410567999, "noising_metric": 0.01662483811378479}, "blocks.21.hook_resid_post-1942": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-1967": {"denoising_metric": -0.00433356873691082, "noising_metric": -0.003997297957539558}, "blocks.21.hook_resid_post-2054": {"denoising_metric": 0.001080704154446721, "noising_metric": 0.006314297206699848}, "blocks.21.hook_resid_post-2123": {"denoising_metric": -0.001556753646582365, "noising_metric": 0.011352663859724998}, "blocks.21.hook_resid_post-2239": {"denoising_metric": 0.0012672868324443698, "noising_metric": 0.0031282652635127306}, "blocks.21.hook_resid_post-2293": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-2442": {"denoising_metric": 0.0005920049152337015, "noising_metric": -0.00024624704383313656}, "blocks.21.hook_resid_post-2445": {"denoising_metric": 0.0001682407018961385, "noising_metric": 1.0119742000824772e-05}, "blocks.21.hook_resid_post-2502": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-2739": {"denoising_metric": 0.0034491452388465405, "noising_metric": 0.019341567531228065}, "blocks.21.hook_resid_post-2899": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-2916": {"denoising_metric": 8.222290489356965e-06, "noising_metric": 0.011528072878718376}, "blocks.21.hook_resid_post-2919": {"denoising_metric": 1.4125473171588965e-05, "noising_metric": -1.918534326250665e-05}, "blocks.21.hook_resid_post-2957": {"denoising_metric": 0.00015559102757833898, "noising_metric": -0.00011026301945094019}, "blocks.21.hook_resid_post-3002": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-3018": {"denoising_metric": -0.00010351652599638328, "noising_metric": 0.0114344647154212}, "blocks.21.hook_resid_post-3023": {"denoising_metric": 0.004824587143957615, "noising_metric": 0.005655249115079641}, "blocks.21.hook_resid_post-3076": {"denoising_metric": -0.007764793466776609, "noising_metric": 0.026118842884898186}, "blocks.21.hook_resid_post-3129": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-3186": {"denoising_metric": -3.1624192615709035e-06, "noising_metric": -3.373247182025807e-06}, "blocks.21.hook_resid_post-3261": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-3357": {"denoising_metric": 0.00020829802087973803, "noising_metric": 4.047896800329909e-05}, "blocks.21.hook_resid_post-3377": {"denoising_metric": -0.0001821553596528247, "noising_metric": 0.005640701856464148}, "blocks.21.hook_resid_post-3492": {"denoising_metric": -0.010176454670727253, "noising_metric": 0.022087179124355316}, "blocks.21.hook_resid_post-3547": {"denoising_metric": -0.000623839907348156, "noising_metric": 0.0001355623680865392}, "blocks.21.hook_resid_post-3610": {"denoising_metric": 0.002642096020281315, "noising_metric": -0.0031278436072170734}, "blocks.21.hook_resid_post-3671": {"denoising_metric": 0.0023138367105275393, "noising_metric": -0.004779680632054806}, "blocks.21.hook_resid_post-3695": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-4289": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-4312": {"denoising_metric": 9.171015699394047e-05, "noising_metric": -0.00015980759053491056}, "blocks.21.hook_resid_post-4333": {"denoising_metric": -0.00046382148866541684, "noising_metric": -9.866748587228358e-05}, "blocks.21.hook_resid_post-4480": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-4490": {"denoising_metric": 0.0008456309442408383, "noising_metric": 8.45420072437264e-05}, "blocks.21.hook_resid_post-4541": {"denoising_metric": 0.0014774822629988194, "noising_metric": -0.0003845501923933625}, "blocks.21.hook_resid_post-4570": {"denoising_metric": 0.00026732985861599445, "noising_metric": 0.005351656582206488}, "blocks.21.hook_resid_post-4636": {"denoising_metric": -0.0022314030211418867, "noising_metric": 0.005806623492389917}, "blocks.21.hook_resid_post-4643": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-4721": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-4737": {"denoising_metric": 0.004876872058957815, "noising_metric": 0.00875062495470047}, "blocks.21.hook_resid_post-4781": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-4784": {"denoising_metric": 0.0021607757080346346, "noising_metric": -0.0032435881439596415}, "blocks.21.hook_resid_post-4891": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-4893": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-4914": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-4926": {"denoising_metric": 0.005089386831969023, "noising_metric": 0.013341614976525307}, "blocks.21.hook_resid_post-4964": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-5108": {"denoising_metric": -0.0003849718486890197, "noising_metric": -0.00015306108980439603}, "blocks.21.hook_resid_post-5159": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-5219": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-5225": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-5394": {"denoising_metric": 0.0011776849860325456, "noising_metric": 0.02758093550801277}, "blocks.21.hook_resid_post-5508": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-5623": {"denoising_metric": 0.004854102618992329, "noising_metric": 0.013026637956500053}, "blocks.21.hook_resid_post-5630": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-5833": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-6474": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-6511": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-6623": {"denoising_metric": -0.0001543260586913675, "noising_metric": 0.00581716513261199}, "blocks.21.hook_resid_post-6650": {"denoising_metric": 0.017575040459632874, "noising_metric": -0.012381292879581451}, "blocks.21.hook_resid_post-6669": {"denoising_metric": 0.0038488751742988825, "noising_metric": 0.01984650082886219}, "blocks.21.hook_resid_post-6786": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-6823": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-6970": {"denoising_metric": 0.002035754732787609, "noising_metric": 0.00020513559866230935}, "blocks.21.hook_resid_post-7015": {"denoising_metric": 0.012114385142922401, "noising_metric": -0.004020067397505045}, "blocks.21.hook_resid_post-7024": {"denoising_metric": 0.00031750689959153533, "noising_metric": -0.0029811072163283825}, "blocks.21.hook_resid_post-7109": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-7159": {"denoising_metric": 0.01160607859492302, "noising_metric": 0.009163636714220047}, "blocks.21.hook_resid_post-7197": {"denoising_metric": -0.00266360049135983, "noising_metric": -0.003840231103822589}, "blocks.21.hook_resid_post-7216": {"denoising_metric": 0.0039053771179169416, "noising_metric": 0.008113081566989422}, "blocks.21.hook_resid_post-7272": {"denoising_metric": -0.0010541398078203201, "noising_metric": -0.0002274833677802235}, "blocks.21.hook_resid_post-7414": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-7482": {"denoising_metric": 0.00019269675249233842, "noising_metric": -0.011031783185899258}, "blocks.21.hook_resid_post-7599": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-7675": {"denoising_metric": 0.0058266520500183105, "noising_metric": 0.008864683099091053}, "blocks.21.hook_resid_post-7739": {"denoising_metric": 0.0013290594797581434, "noising_metric": 0.009323444217443466}, "blocks.21.hook_resid_post-7757": {"denoising_metric": -4.300890213926323e-05, "noising_metric": -0.00018299867224413902}, "blocks.21.hook_resid_post-7942": {"denoising_metric": -0.0015240752836689353, "noising_metric": 0.011654780246317387}, "blocks.21.hook_resid_post-8001": {"denoising_metric": 0.0004792119434569031, "noising_metric": 0.00014884454139973968}, "blocks.21.hook_resid_post-8082": {"denoising_metric": 0.026231424883008003, "noising_metric": 0.039607614278793335}, "blocks.21.hook_resid_post-8085": {"denoising_metric": 0.00010393818229204044, "noising_metric": 1.475795670558e-06}, "blocks.21.hook_resid_post-8127": {"denoising_metric": 0.002128519117832184, "noising_metric": -0.003705301322042942}, "blocks.21.hook_resid_post-8255": {"denoising_metric": 0.014033130370080471, "noising_metric": -0.02438119798898697}, "blocks.21.hook_resid_post-8398": {"denoising_metric": -9.360761032439768e-05, "noising_metric": -0.002973939059302211}, "blocks.21.hook_resid_post-8615": {"denoising_metric": -0.004979756195098162, "noising_metric": 0.025862686336040497}, "blocks.21.hook_resid_post-8732": {"denoising_metric": 0.0015259727369993925, "noising_metric": -0.0006189908599480987}, "blocks.21.hook_resid_post-8781": {"denoising_metric": 0.002653059083968401, "noising_metric": 0.015370411798357964}, "blocks.21.hook_resid_post-8853": {"denoising_metric": -0.0025647219736129045, "noising_metric": -0.003377252956852317}, "blocks.21.hook_resid_post-8904": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-8931": {"denoising_metric": 0.0003879234427586198, "noising_metric": -0.0030047199688851833}, "blocks.21.hook_resid_post-8956": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-9372": {"denoising_metric": 0.0035085987765341997, "noising_metric": -0.004068347159773111}, "blocks.21.hook_resid_post-9398": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-9412": {"denoising_metric": -0.004366668406873941, "noising_metric": 0.012029843404889107}, "blocks.21.hook_resid_post-9662": {"denoising_metric": -9.107767982641235e-05, "noising_metric": -4.3430558434920385e-05}, "blocks.21.hook_resid_post-9663": {"denoising_metric": -0.005282715894281864, "noising_metric": 0.015673793852329254}, "blocks.21.hook_resid_post-9797": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-10236": {"denoising_metric": 0.0012649677228182554, "noising_metric": -0.006715292111039162}, "blocks.21.hook_resid_post-10330": {"denoising_metric": 0.0012970136012881994, "noising_metric": 0.006855914369225502}, "blocks.21.hook_resid_post-10362": {"denoising_metric": 0.00012818339746445417, "noising_metric": 2.846177449100651e-05}, "blocks.21.hook_resid_post-10440": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-10454": {"denoising_metric": 0.0007962971576489508, "noising_metric": 0.00017351140559185296}, "blocks.21.hook_resid_post-10488": {"denoising_metric": 0.0008070493931882083, "noising_metric": 0.0028035901486873627}, "blocks.21.hook_resid_post-10532": {"denoising_metric": -0.00028503939392976463, "noising_metric": -0.0034143587108701468}, "blocks.21.hook_resid_post-10583": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-10604": {"denoising_metric": -0.00020914133347105235, "noising_metric": 0.00041153616621159017}, "blocks.21.hook_resid_post-10783": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-10798": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-10915": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-10996": {"denoising_metric": 0.0009381843847222626, "noising_metric": 0.0015559103339910507}, "blocks.21.hook_resid_post-11065": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-11075": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-11222": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-11248": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-11451": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-11455": {"denoising_metric": 0.0004606590955518186, "noising_metric": 0.022744541987776756}, "blocks.21.hook_resid_post-11484": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-11586": {"denoising_metric": 0.002219174988567829, "noising_metric": -0.003969890531152487}, "blocks.21.hook_resid_post-11904": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-11971": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-12008": {"denoising_metric": -0.0016037682071328163, "noising_metric": -0.00016613243496976793}, "blocks.21.hook_resid_post-12029": {"denoising_metric": -0.005569231230765581, "noising_metric": 0.00600037444382906}, "blocks.21.hook_resid_post-12314": {"denoising_metric": 0.022751498967409134, "noising_metric": 0.04913176968693733}, "blocks.21.hook_resid_post-12340": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-12440": {"denoising_metric": 0.0013322219019755721, "noising_metric": 0.008414986543357372}, "blocks.21.hook_resid_post-12490": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-12524": {"denoising_metric": -0.0004052113217767328, "noising_metric": -1.9396171410335228e-05}, "blocks.21.hook_resid_post-12557": {"denoising_metric": -4.0689796151127666e-05, "noising_metric": 0.0026608596090227365}, "blocks.21.hook_resid_post-12721": {"denoising_metric": 0.0012632810976356268, "noising_metric": 0.03190712258219719}, "blocks.21.hook_resid_post-12797": {"denoising_metric": -0.00015306108980439603, "noising_metric": 0.0027892538346350193}, "blocks.21.hook_resid_post-12860": {"denoising_metric": -0.0007077494519762695, "noising_metric": -0.00017962542187888175}, "blocks.21.hook_resid_post-12886": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-12890": {"denoising_metric": -0.0001720356085570529, "noising_metric": 0.0001062572919181548}, "blocks.21.hook_resid_post-12891": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-12987": {"denoising_metric": -0.00018257701594848186, "noising_metric": -0.007261547259986401}, "blocks.21.hook_resid_post-13172": {"denoising_metric": -0.0016183153493329883, "noising_metric": -0.0034986899700015783}, "blocks.21.hook_resid_post-13369": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-13459": {"denoising_metric": 0.0020496693905442953, "noising_metric": -0.0037932165432721376}, "blocks.21.hook_resid_post-13463": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-13546": {"denoising_metric": 0.0025362602900713682, "noising_metric": 0.021503819152712822}, "blocks.21.hook_resid_post-13586": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-13626": {"denoising_metric": 0.0005325514357537031, "noising_metric": -0.00012122607586206868}, "blocks.21.hook_resid_post-13774": {"denoising_metric": 0.0008479500538669527, "noising_metric": 0.005947245750576258}, "blocks.21.hook_resid_post-13775": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-13873": {"denoising_metric": 5.903182682232e-05, "noising_metric": 0.002743293298408389}, "blocks.21.hook_resid_post-13902": {"denoising_metric": 0.0063016475178301334, "noising_metric": -0.0032572918571531773}, "blocks.21.hook_resid_post-13944": {"denoising_metric": 0.002302030334249139, "noising_metric": -0.0041594249196350574}, "blocks.21.hook_resid_post-14143": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-14219": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-14303": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-14347": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-14363": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-14369": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-14377": {"denoising_metric": 0.000840781896840781, "noising_metric": 0.009091111831367016}, "blocks.21.hook_resid_post-14638": {"denoising_metric": -0.0016817746218293905, "noising_metric": 0.030438074842095375}, "blocks.21.hook_resid_post-14758": {"denoising_metric": 0.003030862659215927, "noising_metric": -0.000609292765147984}, "blocks.21.hook_resid_post-14766": {"denoising_metric": 0.0003373247163835913, "noising_metric": 0.0027441366109997034}, "blocks.21.hook_resid_post-14857": {"denoising_metric": -2.2769419956603087e-05, "noising_metric": 0.0002835635968949646}, "blocks.21.hook_resid_post-15008": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-15068": {"denoising_metric": 9.276430319005158e-06, "noising_metric": 4.216559318592772e-06}, "blocks.21.hook_resid_post-15178": {"denoising_metric": 0.005465293303132057, "noising_metric": 0.011335375718772411}, "blocks.21.hook_resid_post-15278": {"denoising_metric": 0.006679029669612646, "noising_metric": 0.003022218821570277}, "blocks.21.hook_resid_post-15332": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-15393": {"denoising_metric": -0.0014093848876655102, "noising_metric": -0.0029994493816047907}, "blocks.21.hook_resid_post-15408": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-15470": {"denoising_metric": -0.0006442902376875281, "noising_metric": -0.002968879183754325}, "blocks.21.hook_resid_post-15567": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-15598": {"denoising_metric": 0.0046186079271137714, "noising_metric": -0.0033483696170151234}, "blocks.21.hook_resid_post-15609": {"denoising_metric": 0.0001003541037789546, "noising_metric": 0.008980427868664265}, "blocks.21.hook_resid_post-15616": {"denoising_metric": 0.0007988270954228938, "noising_metric": 0.0028687359299510717}, "blocks.21.hook_resid_post-15689": {"denoising_metric": -0.0, "noising_metric": 0.0}, "blocks.21.hook_resid_post-15786": {"denoising_metric": 3.4154127206420526e-05, "noising_metric": 0.013439860194921494}, "blocks.21.hook_resid_post-15881": {"denoising_metric": -0.00013429741375148296, "noising_metric": -3.963565541198477e-05}, "blocks.21.hook_resid_post-15954": {"denoising_metric": -0.0008736710296943784, "noising_metric": 0.0018369440222159028}, "blocks.21.hook_resid_post-16165": {"denoising_metric": -0.0004467444377951324, "noising_metric": 3.858151467284188e-05}}}
+{
+    "blocks.40.hook_resid_post-9682": {
+        "blocks.7.hook_resid_post-75": {
+            "denoising_metric": -0.00018848018953576684,
+            "noising_metric": 0.004572858568280935
+        },
+        "blocks.7.hook_resid_post-351": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-488": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-632": {
+            "denoising_metric": 7.631971675436944e-05,
+            "noising_metric": 5.7766857935348526e-05
+        },
+        "blocks.7.hook_resid_post-1422": {
+            "denoising_metric": -1.2860505194112193e-05,
+            "noising_metric": -0.0001022515571094118
+        },
+        "blocks.7.hook_resid_post-1575": {
+            "denoising_metric": -4.511718361754902e-05,
+            "noising_metric": 0.007535834331065416
+        },
+        "blocks.7.hook_resid_post-1589": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-1662": {
+            "denoising_metric": 0.000627845642156899,
+            "noising_metric": 0.0028562971856445074
+        },
+        "blocks.7.hook_resid_post-1935": {
+            "denoising_metric": -0.00039045338053256273,
+            "noising_metric": 0.005313707981258631
+        },
+        "blocks.7.hook_resid_post-1949": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-1976": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-2467": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-2701": {
+            "denoising_metric": 0.0013695383677259088,
+            "noising_metric": 0.005626154597848654
+        },
+        "blocks.7.hook_resid_post-2846": {
+            "denoising_metric": 0.0004336730926297605,
+            "noising_metric": -0.00010710060450946912
+        },
+        "blocks.7.hook_resid_post-2881": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-3153": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-3231": {
+            "denoising_metric": -0.0009057169081643224,
+            "noising_metric": 0.007732326164841652
+        },
+        "blocks.7.hook_resid_post-3257": {
+            "denoising_metric": -0.001519226236268878,
+            "noising_metric": 0.0033226485829800367
+        },
+        "blocks.7.hook_resid_post-3354": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-3418": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-3524": {
+            "denoising_metric": 0.0014867587015032768,
+            "noising_metric": 0.003086942946538329
+        },
+        "blocks.7.hook_resid_post-3658": {
+            "denoising_metric": -0.00011679868475766852,
+            "noising_metric": 0.002492829691618681
+        },
+        "blocks.7.hook_resid_post-3784": {
+            "denoising_metric": -0.00042460751137696207,
+            "noising_metric": 0.002111441921442747
+        },
+        "blocks.7.hook_resid_post-3985": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-3992": {
+            "denoising_metric": -8.011462341528386e-06,
+            "noising_metric": -0.00017583051521796733
+        },
+        "blocks.7.hook_resid_post-4287": {
+            "denoising_metric": 1.5179613001237158e-05,
+            "noising_metric": 0.000244138776906766
+        },
+        "blocks.7.hook_resid_post-5196": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-5311": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-5337": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-5459": {
+            "denoising_metric": -0.00014610377547796816,
+            "noising_metric": 0.008312946185469627
+        },
+        "blocks.7.hook_resid_post-5537": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-5587": {
+            "denoising_metric": 3.858151467284188e-05,
+            "noising_metric": 0.002322480781003833
+        },
+        "blocks.7.hook_resid_post-6491": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-6500": {
+            "denoising_metric": 0.0035965139977633953,
+            "noising_metric": -0.007079181261360645
+        },
+        "blocks.7.hook_resid_post-6535": {
+            "denoising_metric": 0.001492661889642477,
+            "noising_metric": -0.0029380982741713524
+        },
+        "blocks.7.hook_resid_post-6671": {
+            "denoising_metric": 1.054139829648193e-06,
+            "noising_metric": 0.0054688770323991776
+        },
+        "blocks.7.hook_resid_post-6800": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-6928": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-6984": {
+            "denoising_metric": -0.0010543506359681487,
+            "noising_metric": 0.005100349895656109
+        },
+        "blocks.7.hook_resid_post-7008": {
+            "denoising_metric": 0.00022221266408450902,
+            "noising_metric": 0.00246921693906188
+        },
+        "blocks.7.hook_resid_post-7024": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-7323": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-7857": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-7958": {
+            "denoising_metric": -0.0013450823025777936,
+            "noising_metric": 0.013793629594147205
+        },
+        "blocks.7.hook_resid_post-8146": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-8667": {
+            "denoising_metric": -0.0014850720763206482,
+            "noising_metric": 0.010634583421051502
+        },
+        "blocks.7.hook_resid_post-8895": {
+            "denoising_metric": 0.0006181475473567843,
+            "noising_metric": 0.00280127115547657
+        },
+        "blocks.7.hook_resid_post-9046": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-9052": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-9353": {
+            "denoising_metric": 0.0012373492354527116,
+            "noising_metric": 0.002029219176620245
+        },
+        "blocks.7.hook_resid_post-9513": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-9681": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-9850": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-10093": {
+            "denoising_metric": -0.005262687336653471,
+            "noising_metric": 0.022037846967577934
+        },
+        "blocks.7.hook_resid_post-10094": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-10180": {
+            "denoising_metric": -1.054139829648193e-06,
+            "noising_metric": 0.0028111799620091915
+        },
+        "blocks.7.hook_resid_post-10267": {
+            "denoising_metric": -0.00011005219130311161,
+            "noising_metric": -0.00010372735414421186
+        },
+        "blocks.7.hook_resid_post-10647": {
+            "denoising_metric": -0.0013362276367843151,
+            "noising_metric": 0.002110387897118926
+        },
+        "blocks.7.hook_resid_post-10680": {
+            "denoising_metric": -0.00011806365364464,
+            "noising_metric": 0.002644625958055258
+        },
+        "blocks.7.hook_resid_post-10768": {
+            "denoising_metric": 0.015867754817008972,
+            "noising_metric": -0.0017884535482153296
+        },
+        "blocks.7.hook_resid_post-10868": {
+            "denoising_metric": 0.001644458039663732,
+            "noising_metric": -0.0029844804666936398
+        },
+        "blocks.7.hook_resid_post-11204": {
+            "denoising_metric": 0.0006624214584007859,
+            "noising_metric": -9.171015699394047e-05
+        },
+        "blocks.7.hook_resid_post-11526": {
+            "denoising_metric": 0.00011511206685099751,
+            "noising_metric": -0.0003678947687149048
+        },
+        "blocks.7.hook_resid_post-11635": {
+            "denoising_metric": 0.012146852910518646,
+            "noising_metric": -0.0019615432247519493
+        },
+        "blocks.7.hook_resid_post-11707": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-11740": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-12134": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-12275": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-12387": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-12407": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-12571": {
+            "denoising_metric": -0.00016929484263528138,
+            "noising_metric": 5.882099867449142e-05
+        },
+        "blocks.7.hook_resid_post-12880": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-12956": {
+            "denoising_metric": -0.00020935216161888093,
+            "noising_metric": -0.0003520826867315918
+        },
+        "blocks.7.hook_resid_post-13383": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-13407": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-13630": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-13635": {
+            "denoising_metric": -0.0005656513967551291,
+            "noising_metric": 0.0020104553550481796
+        },
+        "blocks.7.hook_resid_post-13694": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-14249": {
+            "denoising_metric": -0.00040795208769850433,
+            "noising_metric": -0.0005896858056075871
+        },
+        "blocks.7.hook_resid_post-14309": {
+            "denoising_metric": -0.00031139288330450654,
+            "noising_metric": 0.007543846033513546
+        },
+        "blocks.7.hook_resid_post-14342": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-14615": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-14827": {
+            "denoising_metric": 6.303755799308419e-05,
+            "noising_metric": -0.0001033056978485547
+        },
+        "blocks.7.hook_resid_post-15328": {
+            "denoising_metric": -7.400061440421268e-05,
+            "noising_metric": -0.00018342031398788095
+        },
+        "blocks.7.hook_resid_post-15462": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-15613": {
+            "denoising_metric": -0.001592383487150073,
+            "noising_metric": 0.013320953585207462
+        },
+        "blocks.7.hook_resid_post-15678": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-15738": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.7.hook_resid_post-15796": {
+            "denoising_metric": 3.6051580536877736e-05,
+            "noising_metric": 0.0025822208262979984
+        },
+        "blocks.7.hook_resid_post-16179": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-56": {
+            "denoising_metric": -9.908913852996193e-06,
+            "noising_metric": 4.216558954794891e-05
+        },
+        "blocks.14.hook_resid_post-207": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-357": {
+            "denoising_metric": 0.0024156668223440647,
+            "noising_metric": -0.0003362705756444484
+        },
+        "blocks.14.hook_resid_post-461": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-520": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-738": {
+            "denoising_metric": -0.0021740577649325132,
+            "noising_metric": 0.008577324450016022
+        },
+        "blocks.14.hook_resid_post-849": {
+            "denoising_metric": -0.0009630621061660349,
+            "noising_metric": 0.00836059357970953
+        },
+        "blocks.14.hook_resid_post-850": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-985": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-1153": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-1158": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-1401": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-1564": {
+            "denoising_metric": -0.00272980029694736,
+            "noising_metric": -0.001749239512719214
+        },
+        "blocks.14.hook_resid_post-1919": {
+            "denoising_metric": -3.815985837718472e-05,
+            "noising_metric": 0.00266950367949903
+        },
+        "blocks.14.hook_resid_post-1977": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-2047": {
+            "denoising_metric": -6.029679570929147e-05,
+            "noising_metric": -7.990379526745528e-05
+        },
+        "blocks.14.hook_resid_post-2186": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-2452": {
+            "denoising_metric": -8.770442946115509e-05,
+            "noising_metric": -0.00012143690400989726
+        },
+        "blocks.14.hook_resid_post-2463": {
+            "denoising_metric": 0.00041280113509856164,
+            "noising_metric": 0.005469931289553642
+        },
+        "blocks.14.hook_resid_post-2567": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-2602": {
+            "denoising_metric": -0.0003474444674793631,
+            "noising_metric": 0.0002125145838363096
+        },
+        "blocks.14.hook_resid_post-2770": {
+            "denoising_metric": -0.0008441551472060382,
+            "noising_metric": 0.008651746436953545
+        },
+        "blocks.14.hook_resid_post-2796": {
+            "denoising_metric": 0.0032796396408230066,
+            "noising_metric": -0.0004465336096473038
+        },
+        "blocks.14.hook_resid_post-2894": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-2936": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-2959": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-2992": {
+            "denoising_metric": -0.002449610037729144,
+            "noising_metric": 0.007547640707343817
+        },
+        "blocks.14.hook_resid_post-3082": {
+            "denoising_metric": -0.0012527396902441978,
+            "noising_metric": 0.010212295688688755
+        },
+        "blocks.14.hook_resid_post-3330": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-3373": {
+            "denoising_metric": -0.0020148828625679016,
+            "noising_metric": 0.006540726404637098
+        },
+        "blocks.14.hook_resid_post-3468": {
+            "denoising_metric": 5.481526750372723e-05,
+            "noising_metric": 0.005833188071846962
+        },
+        "blocks.14.hook_resid_post-3696": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-3714": {
+            "denoising_metric": -0.00376939307898283,
+            "noising_metric": 0.005566701292991638
+        },
+        "blocks.14.hook_resid_post-3742": {
+            "denoising_metric": -0.00019375089323148131,
+            "noising_metric": 0.012608987279236317
+        },
+        "blocks.14.hook_resid_post-3790": {
+            "denoising_metric": -0.00048574761603958905,
+            "noising_metric": 0.0029106908477842808
+        },
+        "blocks.14.hook_resid_post-4140": {
+            "denoising_metric": 0.00017646299966145307,
+            "noising_metric": -0.00040078393067233264
+        },
+        "blocks.14.hook_resid_post-4141": {
+            "denoising_metric": 0.0006967863882891834,
+            "noising_metric": 0.012078123167157173
+        },
+        "blocks.14.hook_resid_post-4149": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-4472": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-4698": {
+            "denoising_metric": -0.0009461958543397486,
+            "noising_metric": 0.0019644948188215494
+        },
+        "blocks.14.hook_resid_post-4709": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-4713": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-4718": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-4834": {
+            "denoising_metric": 0.002511804224923253,
+            "noising_metric": 0.00804013479501009
+        },
+        "blocks.14.hook_resid_post-4882": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-4987": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-4996": {
+            "denoising_metric": 0.00023064578999765217,
+            "noising_metric": 0.0026102608535438776
+        },
+        "blocks.14.hook_resid_post-5003": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-5419": {
+            "denoising_metric": 4.912291478831321e-05,
+            "noising_metric": 0.002653480740264058
+        },
+        "blocks.14.hook_resid_post-5459": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-5499": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-5606": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-5938": {
+            "denoising_metric": -2.3191074433270842e-05,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-6150": {
+            "denoising_metric": 0.006162500940263271,
+            "noising_metric": 0.0014488097513094544
+        },
+        "blocks.14.hook_resid_post-6400": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-6436": {
+            "denoising_metric": -0.003310420550405979,
+            "noising_metric": 0.006549370475113392
+        },
+        "blocks.14.hook_resid_post-6460": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-6494": {
+            "denoising_metric": -0.0003748520975932479,
+            "noising_metric": -0.003339514834806323
+        },
+        "blocks.14.hook_resid_post-6803": {
+            "denoising_metric": -0.0015809988835826516,
+            "noising_metric": -0.007280311081558466
+        },
+        "blocks.14.hook_resid_post-6832": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-6844": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-6880": {
+            "denoising_metric": -0.001372911618091166,
+            "noising_metric": 0.0008964404696598649
+        },
+        "blocks.14.hook_resid_post-6939": {
+            "denoising_metric": -0.0001878477050922811,
+            "noising_metric": -0.003163684392347932
+        },
+        "blocks.14.hook_resid_post-7150": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-7216": {
+            "denoising_metric": -0.002750883111730218,
+            "noising_metric": -0.002006238792091608
+        },
+        "blocks.14.hook_resid_post-7501": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-7570": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-7598": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-7761": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-7857": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-8036": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-8080": {
+            "denoising_metric": -0.0004224992298986763,
+            "noising_metric": -0.00047478455235250294
+        },
+        "blocks.14.hook_resid_post-8269": {
+            "denoising_metric": 0.0018687789561226964,
+            "noising_metric": 0.011474943719804287
+        },
+        "blocks.14.hook_resid_post-8321": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-8429": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-8482": {
+            "denoising_metric": -0.001971662975847721,
+            "noising_metric": 0.0025906539522111416
+        },
+        "blocks.14.hook_resid_post-8657": {
+            "denoising_metric": 0.0009440875728614628,
+            "noising_metric": 0.008845075964927673
+        },
+        "blocks.14.hook_resid_post-8719": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-8746": {
+            "denoising_metric": -0.0017684248741716146,
+            "noising_metric": 0.037659354507923126
+        },
+        "blocks.14.hook_resid_post-8831": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-8930": {
+            "denoising_metric": 0.00022664005518890917,
+            "noising_metric": -0.0005287565290927887
+        },
+        "blocks.14.hook_resid_post-9018": {
+            "denoising_metric": -0.0003394329978618771,
+            "noising_metric": 0.0028301544953137636
+        },
+        "blocks.14.hook_resid_post-9203": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-9368": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-9425": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-9521": {
+            "denoising_metric": -0.00295032630674541,
+            "noising_metric": 0.009405035525560379
+        },
+        "blocks.14.hook_resid_post-9534": {
+            "denoising_metric": -0.00031750689959153533,
+            "noising_metric": 0.0016613242914900184
+        },
+        "blocks.14.hook_resid_post-9642": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-9784": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-10324": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-10361": {
+            "denoising_metric": -7.252481736941263e-05,
+            "noising_metric": 0.011497502215206623
+        },
+        "blocks.14.hook_resid_post-10512": {
+            "denoising_metric": -0.0018913375679403543,
+            "noising_metric": -0.005298738833516836
+        },
+        "blocks.14.hook_resid_post-10762": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-11169": {
+            "denoising_metric": 0.0004840609908569604,
+            "noising_metric": 0.002639566082507372
+        },
+        "blocks.14.hook_resid_post-11205": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-11333": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-11495": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-11527": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-11578": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-11584": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-11618": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-11754": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-11757": {
+            "denoising_metric": 0.00029305086354725063,
+            "noising_metric": 0.002192188985645771
+        },
+        "blocks.14.hook_resid_post-12180": {
+            "denoising_metric": -0.002142644487321377,
+            "noising_metric": 0.018194664269685745
+        },
+        "blocks.14.hook_resid_post-12355": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-12457": {
+            "denoising_metric": -0.001171992626041174,
+            "noising_metric": 0.0057695177383720875
+        },
+        "blocks.14.hook_resid_post-12514": {
+            "denoising_metric": -0.00044737692223861814,
+            "noising_metric": 0.005033939145505428
+        },
+        "blocks.14.hook_resid_post-12725": {
+            "denoising_metric": 0.0008104226435534656,
+            "noising_metric": 0.002981950528919697
+        },
+        "blocks.14.hook_resid_post-12749": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-13138": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-13145": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-13148": {
+            "denoising_metric": -0.000611822702921927,
+            "noising_metric": -0.0006915156845934689
+        },
+        "blocks.14.hook_resid_post-13474": {
+            "denoising_metric": 0.0005430927849374712,
+            "noising_metric": -0.0031809723004698753
+        },
+        "blocks.14.hook_resid_post-13518": {
+            "denoising_metric": 0.0023422986268997192,
+            "noising_metric": 0.011543252505362034
+        },
+        "blocks.14.hook_resid_post-13585": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-13691": {
+            "denoising_metric": -0.0008686111541464925,
+            "noising_metric": 0.005318345967680216
+        },
+        "blocks.14.hook_resid_post-13958": {
+            "denoising_metric": -0.00026353495195508003,
+            "noising_metric": -0.0003917183494195342
+        },
+        "blocks.14.hook_resid_post-13962": {
+            "denoising_metric": -0.0005753494915552437,
+            "noising_metric": -0.005940288305282593
+        },
+        "blocks.14.hook_resid_post-14015": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-14057": {
+            "denoising_metric": 8.749360131332651e-05,
+            "noising_metric": 0.0023285946808755398
+        },
+        "blocks.14.hook_resid_post-14187": {
+            "denoising_metric": 0.0006411278154700994,
+            "noising_metric": 0.00577984843403101
+        },
+        "blocks.14.hook_resid_post-14201": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-14309": {
+            "denoising_metric": -0.00018089039076585323,
+            "noising_metric": -3.478661164990626e-05
+        },
+        "blocks.14.hook_resid_post-14502": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-14561": {
+            "denoising_metric": -0.0029300868045538664,
+            "noising_metric": -0.003759905695915222
+        },
+        "blocks.14.hook_resid_post-14566": {
+            "denoising_metric": 2.951591341116e-06,
+            "noising_metric": -0.0029931245371699333
+        },
+        "blocks.14.hook_resid_post-14572": {
+            "denoising_metric": 0.001157445483841002,
+            "noising_metric": -0.001253161346539855
+        },
+        "blocks.14.hook_resid_post-14632": {
+            "denoising_metric": 0.0009255346958525479,
+            "noising_metric": 0.007662331219762564
+        },
+        "blocks.14.hook_resid_post-14864": {
+            "denoising_metric": 0.004141293466091156,
+            "noising_metric": 0.004324503242969513
+        },
+        "blocks.14.hook_resid_post-14913": {
+            "denoising_metric": 0.00014821205695625395,
+            "noising_metric": 0.008526093326508999
+        },
+        "blocks.14.hook_resid_post-14946": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-15119": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-15138": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-15260": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-15628": {
+            "denoising_metric": 0.000419125979533419,
+            "noising_metric": 0.008602623827755451
+        },
+        "blocks.14.hook_resid_post-15646": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-15707": {
+            "denoising_metric": -8.348787378054112e-05,
+            "noising_metric": -5.7345205277670175e-05
+        },
+        "blocks.14.hook_resid_post-15729": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.14.hook_resid_post-16185": {
+            "denoising_metric": -0.0007764793699607253,
+            "noising_metric": -0.004745315760374069
+        },
+        "blocks.21.hook_resid_post-13": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-43": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-52": {
+            "denoising_metric": 0.004930000752210617,
+            "noising_metric": 0.019849030300974846
+        },
+        "blocks.21.hook_resid_post-406": {
+            "denoising_metric": -0.00048574761603958905,
+            "noising_metric": -5.7977686083177105e-05
+        },
+        "blocks.21.hook_resid_post-520": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-534": {
+            "denoising_metric": 0.009351063519716263,
+            "noising_metric": -0.0028676819056272507
+        },
+        "blocks.21.hook_resid_post-576": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-712": {
+            "denoising_metric": -0.0028615677729249,
+            "noising_metric": 0.012213052250444889
+        },
+        "blocks.21.hook_resid_post-718": {
+            "denoising_metric": 0.001609460567124188,
+            "noising_metric": 0.012179531157016754
+        },
+        "blocks.21.hook_resid_post-722": {
+            "denoising_metric": 0.00013809230586048216,
+            "noising_metric": 0.0032610867638140917
+        },
+        "blocks.21.hook_resid_post-824": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-918": {
+            "denoising_metric": 9.192098514176905e-05,
+            "noising_metric": 0.0024082877207547426
+        },
+        "blocks.21.hook_resid_post-1374": {
+            "denoising_metric": 4.258724584360607e-05,
+            "noising_metric": -0.003889775834977627
+        },
+        "blocks.21.hook_resid_post-1408": {
+            "denoising_metric": 0.0033513212110847235,
+            "noising_metric": 0.02688414789736271
+        },
+        "blocks.21.hook_resid_post-1662": {
+            "denoising_metric": 0.00016486746608279645,
+            "noising_metric": 0.003002400975674391
+        },
+        "blocks.21.hook_resid_post-1723": {
+            "denoising_metric": 0.005308858584612608,
+            "noising_metric": 0.012170043773949146
+        },
+        "blocks.21.hook_resid_post-1744": {
+            "denoising_metric": -0.00543619878590107,
+            "noising_metric": 0.01245613768696785
+        },
+        "blocks.21.hook_resid_post-1831": {
+            "denoising_metric": 0.006790557410567999,
+            "noising_metric": 0.01662483811378479
+        },
+        "blocks.21.hook_resid_post-1942": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-1967": {
+            "denoising_metric": -0.00433356873691082,
+            "noising_metric": -0.003997297957539558
+        },
+        "blocks.21.hook_resid_post-2054": {
+            "denoising_metric": 0.001080704154446721,
+            "noising_metric": 0.006314297206699848
+        },
+        "blocks.21.hook_resid_post-2123": {
+            "denoising_metric": -0.001556753646582365,
+            "noising_metric": 0.011352663859724998
+        },
+        "blocks.21.hook_resid_post-2239": {
+            "denoising_metric": 0.0012672868324443698,
+            "noising_metric": 0.0031282652635127306
+        },
+        "blocks.21.hook_resid_post-2293": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-2442": {
+            "denoising_metric": 0.0005920049152337015,
+            "noising_metric": -0.00024624704383313656
+        },
+        "blocks.21.hook_resid_post-2445": {
+            "denoising_metric": 0.0001682407018961385,
+            "noising_metric": 1.0119742000824772e-05
+        },
+        "blocks.21.hook_resid_post-2502": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-2739": {
+            "denoising_metric": 0.0034491452388465405,
+            "noising_metric": 0.019341567531228065
+        },
+        "blocks.21.hook_resid_post-2899": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-2916": {
+            "denoising_metric": 8.222290489356965e-06,
+            "noising_metric": 0.011528072878718376
+        },
+        "blocks.21.hook_resid_post-2919": {
+            "denoising_metric": 1.4125473171588965e-05,
+            "noising_metric": -1.918534326250665e-05
+        },
+        "blocks.21.hook_resid_post-2957": {
+            "denoising_metric": 0.00015559102757833898,
+            "noising_metric": -0.00011026301945094019
+        },
+        "blocks.21.hook_resid_post-3002": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-3018": {
+            "denoising_metric": -0.00010351652599638328,
+            "noising_metric": 0.0114344647154212
+        },
+        "blocks.21.hook_resid_post-3023": {
+            "denoising_metric": 0.004824587143957615,
+            "noising_metric": 0.005655249115079641
+        },
+        "blocks.21.hook_resid_post-3076": {
+            "denoising_metric": -0.007764793466776609,
+            "noising_metric": 0.026118842884898186
+        },
+        "blocks.21.hook_resid_post-3129": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-3186": {
+            "denoising_metric": -3.1624192615709035e-06,
+            "noising_metric": -3.373247182025807e-06
+        },
+        "blocks.21.hook_resid_post-3261": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-3357": {
+            "denoising_metric": 0.00020829802087973803,
+            "noising_metric": 4.047896800329909e-05
+        },
+        "blocks.21.hook_resid_post-3377": {
+            "denoising_metric": -0.0001821553596528247,
+            "noising_metric": 0.005640701856464148
+        },
+        "blocks.21.hook_resid_post-3492": {
+            "denoising_metric": -0.010176454670727253,
+            "noising_metric": 0.022087179124355316
+        },
+        "blocks.21.hook_resid_post-3547": {
+            "denoising_metric": -0.000623839907348156,
+            "noising_metric": 0.0001355623680865392
+        },
+        "blocks.21.hook_resid_post-3610": {
+            "denoising_metric": 0.002642096020281315,
+            "noising_metric": -0.0031278436072170734
+        },
+        "blocks.21.hook_resid_post-3671": {
+            "denoising_metric": 0.0023138367105275393,
+            "noising_metric": -0.004779680632054806
+        },
+        "blocks.21.hook_resid_post-3695": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-4289": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-4312": {
+            "denoising_metric": 9.171015699394047e-05,
+            "noising_metric": -0.00015980759053491056
+        },
+        "blocks.21.hook_resid_post-4333": {
+            "denoising_metric": -0.00046382148866541684,
+            "noising_metric": -9.866748587228358e-05
+        },
+        "blocks.21.hook_resid_post-4480": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-4490": {
+            "denoising_metric": 0.0008456309442408383,
+            "noising_metric": 8.45420072437264e-05
+        },
+        "blocks.21.hook_resid_post-4541": {
+            "denoising_metric": 0.0014774822629988194,
+            "noising_metric": -0.0003845501923933625
+        },
+        "blocks.21.hook_resid_post-4570": {
+            "denoising_metric": 0.00026732985861599445,
+            "noising_metric": 0.005351656582206488
+        },
+        "blocks.21.hook_resid_post-4636": {
+            "denoising_metric": -0.0022314030211418867,
+            "noising_metric": 0.005806623492389917
+        },
+        "blocks.21.hook_resid_post-4643": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-4721": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-4737": {
+            "denoising_metric": 0.004876872058957815,
+            "noising_metric": 0.00875062495470047
+        },
+        "blocks.21.hook_resid_post-4781": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-4784": {
+            "denoising_metric": 0.0021607757080346346,
+            "noising_metric": -0.0032435881439596415
+        },
+        "blocks.21.hook_resid_post-4891": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-4893": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-4914": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-4926": {
+            "denoising_metric": 0.005089386831969023,
+            "noising_metric": 0.013341614976525307
+        },
+        "blocks.21.hook_resid_post-4964": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-5108": {
+            "denoising_metric": -0.0003849718486890197,
+            "noising_metric": -0.00015306108980439603
+        },
+        "blocks.21.hook_resid_post-5159": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-5219": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-5225": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-5394": {
+            "denoising_metric": 0.0011776849860325456,
+            "noising_metric": 0.02758093550801277
+        },
+        "blocks.21.hook_resid_post-5508": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-5623": {
+            "denoising_metric": 0.004854102618992329,
+            "noising_metric": 0.013026637956500053
+        },
+        "blocks.21.hook_resid_post-5630": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-5833": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-6474": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-6511": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-6623": {
+            "denoising_metric": -0.0001543260586913675,
+            "noising_metric": 0.00581716513261199
+        },
+        "blocks.21.hook_resid_post-6650": {
+            "denoising_metric": 0.017575040459632874,
+            "noising_metric": -0.012381292879581451
+        },
+        "blocks.21.hook_resid_post-6669": {
+            "denoising_metric": 0.0038488751742988825,
+            "noising_metric": 0.01984650082886219
+        },
+        "blocks.21.hook_resid_post-6786": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-6823": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-6970": {
+            "denoising_metric": 0.002035754732787609,
+            "noising_metric": 0.00020513559866230935
+        },
+        "blocks.21.hook_resid_post-7015": {
+            "denoising_metric": 0.012114385142922401,
+            "noising_metric": -0.004020067397505045
+        },
+        "blocks.21.hook_resid_post-7024": {
+            "denoising_metric": 0.00031750689959153533,
+            "noising_metric": -0.0029811072163283825
+        },
+        "blocks.21.hook_resid_post-7109": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-7159": {
+            "denoising_metric": 0.01160607859492302,
+            "noising_metric": 0.009163636714220047
+        },
+        "blocks.21.hook_resid_post-7197": {
+            "denoising_metric": -0.00266360049135983,
+            "noising_metric": -0.003840231103822589
+        },
+        "blocks.21.hook_resid_post-7216": {
+            "denoising_metric": 0.0039053771179169416,
+            "noising_metric": 0.008113081566989422
+        },
+        "blocks.21.hook_resid_post-7272": {
+            "denoising_metric": -0.0010541398078203201,
+            "noising_metric": -0.0002274833677802235
+        },
+        "blocks.21.hook_resid_post-7414": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-7482": {
+            "denoising_metric": 0.00019269675249233842,
+            "noising_metric": -0.011031783185899258
+        },
+        "blocks.21.hook_resid_post-7599": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-7675": {
+            "denoising_metric": 0.0058266520500183105,
+            "noising_metric": 0.008864683099091053
+        },
+        "blocks.21.hook_resid_post-7739": {
+            "denoising_metric": 0.0013290594797581434,
+            "noising_metric": 0.009323444217443466
+        },
+        "blocks.21.hook_resid_post-7757": {
+            "denoising_metric": -4.300890213926323e-05,
+            "noising_metric": -0.00018299867224413902
+        },
+        "blocks.21.hook_resid_post-7942": {
+            "denoising_metric": -0.0015240752836689353,
+            "noising_metric": 0.011654780246317387
+        },
+        "blocks.21.hook_resid_post-8001": {
+            "denoising_metric": 0.0004792119434569031,
+            "noising_metric": 0.00014884454139973968
+        },
+        "blocks.21.hook_resid_post-8082": {
+            "denoising_metric": 0.026231424883008003,
+            "noising_metric": 0.039607614278793335
+        },
+        "blocks.21.hook_resid_post-8085": {
+            "denoising_metric": 0.00010393818229204044,
+            "noising_metric": 1.475795670558e-06
+        },
+        "blocks.21.hook_resid_post-8127": {
+            "denoising_metric": 0.002128519117832184,
+            "noising_metric": -0.003705301322042942
+        },
+        "blocks.21.hook_resid_post-8255": {
+            "denoising_metric": 0.014033130370080471,
+            "noising_metric": -0.02438119798898697
+        },
+        "blocks.21.hook_resid_post-8398": {
+            "denoising_metric": -9.360761032439768e-05,
+            "noising_metric": -0.002973939059302211
+        },
+        "blocks.21.hook_resid_post-8615": {
+            "denoising_metric": -0.004979756195098162,
+            "noising_metric": 0.025862686336040497
+        },
+        "blocks.21.hook_resid_post-8732": {
+            "denoising_metric": 0.0015259727369993925,
+            "noising_metric": -0.0006189908599480987
+        },
+        "blocks.21.hook_resid_post-8781": {
+            "denoising_metric": 0.002653059083968401,
+            "noising_metric": 0.015370411798357964
+        },
+        "blocks.21.hook_resid_post-8853": {
+            "denoising_metric": -0.0025647219736129045,
+            "noising_metric": -0.003377252956852317
+        },
+        "blocks.21.hook_resid_post-8904": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-8931": {
+            "denoising_metric": 0.0003879234427586198,
+            "noising_metric": -0.0030047199688851833
+        },
+        "blocks.21.hook_resid_post-8956": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-9372": {
+            "denoising_metric": 0.0035085987765341997,
+            "noising_metric": -0.004068347159773111
+        },
+        "blocks.21.hook_resid_post-9398": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-9412": {
+            "denoising_metric": -0.004366668406873941,
+            "noising_metric": 0.012029843404889107
+        },
+        "blocks.21.hook_resid_post-9662": {
+            "denoising_metric": -9.107767982641235e-05,
+            "noising_metric": -4.3430558434920385e-05
+        },
+        "blocks.21.hook_resid_post-9663": {
+            "denoising_metric": -0.005282715894281864,
+            "noising_metric": 0.015673793852329254
+        },
+        "blocks.21.hook_resid_post-9797": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-10236": {
+            "denoising_metric": 0.0012649677228182554,
+            "noising_metric": -0.006715292111039162
+        },
+        "blocks.21.hook_resid_post-10330": {
+            "denoising_metric": 0.0012970136012881994,
+            "noising_metric": 0.006855914369225502
+        },
+        "blocks.21.hook_resid_post-10362": {
+            "denoising_metric": 0.00012818339746445417,
+            "noising_metric": 2.846177449100651e-05
+        },
+        "blocks.21.hook_resid_post-10440": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-10454": {
+            "denoising_metric": 0.0007962971576489508,
+            "noising_metric": 0.00017351140559185296
+        },
+        "blocks.21.hook_resid_post-10488": {
+            "denoising_metric": 0.0008070493931882083,
+            "noising_metric": 0.0028035901486873627
+        },
+        "blocks.21.hook_resid_post-10532": {
+            "denoising_metric": -0.00028503939392976463,
+            "noising_metric": -0.0034143587108701468
+        },
+        "blocks.21.hook_resid_post-10583": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-10604": {
+            "denoising_metric": -0.00020914133347105235,
+            "noising_metric": 0.00041153616621159017
+        },
+        "blocks.21.hook_resid_post-10783": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-10798": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-10915": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-10996": {
+            "denoising_metric": 0.0009381843847222626,
+            "noising_metric": 0.0015559103339910507
+        },
+        "blocks.21.hook_resid_post-11065": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-11075": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-11222": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-11248": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-11451": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-11455": {
+            "denoising_metric": 0.0004606590955518186,
+            "noising_metric": 0.022744541987776756
+        },
+        "blocks.21.hook_resid_post-11484": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-11586": {
+            "denoising_metric": 0.002219174988567829,
+            "noising_metric": -0.003969890531152487
+        },
+        "blocks.21.hook_resid_post-11904": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-11971": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-12008": {
+            "denoising_metric": -0.0016037682071328163,
+            "noising_metric": -0.00016613243496976793
+        },
+        "blocks.21.hook_resid_post-12029": {
+            "denoising_metric": -0.005569231230765581,
+            "noising_metric": 0.00600037444382906
+        },
+        "blocks.21.hook_resid_post-12314": {
+            "denoising_metric": 0.022751498967409134,
+            "noising_metric": 0.04913176968693733
+        },
+        "blocks.21.hook_resid_post-12340": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-12440": {
+            "denoising_metric": 0.0013322219019755721,
+            "noising_metric": 0.008414986543357372
+        },
+        "blocks.21.hook_resid_post-12490": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-12524": {
+            "denoising_metric": -0.0004052113217767328,
+            "noising_metric": -1.9396171410335228e-05
+        },
+        "blocks.21.hook_resid_post-12557": {
+            "denoising_metric": -4.0689796151127666e-05,
+            "noising_metric": 0.0026608596090227365
+        },
+        "blocks.21.hook_resid_post-12721": {
+            "denoising_metric": 0.0012632810976356268,
+            "noising_metric": 0.03190712258219719
+        },
+        "blocks.21.hook_resid_post-12797": {
+            "denoising_metric": -0.00015306108980439603,
+            "noising_metric": 0.0027892538346350193
+        },
+        "blocks.21.hook_resid_post-12860": {
+            "denoising_metric": -0.0007077494519762695,
+            "noising_metric": -0.00017962542187888175
+        },
+        "blocks.21.hook_resid_post-12886": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-12890": {
+            "denoising_metric": -0.0001720356085570529,
+            "noising_metric": 0.0001062572919181548
+        },
+        "blocks.21.hook_resid_post-12891": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-12987": {
+            "denoising_metric": -0.00018257701594848186,
+            "noising_metric": -0.007261547259986401
+        },
+        "blocks.21.hook_resid_post-13172": {
+            "denoising_metric": -0.0016183153493329883,
+            "noising_metric": -0.0034986899700015783
+        },
+        "blocks.21.hook_resid_post-13369": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-13459": {
+            "denoising_metric": 0.0020496693905442953,
+            "noising_metric": -0.0037932165432721376
+        },
+        "blocks.21.hook_resid_post-13463": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-13546": {
+            "denoising_metric": 0.0025362602900713682,
+            "noising_metric": 0.021503819152712822
+        },
+        "blocks.21.hook_resid_post-13586": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-13626": {
+            "denoising_metric": 0.0005325514357537031,
+            "noising_metric": -0.00012122607586206868
+        },
+        "blocks.21.hook_resid_post-13774": {
+            "denoising_metric": 0.0008479500538669527,
+            "noising_metric": 0.005947245750576258
+        },
+        "blocks.21.hook_resid_post-13775": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-13873": {
+            "denoising_metric": 5.903182682232e-05,
+            "noising_metric": 0.002743293298408389
+        },
+        "blocks.21.hook_resid_post-13902": {
+            "denoising_metric": 0.0063016475178301334,
+            "noising_metric": -0.0032572918571531773
+        },
+        "blocks.21.hook_resid_post-13944": {
+            "denoising_metric": 0.002302030334249139,
+            "noising_metric": -0.0041594249196350574
+        },
+        "blocks.21.hook_resid_post-14143": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-14219": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-14303": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-14347": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-14363": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-14369": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-14377": {
+            "denoising_metric": 0.000840781896840781,
+            "noising_metric": 0.009091111831367016
+        },
+        "blocks.21.hook_resid_post-14638": {
+            "denoising_metric": -0.0016817746218293905,
+            "noising_metric": 0.030438074842095375
+        },
+        "blocks.21.hook_resid_post-14758": {
+            "denoising_metric": 0.003030862659215927,
+            "noising_metric": -0.000609292765147984
+        },
+        "blocks.21.hook_resid_post-14766": {
+            "denoising_metric": 0.0003373247163835913,
+            "noising_metric": 0.0027441366109997034
+        },
+        "blocks.21.hook_resid_post-14857": {
+            "denoising_metric": -2.2769419956603087e-05,
+            "noising_metric": 0.0002835635968949646
+        },
+        "blocks.21.hook_resid_post-15008": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-15068": {
+            "denoising_metric": 9.276430319005158e-06,
+            "noising_metric": 4.216559318592772e-06
+        },
+        "blocks.21.hook_resid_post-15178": {
+            "denoising_metric": 0.005465293303132057,
+            "noising_metric": 0.011335375718772411
+        },
+        "blocks.21.hook_resid_post-15278": {
+            "denoising_metric": 0.006679029669612646,
+            "noising_metric": 0.003022218821570277
+        },
+        "blocks.21.hook_resid_post-15332": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-15393": {
+            "denoising_metric": -0.0014093848876655102,
+            "noising_metric": -0.0029994493816047907
+        },
+        "blocks.21.hook_resid_post-15408": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-15470": {
+            "denoising_metric": -0.0006442902376875281,
+            "noising_metric": -0.002968879183754325
+        },
+        "blocks.21.hook_resid_post-15567": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-15598": {
+            "denoising_metric": 0.0046186079271137714,
+            "noising_metric": -0.0033483696170151234
+        },
+        "blocks.21.hook_resid_post-15609": {
+            "denoising_metric": 0.0001003541037789546,
+            "noising_metric": 0.008980427868664265
+        },
+        "blocks.21.hook_resid_post-15616": {
+            "denoising_metric": 0.0007988270954228938,
+            "noising_metric": 0.0028687359299510717
+        },
+        "blocks.21.hook_resid_post-15689": {
+            "denoising_metric": -0.0,
+            "noising_metric": 0.0
+        },
+        "blocks.21.hook_resid_post-15786": {
+            "denoising_metric": 3.4154127206420526e-05,
+            "noising_metric": 0.013439860194921494
+        },
+        "blocks.21.hook_resid_post-15881": {
+            "denoising_metric": -0.00013429741375148296,
+            "noising_metric": -3.963565541198477e-05
+        },
+        "blocks.21.hook_resid_post-15954": {
+            "denoising_metric": -0.0008736710296943784,
+            "noising_metric": 0.0018369440222159028
+        },
+        "blocks.21.hook_resid_post-16165": {
+            "denoising_metric": -0.0004467444377951324,
+            "noising_metric": 3.858151467284188e-05
+        }
+    }
+}

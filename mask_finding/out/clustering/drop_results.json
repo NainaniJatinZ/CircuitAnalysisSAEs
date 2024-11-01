@@ -1,0 +1,1150 @@
+{
+  "sum_clusters": [
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 36,
+      "drop": 0.8109325170516968,
+      "drop_clean": 0.21498233079910278,
+      "drop_corr": 0.595950186252594,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 9,
+      "drop": 0.40093183517456055,
+      "drop_clean": 0.004989266395568848,
+      "drop_corr": 0.3959425687789917,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 34,
+      "drop": 0.2843049168586731,
+      "drop_clean": 0.11064106225967407,
+      "drop_corr": 0.17366385459899902,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 16,
+      "drop": 1.1169564723968506,
+      "drop_clean": 0.2442496418952942,
+      "drop_corr": 0.8727067708969116,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 8,
+      "drop": 1.633945345878601,
+      "drop_clean": 0.5376321077346802,
+      "drop_corr": 1.096313238143921,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 1,
+      "drop": 1.3348579406738281,
+      "drop_clean": 0.636772096157074,
+      "drop_corr": 0.6980857849121094,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 2,
+      "drop": 1.2056564092636108,
+      "drop_clean": 0.6818122863769531,
+      "drop_corr": 0.5238441228866577,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 7,
+      "drop": 19.460620880126953,
+      "drop_clean": 11.33384895324707,
+      "drop_corr": 8.126771926879883,
+      "num_latents": 11
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 14,
+      "drop": 0.3458535075187683,
+      "drop_clean": 0.1894800066947937,
+      "drop_corr": 0.1563735008239746,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 5,
+      "drop": 1.927467703819275,
+      "drop_clean": 1.70252525806427,
+      "drop_corr": 0.22494244575500488,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 3,
+      "drop": 0.9504649639129639,
+      "drop_clean": 0.2160038948059082,
+      "drop_corr": 0.7344610691070557,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 6,
+      "drop": 0.43549013137817383,
+      "drop_clean": 0.10908162593841553,
+      "drop_corr": 0.3264085054397583,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 4,
+      "drop": 0.7696912884712219,
+      "drop_clean": 0.07679194211959839,
+      "drop_corr": 0.6928993463516235,
+      "num_latents": 9
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 37,
+      "drop": 3.0901827812194824,
+      "drop_clean": 1.5586106777191162,
+      "drop_corr": 1.5315721035003662,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 13,
+      "drop": 1.5654765367507935,
+      "drop_clean": 0.7330726981163025,
+      "drop_corr": 0.832403838634491,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 17,
+      "drop": 0.4878464937210083,
+      "drop_clean": 0.3229074478149414,
+      "drop_corr": 0.1649390459060669,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 35,
+      "drop": 0.2291375994682312,
+      "drop_clean": 0.11774283647537231,
+      "drop_corr": 0.11139476299285889,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 11,
+      "drop": 4.377593040466309,
+      "drop_clean": 3.7362873554229736,
+      "drop_corr": 0.6413059234619141,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 25,
+      "drop": 5.151473522186279,
+      "drop_clean": 2.0022592544555664,
+      "drop_corr": 3.149214267730713,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 22,
+      "drop": 0.127882182598114,
+      "drop_clean": 0.10185056924819946,
+      "drop_corr": 0.02603161334991455,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 28,
+      "drop": 0.7848958373069763,
+      "drop_clean": 0.237534761428833,
+      "drop_corr": 0.5473610758781433,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 20,
+      "drop": 1.697582721710205,
+      "drop_clean": 0.18292000889778137,
+      "drop_corr": 1.514662742614746,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 27,
+      "drop": 1.431685447692871,
+      "drop_clean": 6.383657455444336e-05,
+      "drop_corr": 1.4316216707229614,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 21,
+      "drop": 0.0963934063911438,
+      "drop_clean": 0.0140036940574646,
+      "drop_corr": 0.0823897123336792,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 10,
+      "drop": 1.5541781187057495,
+      "drop_clean": 1.4178327322006226,
+      "drop_corr": 0.13634538650512695,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 24,
+      "drop": 0.21468347311019897,
+      "drop_clean": 0.0834776759147644,
+      "drop_corr": 0.13120579719543457,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 15,
+      "drop": 0.29902327060699463,
+      "drop_clean": 0.08269047737121582,
+      "drop_corr": 0.2163327932357788,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 26,
+      "drop": 0.20541143417358398,
+      "drop_clean": 0.07883930206298828,
+      "drop_corr": 0.1265721321105957,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 19,
+      "drop": 0.0635482668876648,
+      "drop_clean": 0.05319792032241821,
+      "drop_corr": 0.010350346565246582,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 0,
+      "drop": 2.0152130126953125,
+      "drop_clean": 0.25220757722854614,
+      "drop_corr": 1.7630054950714111,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 23,
+      "drop": 2.719085216522217,
+      "drop_clean": 0.8705612421035767,
+      "drop_corr": 1.8485238552093506,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 12,
+      "drop": 0.045978844165802,
+      "drop_clean": 0.03953057527542114,
+      "drop_corr": 0.006448268890380859,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 29,
+      "drop": 0.0702972412109375,
+      "drop_clean": 0.027907848358154297,
+      "drop_corr": 0.0423893928527832,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 31,
+      "drop": 0.036924898624420166,
+      "drop_clean": 0.0007866024971008301,
+      "drop_corr": 0.036138296127319336,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 30,
+      "drop": 0.1505456566810608,
+      "drop_clean": 0.0374569296836853,
+      "drop_corr": 0.11308872699737549,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 32,
+      "drop": 0.16906309127807617,
+      "drop_clean": 0.02381300926208496,
+      "drop_corr": 0.1452500820159912,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 33,
+      "drop": 0.27027082443237305,
+      "drop_clean": 0.14077508449554443,
+      "drop_corr": 0.1294957399368286,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 18,
+      "drop": 0.0745389461517334,
+      "drop_clean": 0.05327558517456055,
+      "drop_corr": 0.02126336097717285,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 15,
+      "drop": 0.033513426780700684,
+      "drop_clean": 0.01668226718902588,
+      "drop_corr": 0.016831159591674805,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 9,
+      "drop": 0.42908307909965515,
+      "drop_clean": 0.4014532268047333,
+      "drop_corr": 0.027629852294921875,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 6,
+      "drop": 2.0785176753997803,
+      "drop_clean": 1.5609850883483887,
+      "drop_corr": 0.5175325870513916,
+      "num_latents": 5
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 14,
+      "drop": 2.065727710723877,
+      "drop_clean": 1.5447998046875,
+      "drop_corr": 0.520927906036377,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 1,
+      "drop": 12.831544876098633,
+      "drop_clean": 8.302095413208008,
+      "drop_corr": 4.529448986053467,
+      "num_latents": 41
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 11,
+      "drop": 4.3809814453125,
+      "drop_clean": 2.1824934482574463,
+      "drop_corr": 2.1984879970550537,
+      "num_latents": 5
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 5,
+      "drop": 1.733094573020935,
+      "drop_clean": 0.25481078028678894,
+      "drop_corr": 1.4782837629318237,
+      "num_latents": 9
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 0,
+      "drop": 1.6333706378936768,
+      "drop_clean": 0.8011249303817749,
+      "drop_corr": 0.8322457671165466,
+      "num_latents": 13
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 3,
+      "drop": 0.5969234704971313,
+      "drop_clean": 0.505797266960144,
+      "drop_corr": 0.0911262035369873,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 18,
+      "drop": 12.663818359375,
+      "drop_clean": 6.966509819030762,
+      "drop_corr": 5.69730806350708,
+      "num_latents": 18
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 7,
+      "drop": 0.24292868375778198,
+      "drop_clean": 0.08341795206069946,
+      "drop_corr": 0.15951073169708252,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 4,
+      "drop": 0.7812000513076782,
+      "drop_clean": 0.03415638208389282,
+      "drop_corr": 0.7470436692237854,
+      "num_latents": 9
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 16,
+      "drop": 1.804467797279358,
+      "drop_clean": 1.6477528810501099,
+      "drop_corr": 0.15671491622924805,
+      "num_latents": 6
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 19,
+      "drop": 0.09231102466583252,
+      "drop_clean": 0.0008261203765869141,
+      "drop_corr": 0.0914849042892456,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 2,
+      "drop": 1.5659451484680176,
+      "drop_clean": 0.8685394525527954,
+      "drop_corr": 0.6974057555198669,
+      "num_latents": 6
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 17,
+      "drop": 0.33595675230026245,
+      "drop_clean": 0.05780547857284546,
+      "drop_corr": 0.278151273727417,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 8,
+      "drop": 1.3256220817565918,
+      "drop_clean": 0.21410971879959106,
+      "drop_corr": 1.111512303352356,
+      "num_latents": 5
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 10,
+      "drop": 2.649054527282715,
+      "drop_clean": 0.7102938890457153,
+      "drop_corr": 1.93876051902771,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 13,
+      "drop": 4.72493839263916,
+      "drop_clean": 2.0141494274139404,
+      "drop_corr": 2.710789203643799,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 12,
+      "drop": 0.04915809631347656,
+      "drop_clean": 0.024544596672058105,
+      "drop_corr": 0.024613499641418457,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 15,
+      "drop": 0.11021846532821655,
+      "drop_clean": 0.02195674180984497,
+      "drop_corr": 0.08826172351837158,
+      "num_latents": 7
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 1,
+      "drop": 12.933115005493164,
+      "drop_clean": 6.228038787841797,
+      "drop_corr": 6.705075740814209,
+      "num_latents": 37
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 2,
+      "drop": 1.931502103805542,
+      "drop_clean": 0.8207266330718994,
+      "drop_corr": 1.1107754707336426,
+      "num_latents": 28
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 9,
+      "drop": 0.36037153005599976,
+      "drop_clean": 0.2519448399543762,
+      "drop_corr": 0.10842669010162354,
+      "num_latents": 7
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 30,
+      "drop": 0.15298724174499512,
+      "drop_clean": 0.03956758975982666,
+      "drop_corr": 0.11341965198516846,
+      "num_latents": 6
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 13,
+      "drop": 0.8976632952690125,
+      "drop_clean": 0.6913993954658508,
+      "drop_corr": 0.20626389980316162,
+      "num_latents": 10
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 6,
+      "drop": 1.9405112266540527,
+      "drop_clean": 0.6932410597801208,
+      "drop_corr": 1.247270107269287,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 23,
+      "drop": 0.0,
+      "drop_clean": 0.0,
+      "drop_corr": 0.0,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 12,
+      "drop": 0.06579583883285522,
+      "drop_clean": 0.03500407934188843,
+      "drop_corr": 0.030791759490966797,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 4,
+      "drop": 1.8702013492584229,
+      "drop_clean": 0.44657468795776367,
+      "drop_corr": 1.4236266613006592,
+      "num_latents": 6
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 21,
+      "drop": 1.1049833297729492,
+      "drop_clean": 0.4117395877838135,
+      "drop_corr": 0.6932437419891357,
+      "num_latents": 11
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 29,
+      "drop": 0.0,
+      "drop_clean": 0.0,
+      "drop_corr": 0.0,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 10,
+      "drop": 0.21803295612335205,
+      "drop_clean": 0.13069987297058105,
+      "drop_corr": 0.087333083152771,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 8,
+      "drop": 1.7990816831588745,
+      "drop_clean": 0.5574196577072144,
+      "drop_corr": 1.2416620254516602,
+      "num_latents": 5
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 17,
+      "drop": 0.5941583514213562,
+      "drop_clean": 0.336548388004303,
+      "drop_corr": 0.2576099634170532,
+      "num_latents": 6
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 14,
+      "drop": 0.036258578300476074,
+      "drop_clean": 0.0054847002029418945,
+      "drop_corr": 0.03077387809753418,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 16,
+      "drop": 0.4989142119884491,
+      "drop_clean": 0.3270113170146942,
+      "drop_corr": 0.17190289497375488,
+      "num_latents": 7
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 26,
+      "drop": 5.105458736419678,
+      "drop_clean": 2.2444686889648438,
+      "drop_corr": 2.860990047454834,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 7,
+      "drop": 0.3801650404930115,
+      "drop_clean": 0.01598268747329712,
+      "drop_corr": 0.36418235301971436,
+      "num_latents": 7
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 0,
+      "drop": 1.965196132659912,
+      "drop_clean": 0.9515116214752197,
+      "drop_corr": 1.0136845111846924,
+      "num_latents": 6
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 5,
+      "drop": 0.15715521574020386,
+      "drop_clean": 0.07805806398391724,
+      "drop_corr": 0.07909715175628662,
+      "num_latents": 5
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 32,
+      "drop": 0.4709521532058716,
+      "drop_clean": 0.06287312507629395,
+      "drop_corr": 0.40807902812957764,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 24,
+      "drop": 0.0,
+      "drop_clean": 0.0,
+      "drop_corr": 0.0,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 3,
+      "drop": 0.055366337299346924,
+      "drop_clean": 0.00722271203994751,
+      "drop_corr": 0.048143625259399414,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 11,
+      "drop": 1.1334559917449951,
+      "drop_clean": 0.4727577567100525,
+      "drop_corr": 0.6606981754302979,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 34,
+      "drop": 1.0033342838287354,
+      "drop_clean": 0.33610254526138306,
+      "drop_corr": 0.6672317385673523,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 33,
+      "drop": 0.0,
+      "drop_clean": 0.0,
+      "drop_corr": 0.0,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 20,
+      "drop": 1.3399736881256104,
+      "drop_clean": 0.8027582764625549,
+      "drop_corr": 0.5372154712677002,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 25,
+      "drop": 0.1272173523902893,
+      "drop_clean": 0.059750497341156006,
+      "drop_corr": 0.0674668550491333,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 31,
+      "drop": 0.019096553325653076,
+      "drop_clean": 0.005870997905731201,
+      "drop_corr": 0.013225555419921875,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 19,
+      "drop": 0.0,
+      "drop_clean": 0.0,
+      "drop_corr": 0.0,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 27,
+      "drop": 0.01978856325149536,
+      "drop_clean": 0.007447779178619385,
+      "drop_corr": 0.012340784072875977,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 28,
+      "drop": 0.9882047176361084,
+      "drop_clean": 0.3555661141872406,
+      "drop_corr": 0.6326385736465454,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 22,
+      "drop": 0.0438690185546875,
+      "drop_clean": 0.006662130355834961,
+      "drop_corr": 0.03720688819885254,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 18,
+      "drop": 0.01610654592514038,
+      "drop_clean": 0.004863321781158447,
+      "drop_corr": 0.011243224143981934,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 13,
+      "drop": 8.876113891601562,
+      "drop_clean": 4.098507881164551,
+      "drop_corr": 4.777606010437012,
+      "num_latents": 5
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 19,
+      "drop": 1.1324882507324219e-06,
+      "drop_clean": 4.172325134277344e-07,
+      "drop_corr": 7.152557373046875e-07,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 30,
+      "drop": 0.017464101314544678,
+      "drop_clean": 0.010314524173736572,
+      "drop_corr": 0.0071495771408081055,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 1,
+      "drop": 1.917366862297058,
+      "drop_clean": 0.8936761617660522,
+      "drop_corr": 1.0236907005310059,
+      "num_latents": 8
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 14,
+      "drop": 1.8264079093933105,
+      "drop_clean": 0.5940307974815369,
+      "drop_corr": 1.232377052307129,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 25,
+      "drop": 0.14912843704223633,
+      "drop_clean": 0.04900002479553223,
+      "drop_corr": 0.1001284122467041,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 16,
+      "drop": 5.210612773895264,
+      "drop_clean": 2.943960189819336,
+      "drop_corr": 2.2666525840759277,
+      "num_latents": 19
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 26,
+      "drop": 1.7523765563964844e-05,
+      "drop_clean": 1.6689300537109375e-06,
+      "drop_corr": 1.5854835510253906e-05,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 9,
+      "drop": 0.0006296634674072266,
+      "drop_clean": 0.0005741119384765625,
+      "drop_corr": 5.555152893066406e-05,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 2,
+      "drop": 0.18032658100128174,
+      "drop_clean": 0.006865859031677246,
+      "drop_corr": 0.1734607219696045,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 5,
+      "drop": 3.2782554626464844e-05,
+      "drop_clean": 1.3709068298339844e-05,
+      "drop_corr": 1.9073486328125e-05,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 12,
+      "drop": 0.0005989670753479004,
+      "drop_clean": 0.00017601251602172852,
+      "drop_corr": 0.0004229545593261719,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 4,
+      "drop": 3.8179941177368164,
+      "drop_clean": 1.6847001314163208,
+      "drop_corr": 2.133293867111206,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 33,
+      "drop": 0.024278879165649414,
+      "drop_clean": 0.00950610637664795,
+      "drop_corr": 0.014772772789001465,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 21,
+      "drop": 0.8567897081375122,
+      "drop_clean": 0.37239110469818115,
+      "drop_corr": 0.48439860343933105,
+      "num_latents": 7
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 6,
+      "drop": 0.07922500371932983,
+      "drop_clean": 0.03886491060256958,
+      "drop_corr": 0.040360093116760254,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 28,
+      "drop": 0.042872846126556396,
+      "drop_clean": 0.02062171697616577,
+      "drop_corr": 0.022251129150390625,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 8,
+      "drop": 0.37550708651542664,
+      "drop_clean": 0.1986280381679535,
+      "drop_corr": 0.17687904834747314,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 0,
+      "drop": 0.0439111590385437,
+      "drop_clean": 0.039406001567840576,
+      "drop_corr": 0.004505157470703125,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 3,
+      "drop": 0.37473249435424805,
+      "drop_clean": 0.16076672077178955,
+      "drop_corr": 0.2139657735824585,
+      "num_latents": 3
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 11,
+      "drop": 5.039525985717773,
+      "drop_clean": 2.117130994796753,
+      "drop_corr": 2.9223947525024414,
+      "num_latents": 5
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 10,
+      "drop": 0.001382291316986084,
+      "drop_clean": 0.0012232661247253418,
+      "drop_corr": 0.0001590251922607422,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 24,
+      "drop": 0.12262076139450073,
+      "drop_clean": 0.12194615602493286,
+      "drop_corr": 0.0006746053695678711,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 22,
+      "drop": 0.002531766891479492,
+      "drop_clean": 0.000949859619140625,
+      "drop_corr": 0.0015819072723388672,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 18,
+      "drop": 0.0,
+      "drop_clean": 0.0,
+      "drop_corr": 0.0,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 23,
+      "drop": 0.0003463625907897949,
+      "drop_clean": 0.0001417994499206543,
+      "drop_corr": 0.00020456314086914062,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 34,
+      "drop": 5.543231964111328e-06,
+      "drop_clean": 3.993511199951172e-06,
+      "drop_corr": 1.5497207641601562e-06,
+      "num_latents": 2
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 7,
+      "drop": 4.495875358581543,
+      "drop_clean": 2.145005702972412,
+      "drop_corr": 2.3508694171905518,
+      "num_latents": 4
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 31,
+      "drop": 1.2040138244628906e-05,
+      "drop_clean": 3.814697265625e-06,
+      "drop_corr": 8.225440979003906e-06,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 20,
+      "drop": 9.5367431640625e-06,
+      "drop_clean": 4.5299530029296875e-06,
+      "drop_corr": 5.0067901611328125e-06,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 32,
+      "drop": 0.0014529228210449219,
+      "drop_clean": 0.0006211996078491211,
+      "drop_corr": 0.0008317232131958008,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 17,
+      "drop": 0.0,
+      "drop_clean": 0.0,
+      "drop_corr": 0.0,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 15,
+      "drop": 0.0,
+      "drop_clean": 0.0,
+      "drop_corr": 0.0,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 27,
+      "drop": 0.0,
+      "drop_clean": 0.0,
+      "drop_corr": 0.0,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 29,
+      "drop": 0.03618299961090088,
+      "drop_clean": 0.016699790954589844,
+      "drop_corr": 0.019483208656311035,
+      "num_latents": 1
+    }
+  ],
+  "diff_clusters": [
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 0,
+      "drop": 26.268329620361328,
+      "drop_clean": 13.9971342086792,
+      "drop_corr": 12.271194458007812,
+      "num_latents": 53
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 2,
+      "drop": 26.78263282775879,
+      "drop_clean": 14.721202850341797,
+      "drop_corr": 12.061429977416992,
+      "num_latents": 16
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 1,
+      "drop": 30.14357566833496,
+      "drop_clean": 16.280567169189453,
+      "drop_corr": 13.863008499145508,
+      "num_latents": 12
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 3,
+      "drop": 1.9450693130493164,
+      "drop_clean": 1.0728979110717773,
+      "drop_corr": 0.8721714615821838,
+      "num_latents": 6
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 6,
+      "drop": 0.27027082443237305,
+      "drop_clean": 0.14077508449554443,
+      "drop_corr": 0.1294957399368286,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 5,
+      "drop": 0.0416145920753479,
+      "drop_clean": 0.013403475284576416,
+      "drop_corr": 0.028211116790771484,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.7.hook_resid_post",
+      "cluster_id": 4,
+      "drop": 0.0745389461517334,
+      "drop_clean": 0.05327558517456055,
+      "drop_corr": 0.02126336097717285,
+      "num_latents": 1
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 0,
+      "drop": 19.712608337402344,
+      "drop_clean": 11.19852352142334,
+      "drop_corr": 8.51408576965332,
+      "num_latents": 77
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 2,
+      "drop": 6.939579486846924,
+      "drop_clean": 4.8140153884887695,
+      "drop_corr": 2.1255640983581543,
+      "num_latents": 29
+    },
+    {
+      "layer": "blocks.14.hook_resid_post",
+      "cluster_id": 1,
+      "drop": 30.363574981689453,
+      "drop_clean": 16.134687423706055,
+      "drop_corr": 14.228887557983398,
+      "num_latents": 33
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 0,
+      "drop": 10.102176666259766,
+      "drop_clean": 7.534594535827637,
+      "drop_corr": 2.567582130432129,
+      "num_latents": 134
+    },
+    {
+      "layer": "blocks.21.hook_resid_post",
+      "cluster_id": 1,
+      "drop": 25.76632308959961,
+      "drop_clean": 13.448986053466797,
+      "drop_corr": 12.317337036132812,
+      "num_latents": 58
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 2,
+      "drop": 38.14710235595703,
+      "drop_clean": 19.13919448852539,
+      "drop_corr": 19.00790786743164,
+      "num_latents": 50
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 0,
+      "drop": 0.870246171951294,
+      "drop_clean": 0.2894270122051239,
+      "drop_corr": 0.5808191299438477,
+      "num_latents": 32
+    },
+    {
+      "layer": "blocks.40.hook_resid_post",
+      "cluster_id": 1,
+      "drop": 5.008042335510254,
+      "drop_clean": 1.9322917461395264,
+      "drop_corr": 3.0757508277893066,
+      "num_latents": 13
+    }
+  ]
+}
