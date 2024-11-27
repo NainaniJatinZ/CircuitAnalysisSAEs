@@ -725,7 +725,7 @@ for key in mask.keys():
 
 model.reset_hooks()
 logits, _ = run_with_saes_zero_ablation_cache_tokens_separate(corr_tokens, filtered_ids, model, saes, mask, empty_mask, token_pos)
-log_probs = torch.nn.functional.softmax(logits, dim=-1)
+log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
 log_probs = log_probs[:, -1, traceback_token]
 circuit_full = log_probs.mean().detach().cpu().item()
 print("Duplicate cluster ablated, all latents: ",circuit_full)
@@ -736,7 +736,7 @@ for key in mask.keys():
 fully_filtered_mask['blocks.7.hook_resid_post'] = list(set(range(saes[0].cfg.d_sae)) - set(duplicate_latents))
 model.reset_hooks()
 logits, _ = run_with_saes_zero_ablation_cache_tokens_separate(corr_tokens, filtered_ids, model, saes, mask, fully_filtered_mask, token_pos)
-log_probs = torch.nn.functional.softmax(logits, dim=-1)
+log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
 log_probs = log_probs[:, -1, traceback_token]
 circuit_ablated = log_probs.mean().detach().cpu().item()
 print("Duplicate cluster ablated, all latents: ", circuit_ablated)
@@ -756,7 +756,7 @@ duplicate_latents = cluster_results['blocks.7.hook_resid_post']['sum_clusters'][
 
 model.reset_hooks()
 logits, _ = run_with_saes_zero_ablation_cache_tokens(corr_tokens, filtered_ids, model, saes, {}, [])
-log_probs = torch.nn.functional.softmax(logits, dim=-1)
+log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
 log_probs = log_probs[:, -1, traceback_token]
 model_full = log_probs.mean().detach().cpu().item()
 print("Duplicate cluster ablated, all latents: ",model_full)
@@ -764,7 +764,7 @@ print("Duplicate cluster ablated, all latents: ",model_full)
 fully_filtered_mask = {'blocks.7.hook_resid_post': list(set(range(saes[0].cfg.d_sae)) - set(duplicate_latents))}
 model.reset_hooks()
 logits, _ = run_with_saes_zero_ablation_cache_tokens(corr_tokens, filtered_ids, model, saes, fully_filtered_mask, [-3, -2, -1])
-log_probs = torch.nn.functional.softmax(logits, dim=-1)
+log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
 log_probs = log_probs[:, -1, traceback_token]
 model_dup_ablated = log_probs.mean().detach().cpu().item()
 print("Duplicate cluster ablated, all latents: ",model_dup_ablated)
@@ -780,10 +780,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Define labels for each set of bars
-conditions_group1 = ['Circuit Full', 'Circuit Ablated']
+conditions_group1 = ['Circuit', 'Circuit - Dup Latents Ablated']
 values_group1 = [circuit_full, circuit_ablated]
 
-conditions_group2 = ['Model Full', 'Model Duplicate Latents Ablated']
+conditions_group2 = ['Model', 'Model Dup Latents Ablated']
 values_group2 = [model_full, model_dup_ablated]
 
 # Set up subplots
@@ -791,15 +791,15 @@ fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
 
 # Bar plot for Group 1
 ax1.bar(conditions_group1, values_group1, color=['#4C72B0', '#55A868'])
-ax1.set_title("Effect of ablating the Duplicate token latents at the Key token on the \nprobability of Traceback for error free code (Zero ablated Circuit)", fontsize=16, weight='bold')
-ax1.set_ylabel("Probability of Traceback", fontsize=14)
+ax1.set_title("Effect of ablating the Duplicate token latents at the Key token on the \nlog probability of Traceback for error free code (Zero ablated Circuit)", fontsize=16, weight='bold')
+ax1.set_ylabel("Log Probability of Traceback", fontsize=14)
 for i, v in enumerate(values_group1):
     ax1.text(i, v, f"{v:.4f}", ha='center', va='bottom', fontsize=12)
 
 # Bar plot for Group 2
 ax2.bar(conditions_group2, values_group2, color=['#C44E52', '#8172B2'])
-ax2.set_title("Effect of ablating the Duplicate token latents at the Key token on the \nprobability of Traceback for error free code (Model + SAEs)", fontsize=16, weight='bold')
-ax2.set_ylabel("Probability of Traceback", fontsize=14)
+ax2.set_title("Effect of ablating the Duplicate token latents at the Key token on the \nlog probability of Traceback for error free code (Model + SAEs)", fontsize=16, weight='bold')
+ax2.set_ylabel("Log Probability of Traceback", fontsize=14)
 for i, v in enumerate(values_group2):
     ax2.text(i, v , f"{v:.4f}", ha='center', va='bottom', fontsize=12)
 
@@ -833,6 +833,7 @@ _steering_hook = partial(
         steering_coefficient=80,
     )
 # model.add_sae(sae)
+model.reset_hooks()
 model.add_hook(saes[0].cfg.hook_name, _steering_hook, "fwd")
 # model.add_hook(saes[0].cfg.hook_name, _steering_hook2, "fwd")
 with torch.no_grad():
@@ -851,7 +852,7 @@ from functools import partial
 
 # Range of steering coefficients to sweep over
 coeff_values = range(-10, 111, 20)
-top_k = 5  # Number of top tokens to track
+top_k = 7  # Number of top tokens to track
 
 # Data structure to store top token probabilities for each coefficient
 log_probs_data = {}
@@ -877,7 +878,8 @@ for coeff in coeff_values:
     model.reset_hooks()
     
     # Calculate log probabilities and mean over batch dimension
-    log_probs = torch.nn.functional.softmax(logits, dim=-1).mean(dim=0)
+    # log_probs = torch.nn.functional.softmax(logits, dim=-1).mean(dim=0)
+    log_probs = logits.mean(dim=0)
     log_probs_last = log_probs[-1, :]  # Log probs of the last token position
 
     # Get the top 5 tokens and their log probabilities
@@ -923,10 +925,10 @@ for token_id, data in token_lines.items():
     plt.plot(data["coeffs"], data["probs"], marker='o', label=data["label"])
 
 # Plot settings
-plt.title("Effect of steering the duplicate token latent on \nprobabilities of Top Tokens for Key error code", fontsize=16, weight='bold')
+plt.title("Effect of steering the duplicate token latent on \nlogits of Top Tokens for Key error code", fontsize=16, weight='bold')
 plt.xlabel("Steering Coefficient", fontsize=14)
-plt.ylabel("Probability", fontsize=14)
-plt.legend(title="Token", fontsize=12, loc="upper right")
+plt.ylabel("Logits", fontsize=14)
+plt.legend(title="Token", fontsize=11, loc="upper left")
 plt.grid(True)
 plt.show()
 
@@ -959,8 +961,8 @@ model.reset_hooks()
 logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, filtered_mask)
 
 log_probs = torch.nn.functional.softmax(logits, dim=-1)
-log_probs_answer = log_probs[:, -1, answer_token]
-log_probs_traceback = log_probs[:, -1, traceback_token]
+log_probs_answer = logits[:, -1, answer_token]
+log_probs_traceback = logits[:, -1, traceback_token]
 circuit_dup_ablated_answer = log_probs_answer.mean().detach().cpu().item()
 circuit_dup_ablated_traceback = log_probs_traceback.mean().detach().cpu().item()
 print("Duplicate cluster ablated: ", circuit_dup_ablated_answer)
@@ -969,8 +971,8 @@ print("Duplicate cluster ablated, all latents: ", circuit_dup_ablated_traceback)
 model.reset_hooks()
 logits = run_with_saes_zero_ablation(corr_tokens, filtered_ids, model, saes, mask)
 log_probs = torch.nn.functional.softmax(logits, dim=-1)
-log_probs_answer = log_probs[:, -1, answer_token]
-log_probs_traceback = log_probs[:, -1, traceback_token]
+log_probs_answer = logits[:, -1, answer_token]
+log_probs_traceback = logits[:, -1, traceback_token]
 full_circuit_perf = log_probs_answer.mean().detach().cpu().item()
 full_circuit_traceback = log_probs_traceback.mean().detach().cpu().item()
 print("Full circuit perf: ", full_circuit_perf)
@@ -1150,6 +1152,59 @@ print(tabulate(
     tablefmt="pretty"
 ))
 
+# %% Steering >>> tokens on other code outputs tasks 
+
+prompt = """colors = ['red', 'blue', 'green', 'yellow', 'purple']
+print(colors[2])
+"""
+
+def steering_hook(
+    activations,
+    hook,
+    sae: SAE,
+    latent_idx: int,
+    steering_coefficient: float,
+):
+    """
+    Steers the model by returning a modified activations tensor, with some multiple of the steering vector added to all
+    sequence positions.
+    """
+    return activations + steering_coefficient * sae.W_dec[latent_idx]
+
+# L7.9681, L14.14967,
+_steering_hook = partial(
+        steering_hook,
+        sae=saes[0],
+        latent_idx=4267,
+        steering_coefficient=30,
+    )
+# L7.9681, L14.14967,
+_steering_hook2 = partial(
+        steering_hook,
+        sae=saes[0],
+        latent_idx=11707,
+        steering_coefficient=20,
+    )
+# model.add_sae(sae)
+model.reset_hooks()
+model.add_hook(saes[0].cfg.hook_name, _steering_hook, "fwd")
+model.add_hook(saes[0].cfg.hook_name, _steering_hook2, "fwd")
+with torch.no_grad():
+    logits = model(prompt)
+model.reset_hooks()
+# print the top 5 tokens 
+log_probs = torch.nn.functional.softmax(logits, dim=-1)
+# log pribs is batch, seq len, vocab size, print top 5 tokens
+top_5_tokens = torch.topk(log_probs[0, -1], 5).indices
+print(model.tokenizer.decode(top_5_tokens))
+
+# log_probs = torch.nn.functional.softmax(logits, dim=-1)
+# # log_probs_answer = log_probs[:, -1, answer_token]
+# # log_probs_traceback = log_probs[:, -1, traceback_token]
+# print("Log probability of 1: ", log_probs_answer.mean().item())
+
+
+
 # %% H3: model has internal representation of dictionary 
 
 import random
@@ -1239,7 +1294,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, Dataset
-
+import matplotlib.pyplot as plt
 
 # Custom Dataset class to handle text and label data
 class TextDataset(Dataset):
@@ -1285,12 +1340,13 @@ data_loader = DataLoader(text_dataset, batch_size=batch_size, shuffle=True)
 
 # %%
 model.reset_hooks()
-input_dim = len(relevant_latents)  # Number of relevant latents
+input_dim = len([1976, 6984, 7008, 7323, 10647])  # Number of relevant latents
 probe = LinearProbe(input_dim).to(device)  # Move model to GPU
 
-# Define loss and optimizer
+# Define loss and optimizer with weight decay for regularization
 criterion = nn.BCELoss().to(device)
-optimizer = optim.Adam(probe.parameters(), lr=0.01)
+weight_decay = 1e-4  # Set a small weight decay value for regularization
+optimizer = optim.Adam(probe.parameters(), lr=0.01, weight_decay=weight_decay)
 
 # Lists to store loss and accuracy for each epoch
 loss_history = []
@@ -1370,14 +1426,17 @@ plt.show()
 model_save_path = "mask_finding/out/hypotheses/dictionary_linear_probe_model.pth"
 
 # Save the model's state_dict (recommended for PyTorch models)
-torch.save(model.state_dict(), model_save_path)
+torch.save(probe.state_dict(), model_save_path)  # Changed model to probe for the probe model
 print(f"Model saved to {model_save_path}")
 
 
-# %% Hypothesis 2: Triple arrow detectors decide that the task is code output prediction
 
+# %% Hypothesis 2: Triple arrow detectors decide that the task is code output prediction
+probe.linear.weight
 
 
 
 
  
+
+# %%
