@@ -1,0 +1,43 @@
+import torch
+import torch.nn as nn
+
+for sae in saes:
+    # Initialize the SparseMask
+    sae.mask = SparseMask(sae.cfg.d_sae, l1=1.0, seq_len=67)
+    
+    # Set a random binary mask
+    with torch.no_grad():  # Disable gradient tracking for initialization
+        sae.mask.mask.data = torch.randint(0, 2, sae.mask.mask.shape).float().to(device)
+
+import torch
+
+# Number of elements to remove from the last dimension
+num_remove = 5
+
+# Remove random subsets of the mask along the [-1] dimension
+def get_indices_to_remove(mask, num_remove):
+    """
+    Get indices to remove from the last dimension based on active elements in the original mask.
+    """
+    active_indices = (mask > 0).nonzero(as_tuple=True)[-1]  # Get indices of active elements in the last dimension
+    if len(active_indices) < num_remove:
+        raise ValueError("Not enough active elements to remove.")
+    indices_to_remove = active_indices[torch.randperm(len(active_indices))[:num_remove]].to(mask.device)  # Move to the same device
+    return indices_to_remove
+
+def apply_subset_removal(mask, indices_to_remove):
+    """
+    Zero out the specified indices in the last dimension of the mask.
+    """
+    indices_to_remove = indices_to_remove.to(mask.device)  # Ensure indices are on the same device
+    modified_mask = mask.clone()
+    modified_mask.index_fill_(-1, indices_to_remove, 0)  # Set selected elements to 0
+    return modified_mask
+# Circuit (random temporary mask)
+for sae in saes:
+    sae.original_mask = SparseMask(sae.cfg.d_sae, l1=1.0, seq_len=67)
+    with torch.no_grad():
+        sae.original_mask.mask.data = torch.randint(0, 2, sae.original_mask.mask.shape).float().to(device)
+
+# Generate means for the corrupted distribution
+get_sae_means(saes, corr_tok_dataset, 5, batch_size=16)
